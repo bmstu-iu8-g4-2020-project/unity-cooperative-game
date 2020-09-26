@@ -6,125 +6,129 @@ using UnityEngine;
 
 public class PlayerMovement : NetworkBehaviour
 {
-    [SerializeField] private float speed = 10f;
+    [SerializeField] private float moveSpeed = 10f;
     private CharacterController _controller;
 
     private Camera _playerCamera;
 
     private Vector3 _velocity;
-    private Vector3 _newPosition;
+    private Vector3 _lastPosition = Vector3.zero; // mb delete caching?
+    private Vector3 _newPosition = Vector3.zero;
+    private Quaternion _lastRotation;
+    private Quaternion _newRotation;
 
-    [SerializeField] private float rotationSpeed = 100f;
-    private Quaternion _lookRotation;
-    private Vector3 _direction;
+    private Vector3 _forward;
+    private Vector3 _right;
 
+    private const float SendRate = 1 / 30f;
 
     private void Awake()
     {
         _controller = GetComponent<CharacterController>();
     }
 
+    private void Start()
+    {
+        if (!isLocalPlayer) return;
+        InvokeRepeating(nameof(NetworkUpdate), SendRate, SendRate);
+    }
+
+    public override void OnStartLocalPlayer()
+    {
+        base.OnStartLocalPlayer();
+        gameObject.name = "LocalPlayer";
+        if (!(Camera.main is null)) Camera.main.transform.parent.GetComponent<CameraFollow>().target = transform;
+    }
+
     public override void OnStartClient()
     {
         base.OnStartClient();
 
-        _playerCamera = transform.GetChild(0).gameObject.GetComponent<Camera>();
-        _playerCamera.gameObject.SetActive(isLocalPlayer);
+        if (!isLocalPlayer) return;
 
-        if (!isLocalPlayer)
+        _playerCamera = Camera.main;
+        if (!(_playerCamera is null))
         {
-            //disable this component. It doesn't move the other player
-            enabled = false;
-            var mainCamera = Camera.main;
-            if (!(mainCamera is null))
-            {
-                mainCamera.GetComponent<AudioListener>().enabled = false;
-                mainCamera.GetComponent<Camera>().enabled = false;
-                mainCamera.gameObject.SetActive(false);
-            }
+            _forward = _playerCamera.transform.forward;
+            _forward.y = 0;
+            _forward = Vector3.Normalize(_forward);
+            _right = Quaternion.Euler(new Vector3(0, 90, 0)) * _forward;
+
+            _playerCamera.gameObject.SetActive(isLocalPlayer);
         }
     }
-
-    [ClientRpc]
-    private void RpcSetPosition(Vector3 newPosition)
-    {
-        if (isLocalPlayer) return;
-        transform.position = newPosition;
-    }
-
-    [Command]
-    private void CmdUpdatePosition(Vector3 newPosition)
-    {
-        transform.position = newPosition;
-        RpcSetPosition(newPosition);
-    }
-
-    [ClientRpc]
-    private void RpcSetRotation(Quaternion newRotation)
-    {
-        if (isLocalPlayer) return;
-        transform.rotation = newRotation;
-    }
-
-    [Command]
-    private void CmdUpdateRotation(Quaternion newRotation)
-    {
-        transform.rotation = newRotation;
-        RpcSetRotation(newRotation);
-    }
-
-    [ClientCallback]
-    private void LookAtMouse()
-    {
-        if (!isLocalPlayer) return;
-        
-        Vector2 positionOnScreen = _playerCamera.WorldToViewportPoint(transform.position);
-        Debug.Log($"Player positionOnScreen: {positionOnScreen}");
-        Vector2 mouseOnScreen = (Vector2) _playerCamera.ScreenToViewportPoint(Input.mousePosition);
-        Debug.Log($"mouseOnScreen: {mouseOnScreen}");
-        float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen);
-        transform.rotation = Quaternion.Euler(new Vector3(0f, -angle, 0f));
-    }
-
-    float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
-    {
-        return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
-    }
-
 
     void Update()
     {
-        if (!isLocalPlayer) return;
-
-        _newPosition = gameObject.transform.position;
-        _velocity.x = Input.GetAxisRaw("Horizontal");
-        _velocity.z = Input.GetAxisRaw("Vertical");
-        _velocity = _velocity.normalized * (speed * Time.deltaTime);
-
-        _controller.Move(_velocity);
-
-        _newPosition = _controller.transform.position;
-
-        if (isServer)
+        if (isLocalPlayer)
         {
-            RpcSetPosition(_newPosition);
+            if (Input.anyKey) Move();
+            if (Input.GetKey(KeyCode.Mouse1)) FaceToMouse();
         }
         else if (isClient)
         {
-            CmdUpdatePosition(_newPosition);
+            Transform transform1 = transform;
+            transform1.position = Vector3.Lerp(transform1.position, _newPosition, 0.5f);
+            transform1.rotation = _newRotation;
         }
+    }
 
-        if (Input.GetKey(KeyCode.Mouse1))
+    private void NetworkUpdate()
+    {
+        var transform1 = transform;
+        if (isServer)
         {
-            LookAtMouse();
-            if (isServer)
-            {
-                RpcSetRotation(_lookRotation);
-            }
-            else if (isClient)
-            {
-                CmdUpdateRotation(_lookRotation);
-            }
+            // todo better interpolation
+            RpcSetTransform(transform1.position + _velocity * 0.1f, transform1.rotation);
         }
+        else if (isClient)
+        {
+            CmdUpdateTransform(transform1.position + _velocity * 0.1f, transform1.rotation);
+        }
+    }
+
+    [ClientCallback]
+    private void Move()
+    {
+        _velocity = _forward * Input.GetAxisRaw("Vertical") + _right * Input.GetAxisRaw("Horizontal");
+        _velocity = _velocity.normalized * (moveSpeed * Time.deltaTime);
+
+        if (_velocity.magnitude == 0) return;
+        transform.forward = _velocity.normalized;
+
+        _controller.Move(_velocity);
+        _lastPosition = transform.position;
+    }
+
+    [ClientCallback]
+    private void FaceToMouse()
+    {
+        // TODO? fix allocation in update?
+        Vector2 screenPos = _playerCamera.WorldToScreenPoint(_lastPosition);
+        Vector2 mousePos = Input.mousePosition;
+        Vector3 direction = new Vector3(mousePos.x - screenPos.x, 0,
+            mousePos.y - screenPos.y);
+        direction = _playerCamera.transform.TransformDirection(direction);
+        direction.y = 0;
+        transform.forward =direction.normalized;
+        _lastRotation = transform.rotation;
+    }
+
+    // mb pass in function something lighter than quaternion
+    [ClientRpc]
+    private void RpcSetTransform(Vector3 newPosition, Quaternion newRotation)
+    {
+        if (isLocalPlayer) return;
+        _newPosition = newPosition;
+        _newRotation = newRotation;
+    }
+
+    [Command]
+    private void CmdUpdateTransform(Vector3 newPosition, Quaternion newRotation)
+    {
+        // its not needed for the host
+        // transform.position = newPosition;
+        // transform.rotation = newRotation;
+        RpcSetTransform(newPosition, newRotation);
     }
 }
