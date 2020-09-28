@@ -55,10 +55,11 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f2820c1ee2bf1e343aa3815d7b5015fd, type: 2}
+  - {fileID: 2100000, guid: b219b35a52d6c594f9f19406b157b1a1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,6 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1578554007904578111
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,10 +136,11 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f2820c1ee2bf1e343aa3815d7b5015fd, type: 2}
+  - {fileID: 2100000, guid: e48fe2168979d9447bc5a7be3cacaa35, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -158,6 +161,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &2629486354067676756
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,10 +218,11 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0e28eb9bd0d86bb4195c6343e9503145, type: 2}
+  - {fileID: 2100000, guid: ec739259ec61f5d4ba3ed6d34fd802a6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -238,6 +243,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &7111912420475994092
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -313,10 +319,11 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: cd71291c91c8cce499cb663b5db9970e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -337,6 +344,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!143 &7957718572432268645
 CharacterController:
   m_ObjectHideFlags: 0
@@ -405,7 +413,7 @@ MonoBehaviour:
     m_Bits: 512
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1024
   visibleTargets: []
   meshResolution: 1
   edgeResolveIterations: 6

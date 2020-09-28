@@ -27,7 +27,7 @@ public class FieldOfView : MonoBehaviour
         _viewMesh.name = "View Mash";
         viewMeshFilter.mesh = _viewMesh;
 
-        StartCoroutine(nameof(FindTargetWithDelay), 0.2f);
+        StartCoroutine(FindTargetWithDelay(0.2f));
     }
 
     IEnumerator FindTargetWithDelay(float delay)
@@ -149,7 +149,7 @@ public class FieldOfView : MonoBehaviour
         Vector3 minPoint = Vector3.zero;
         Vector3 maxPoint = Vector3.zero;
 
-        
+
         bool edgeDistanceThresholdExceeded =
             Mathf.Abs(minViewCast.Dist - maxViewCast.Dist) > edgeDistanceThreshold;
         for (int i = 0; i < edgeResolveIterations; i++)
