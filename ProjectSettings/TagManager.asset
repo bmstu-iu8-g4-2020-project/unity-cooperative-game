@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - FoV
+  - ClimbTrigger
+  - WalkToTrigger
   layers:
   - Default
   - TransparentFX
@@ -15,10 +18,10 @@ TagManager:
   - 
   - Obstracles
   - Entities
-  - 
-  - 
-  - 
-  - 
+  - FieldOfView
+  - Ground
+  - BlaskScreen
+  - ForMaskObs
   - 
   - 
   - 
