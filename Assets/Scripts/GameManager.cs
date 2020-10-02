@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Camera sceneCamera;
+
+    public static GameManager Instance { get; private set; }
+
+    private void Awake()
     {
+        if (Instance)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
+    public Camera GetSceneCamera() => sceneCamera;
 }
