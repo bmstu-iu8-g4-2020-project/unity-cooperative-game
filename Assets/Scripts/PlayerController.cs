@@ -31,7 +31,7 @@ public class PlayerController : NetworkBehaviour
 
     private bool _canClimb = false;
     private Transform _climbingTarget;
-    [SerializeField] private float climbingSpeed = 1f;
+    [SerializeField] private float climbingDuration = 1f;
     private bool _canChangeState = true;
     private bool _canControl = true;
 
@@ -50,7 +50,6 @@ public class PlayerController : NetworkBehaviour
 
     private void Start()
     {
-
         if (isLocalPlayer || isServer)
         {
             InvokeRepeating(nameof(NetworkUpdate), SendDelay, SendDelay);
@@ -71,7 +70,7 @@ public class PlayerController : NetworkBehaviour
         _right = Quaternion.Euler(new Vector3(0, 90, 0)) * _forward;
 
         _playerCamera.gameObject.SetActive(isLocalPlayer);
-        
+
         // включение источников света для маски
         _transform.GetChild(3).gameObject.SetActive(true);
         _transform.GetChild(4).gameObject.SetActive(true);
@@ -112,7 +111,6 @@ public class PlayerController : NetworkBehaviour
                 if (_canClimb && _canChangeState && Input.GetKeyDown(KeyCode.E))
                 {
                     StartCoroutine(ClimbCoroutine());
-                    // Climb();
                 }
             }
         }
@@ -187,10 +185,11 @@ public class PlayerController : NetworkBehaviour
             }
             else if (other.CompareTag("WalkToTrigger")) // TODO delete
             {
-                StartCoroutine(WalkTo(other.transform.GetChild(0).position));
+                StartCoroutine(WalkTo(other.transform.GetChild(0).position, true));
             }
         }
     }
+
 
     private void OnTriggerExit(Collider other)
     {
@@ -204,80 +203,86 @@ public class PlayerController : NetworkBehaviour
         }
     }
 
-    void Climb()
-    {
-        if (!_climbingTarget)
-        {
-            Debug.LogError("No target for climbing");
-        }
-
-        _canChangeState = false;
-
-        var climbingTarget = _climbingTarget;
-
-        LookAtXZ(climbingTarget.position);
-        Vector3 relativePosition = climbingTarget.InverseTransformPoint(_transform.position);
-        relativePosition.z = 0;
-
-        relativePosition.x *= -1;
-        _transform.position = climbingTarget.TransformPoint(relativePosition);
-        _canChangeState = true;
-    }
-
     IEnumerator ClimbCoroutine()
     {
-        if (!_climbingTarget)
-        {
-            Debug.LogError("No target for climbing");
-        }
-
-        _canChangeState = false;
-        _canControl = false;
-
+        if (!_climbingTarget) Debug.LogError("No target for climbing");
         var climbingTarget = _climbingTarget;
 
-        LookAtXZ(climbingTarget.position);
+        _canChangeState = false;
+        var collider = GetComponent<Collider>();
+        collider.enabled = false;
+
         Vector3 relativePosition = climbingTarget.InverseTransformPoint(_transform.position);
         relativePosition.z = 0;
-
-        // relativePosition.x *= -1;
-        // _transform.position = climbingTarget.TransformPoint(relativePosition);
+        
+        yield return WalkTo(climbingTarget.TransformPoint(relativePosition), false);
+        _canControl = false;
+        LookAtXZ(climbingTarget.position);
 
         var radius = Vector3.Distance(relativePosition, Vector3.zero);
         float angle = Mathf.Acos(relativePosition.x / radius);
         float finalAngle = Mathf.Acos(-relativePosition.x / radius);
-        while (angle - finalAngle <= float.Epsilon * 2)
+        var deltaAngle = Mathf.DeltaAngle(angle, finalAngle);
+        float speed = deltaAngle / climbingDuration;
+        float timeLeft = climbingDuration;
+        while (timeLeft >= .00001f)
         {
-            Vector3 pos = climbingTarget.TransformPoint(new Vector3(
-                Mathf.Cos(angle) * radius,
-                Mathf.Sin(angle) * radius,
-                relativePosition.z
-            ));
-
-            _transform.position = Vector3.Lerp(_transform.position, pos, 1f);
-            angle += climbingSpeed * Mathf.Deg2Rad * Time.deltaTime;
+            angle += speed * Time.deltaTime;
+            timeLeft -= Time.deltaTime;
+            float x = Mathf.Cos(angle) * radius;
+            float y = Mathf.Sin(angle) * radius;
+            _transform.position = climbingTarget.TransformPoint(new Vector3(x, y, 0));
 
             yield return null;
         }
 
+        Vector3 curPos = _transform.position;
+        curPos.y = climbingTarget.TransformPoint(relativePosition).y;
+        _transform.position = curPos;
+
+        collider.enabled = true;
         _canChangeState = true;
         _canControl = true;
     }
 
-    IEnumerator WalkTo(Vector3 target)
+    IEnumerator WalkTo(Vector3 destination, bool checkCollision)
     {
         _canControl = false;
-        while ((_transform.position - target).sqrMagnitude >= 0.01f)
+        LookAtXZ(destination);
+
+        float lastCheckTime = 0f;
+        Vector3 lastCheckPos = -_transform.position;
+        float exitTime = 3.0f;
+        float minDistance = 0.5f;
+        while ((_transform.position - destination).magnitude >= 0.1f)
         {
-            LookAtXZ(target);
-            _controller.Move(_transform.forward * (walkSpeed * Time.deltaTime));
+            if (checkCollision)
+            {
+                _controller.Move((destination - _transform.position).normalized * (walkSpeed * Time.deltaTime));
+                if (Time.time - lastCheckTime > exitTime)
+                {
+                    if ((_transform.position - lastCheckPos).magnitude < minDistance)
+                    {
+                        break;
+                    }
+
+                    lastCheckPos = _transform.position;
+                    lastCheckTime = Time.time;
+                }
+            }
+            else
+            {
+                _transform.position = Vector3.MoveTowards(_transform.position, destination, walkSpeed * Time.deltaTime);
+            }
 
             yield return null;
         }
 
-        _transform.position = target;
+        _controller.Move(destination - _transform.position);
+
         _canControl = true;
     }
+
 
     void LookAtXZ(Vector3 target)
     {
@@ -285,10 +290,5 @@ public class PlayerController : NetworkBehaviour
             _transform.position.y,
             target.z);
         _transform.LookAt(targetPosition);
-    }
-
-    bool V3Equal(Vector3 a, Vector3 b)
-    {
-        return Mathf.Approximately(a.x, b.x) && Mathf.Approximately(a.y, b.y) && Mathf.Approximately(a.z, b.z);
     }
 }
