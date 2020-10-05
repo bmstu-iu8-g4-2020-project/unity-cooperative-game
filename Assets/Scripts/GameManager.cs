@@ -1,10 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Camera sceneCamera;
+    [field: SerializeField] public Text StateText { get; set; }
+    [field: SerializeField] public Text FPSText { get; set; }
+    [field: SerializeField] public Text DistText { get; set; }
+
+
+    #region Singleton
 
     public static GameManager Instance { get; private set; }
 
@@ -20,5 +27,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    #endregion
+
     public Camera GetSceneCamera() => sceneCamera;
+    
+    
+
 }

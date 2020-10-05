@@ -7,12 +7,13 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     private Transform _target;
+    private Character _character;
+
     [SerializeField] [Range(0.01f, 1.0f)] private float smoothSpeed = 0.2f;
     [SerializeField] private Vector3 offset = new Vector3(-4, 4, -4);
 
     [SerializeField] private float maxShift = 2;
     [SerializeField] private float shiftSensitivity = 0.01f;
-    private bool _isAiming = true;
 
     private Vector3 _forward;
     private Vector3 _right;
@@ -55,7 +56,7 @@ public class CameraController : MonoBehaviour
         //     desiredPos += _shift * shiftSensitivity;
         // }
 
-        if (_isAiming && Input.GetKey(KeyCode.Mouse1))
+        if (_character.IsAiming && Input.GetKey(KeyCode.Mouse1))
         {
             _shift = _right * (Input.mousePosition.x - _screenWidth / 2) +
                      _forward * (Input.mousePosition.y - _screenHeight / 2);
@@ -68,7 +69,11 @@ public class CameraController : MonoBehaviour
         transform.position = smoothPos;
     }
 
-    public void SetTarget(Transform target) => _target = target;
+    public void SetTarget(Transform target)
+    {
+        _target = target;
+        _character = _target.gameObject.GetComponent<Character>();
+    }
 
 
     private Vector3 VectorSigmoidInterpolation(Vector3 a, Vector3 b, float factor)

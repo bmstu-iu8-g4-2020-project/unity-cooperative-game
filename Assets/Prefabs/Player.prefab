@@ -500,10 +500,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  walkSpeed: 6
-  sprintSpeedMultiplier: 2
-  covertSpeed: 2.5
-  climbingSpeed: 100
+  <WalkSpeed>k__BackingField: 10
+  <SprintSpeedMultiplier>k__BackingField: 1.5
+  <StealthSpeed>k__BackingField: 5
+  <ClimbingDuration>k__BackingField: 2
 --- !u!114 &3313566519169204727
 MonoBehaviour:
   m_ObjectHideFlags: 0
