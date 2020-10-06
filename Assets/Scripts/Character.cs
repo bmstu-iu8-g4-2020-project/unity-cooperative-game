@@ -19,7 +19,7 @@ public class Character : NetworkBehaviour
     public SprintingState SprintState { get; private set; }
     public ClimbingState ClimbingState { get; private set; }
 
-    public Queue<State> ActionQueue { get; set; } = new Queue<State>(); // TODO move to StateMachine?
+    public readonly Queue<State> actionQueue = new Queue<State>(); // TODO move to StateMachine?
 
     [field: SerializeField] public float WalkSpeed { get; private set; } = 10f;
     [field: SerializeField] public float SprintSpeedMultiplier { get; private set; } = 1.5f;
