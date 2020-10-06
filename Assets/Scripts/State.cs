@@ -28,7 +28,7 @@ public abstract class State
     {
     }
 
-    public virtual void Update()
+    public virtual void Tick()
     {
         _fpsText.text = ((int) (1f / Time.unscaledDeltaTime)).ToString();
     }

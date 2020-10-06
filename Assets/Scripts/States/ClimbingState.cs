@@ -57,9 +57,9 @@ namespace States
             Character.GetComponent<Collider>().enabled = true;
         }
 
-        public override void Update()
+        public override void Tick()
         {
-            base.Update();
+            base.Tick();
 
             _timeLeft -= Time.deltaTime;
 

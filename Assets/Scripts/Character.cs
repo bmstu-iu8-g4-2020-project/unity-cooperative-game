@@ -11,7 +11,7 @@ public class Character : NetworkBehaviour
 {
     #region Variables
 
-    private Text _text; // todo delete
+    private Text _additionalDebugText; // todo delete
 
     private StateMachine _stateMachine;
     public WalkState WalkState { get; private set; }
@@ -46,19 +46,16 @@ public class Character : NetworkBehaviour
     #endregion
 
 
-    #region MonoBehaviour Callbacks
+    #region Mono-\NetworkBehaviour Callbacks
 
     private void Awake()
     {
-        _text = GameManager.Instance.DistText; // todo delete
+        _additionalDebugText = GameManager.Instance.DistText; // todo delete
         Transform = transform;
 
         Controller = GetComponent<CharacterController>();
-        PlayerCamera = GameManager.Instance.GetSceneCamera();
+        PlayerCamera = GameManager.Instance.GetCamera();
     }
-
-    // перелезание окна- телепортация. Отключать коллайдер.
-    // но из-за интерполяции телепортация будет плавным перемещением.
 
     private void Start()
     {
@@ -102,14 +99,9 @@ public class Character : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-            if (ClimbingTarget != null)
-            {
-                _text.text = $"{ClimbingTarget.transform.InverseTransformPoint(Transform.position)}";
-            }
-
             _stateMachine.CurrentState.ProcessInput();
 
-            _stateMachine.CurrentState.Update();
+            _stateMachine.CurrentState.Tick();
 
             _stateMachine.CurrentState.MachineUpdate();
         }
@@ -186,7 +178,7 @@ public class Character : NetworkBehaviour
     public void Move(float speed, float verticalOffset, float horizontalOffset)
     {
         Vector3 velocity = _forward * verticalOffset + _right * horizontalOffset;
-        velocity = velocity.normalized * (speed/* * Time.deltaTime*/);
+        velocity = velocity.normalized * (speed /* * Time.deltaTime*/);
 
         if (velocity.magnitude != 0)
         {
@@ -208,9 +200,7 @@ public class Character : NetworkBehaviour
         Transform.forward = direction.normalized;
     }
 
-    #endregion
-
-    // todo adhere to single-responsibility principle? mb move this to StateMachine
+    // todo adhere to single-responsibility principle, delete
     public void SwitchOnWalkTo(Vector3 destination, bool checkCollision = true)
     {
         _stateMachine.ChangeState(new WalkToState(this, _stateMachine, destination, checkCollision));
@@ -223,4 +213,6 @@ public class Character : NetworkBehaviour
             target.z);
         Transform.LookAt(targetPosition);
     }
+
+    #endregion
 }

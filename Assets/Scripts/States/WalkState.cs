@@ -21,8 +21,8 @@ namespace States
         public override void ProcessInput()
         {
             base.ProcessInput();
-            _stealth = Input.GetButtonDown("Stealth");
-            _sprint = Input.GetButtonDown("Sprint");
+            _stealth = Input.GetButton("Stealth");
+            _sprint = Input.GetButton("Sprint");
         }
 
         public override void MachineUpdate()

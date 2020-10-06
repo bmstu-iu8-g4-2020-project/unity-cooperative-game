@@ -31,9 +31,9 @@ namespace States
             _isActionKey = Input.GetButtonDown("Action");
         }
 
-        public override void Update()
+        public override void Tick()
         {
-            base.Update();
+            base.Tick();
             Character.Move(Speed, _verticalInput, _horizontalInput);
         }
 

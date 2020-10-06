@@ -22,9 +22,9 @@ namespace States
             _stealthHeld = Input.GetButton("Stealth");
         }
 
-        public override void Update()
+        public override void Tick()
         {
-            base.Update();
+            base.Tick();
             Character.FaceToMouse();
         }
 

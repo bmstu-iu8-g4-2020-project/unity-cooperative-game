@@ -43,9 +43,9 @@ namespace States
             _lastCheckPos = -_transform.position;
         }
 
-        public override void Update()
+        public override void Tick()
         {
-            base.Update();
+            base.Tick();
             _move();
             if (Vector3.Distance(_transform.position, _destination) < float.Epsilon)
             {
@@ -62,7 +62,7 @@ namespace States
         void MoveToWithCollision()
         {
             var offset = _destination - _transform.position;
-            if (offset.magnitude > .1f)
+            if (offset.magnitude > 0.5f)
             {
                 _controller.Move(offset.normalized * (Character.WalkSpeed * Time.deltaTime));
                 if (Time.time - _lastCheckTime > _exitTime)

@@ -503,7 +503,7 @@ MonoBehaviour:
   <WalkSpeed>k__BackingField: 10
   <SprintSpeedMultiplier>k__BackingField: 1.5
   <StealthSpeed>k__BackingField: 5
-  <ClimbingDuration>k__BackingField: 2
+  <ClimbingDuration>k__BackingField: 1.5
 --- !u!114 &3313566519169204727
 MonoBehaviour:
   m_ObjectHideFlags: 0

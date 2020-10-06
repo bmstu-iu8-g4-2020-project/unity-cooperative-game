@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     [field: SerializeField] public Text FPSText { get; set; }
     [field: SerializeField] public Text DistText { get; set; }
 
-
     #region Singleton
 
     public static GameManager Instance { get; private set; }
@@ -29,8 +28,5 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    public Camera GetSceneCamera() => sceneCamera;
-    
-    
-
+    public Camera GetCamera() => sceneCamera;
 }

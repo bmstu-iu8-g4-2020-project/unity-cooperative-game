@@ -68,7 +68,7 @@ public class FieldOfView : MonoBehaviour
 
                 if (!Physics.Raycast(transform.position, dirToTarget, distToTarget, obstacleMask))
                 {
-                    target.GetComponent<VisibilityController>().Show();
+                    // target.GetComponent<VisibilityController>().Show();
                     VisibleTargets.Add(target);
                 }
             }
