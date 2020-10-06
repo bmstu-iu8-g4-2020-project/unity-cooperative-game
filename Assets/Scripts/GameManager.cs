@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Camera sceneCamera;
-    [field: SerializeField] public Text StateText { get; set; }
-    [field: SerializeField] public Text FPSText { get; set; }
-    [field: SerializeField] public Text DistText { get; set; }
+    [field: SerializeField] public Text StateText { get; private set; }
+    [field: SerializeField] public Text FPSText { get; private set; }
+    [field: SerializeField] public Text DistText { get; private set; }
 
 
     #region Singleton
