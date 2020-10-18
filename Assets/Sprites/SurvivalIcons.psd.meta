@@ -1,0 +1,2530 @@
+fileFormatVersion: 2
+guid: e32479db15409df49b1d4d339dceba07
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3969612704977366777
+    second: SurvivalIcons_0
+  - first:
+      213: -4871377733108893451
+    second: SurvivalIcons_1
+  - first:
+      213: -1500411401986205752
+    second: SurvivalIcons_2
+  - first:
+      213: -4349896054284298178
+    second: SurvivalIcons_3
+  - first:
+      213: -5106902464896771961
+    second: SurvivalIcons_4
+  - first:
+      213: -2783482035304209312
+    second: SurvivalIcons_5
+  - first:
+      213: -1636795964137785104
+    second: SurvivalIcons_6
+  - first:
+      213: 8655415564359222045
+    second: SurvivalIcons_7
+  - first:
+      213: 3236086270543843167
+    second: SurvivalIcons_8
+  - first:
+      213: 6539005092470079420
+    second: SurvivalIcons_9
+  - first:
+      213: -5168284495160187570
+    second: SurvivalIcons_10
+  - first:
+      213: -1587344397477680283
+    second: SurvivalIcons_11
+  - first:
+      213: 6972519088951063948
+    second: SurvivalIcons_12
+  - first:
+      213: -6314440364778663740
+    second: SurvivalIcons_13
+  - first:
+      213: -1599303654681561445
+    second: SurvivalIcons_14
+  - first:
+      213: 5308223073727089446
+    second: SurvivalIcons_15
+  - first:
+      213: 7609157646421023113
+    second: SurvivalIcons_16
+  - first:
+      213: 2501031303152949064
+    second: SurvivalIcons_17
+  - first:
+      213: 2145194998776719833
+    second: SurvivalIcons_18
+  - first:
+      213: 7458281866002600549
+    second: SurvivalIcons_19
+  - first:
+      213: 5296539805222517517
+    second: SurvivalIcons_20
+  - first:
+      213: 8147342517907509963
+    second: SurvivalIcons_21
+  - first:
+      213: -8395272395346891082
+    second: SurvivalIcons_22
+  - first:
+      213: -3807066852928927688
+    second: SurvivalIcons_23
+  - first:
+      213: 8716913407173119062
+    second: SurvivalIcons_24
+  - first:
+      213: 5326996185375199149
+    second: SurvivalIcons_25
+  - first:
+      213: -2288900194781538531
+    second: SurvivalIcons_26
+  - first:
+      213: 4881474135694596111
+    second: SurvivalIcons_27
+  - first:
+      213: 7982850920788333911
+    second: SurvivalIcons_28
+  - first:
+      213: 6053121538074983699
+    second: SurvivalIcons_29
+  - first:
+      213: 2166068436503917734
+    second: SurvivalIcons_30
+  - first:
+      213: -3747499059070521452
+    second: SurvivalIcons_31
+  - first:
+      213: 2598075879321431533
+    second: SurvivalIcons_32
+  - first:
+      213: -485402576072213921
+    second: SurvivalIcons_33
+  - first:
+      213: -1367250765645254301
+    second: SurvivalIcons_34
+  - first:
+      213: 7768324505541474403
+    second: SurvivalIcons_35
+  - first:
+      213: -5347871031553135443
+    second: SurvivalIcons_36
+  - first:
+      213: 1494601537317547341
+    second: SurvivalIcons_37
+  - first:
+      213: -4138907564210692788
+    second: SurvivalIcons_38
+  - first:
+      213: -8903111580370636586
+    second: SurvivalIcons_39
+  - first:
+      213: 4037927086818834625
+    second: SurvivalIcons_40
+  - first:
+      213: -1874051478690412574
+    second: SurvivalIcons_41
+  - first:
+      213: -6125377260947655987
+    second: SurvivalIcons_42
+  - first:
+      213: -2842927940759619192
+    second: SurvivalIcons_43
+  - first:
+      213: -6067432991304757044
+    second: SurvivalIcons_44
+  - first:
+      213: -1692722844458346657
+    second: SurvivalIcons_45
+  - first:
+      213: 7930291030416518893
+    second: SurvivalIcons_46
+  - first:
+      213: 8547161420193239180
+    second: SurvivalIcons_47
+  - first:
+      213: 4721749699334464384
+    second: SurvivalIcons_48
+  - first:
+      213: 3546379648021072456
+    second: SurvivalIcons_49
+  - first:
+      213: 4487738110295613878
+    second: SurvivalIcons_50
+  - first:
+      213: 6490996241328198937
+    second: SurvivalIcons_51
+  - first:
+      213: -2594431869590609073
+    second: SurvivalIcons_52
+  - first:
+      213: -3238755733641347964
+    second: SurvivalIcons_53
+  - first:
+      213: 1594941694873321222
+    second: SurvivalIcons_54
+  - first:
+      213: 6632408780609528549
+    second: SurvivalIcons_55
+  - first:
+      213: 5038362280730524475
+    second: SurvivalIcons_56
+  - first:
+      213: -6726864588134619389
+    second: SurvivalIcons_57
+  - first:
+      213: -5258517572437146589
+    second: SurvivalIcons_58
+  - first:
+      213: -3629825488987753552
+    second: SurvivalIcons_59
+  - first:
+      213: -2489375654660411676
+    second: SurvivalIcons_60
+  - first:
+      213: 9207423573279530941
+    second: SurvivalIcons_61
+  - first:
+      213: 7593756107970314863
+    second: SurvivalIcons_62
+  - first:
+      213: -951876452041051948
+    second: SurvivalIcons_63
+  - first:
+      213: -3677560102361667448
+    second: SurvivalIcons_64
+  - first:
+      213: -7976503600407409745
+    second: SurvivalIcons_65
+  - first:
+      213: -8721274371820650528
+    second: SurvivalIcons_66
+  - first:
+      213: -3714422021822232939
+    second: SurvivalIcons_67
+  - first:
+      213: -3122997117945047248
+    second: SurvivalIcons_68
+  - first:
+      213: -7677429558216358558
+    second: SurvivalIcons_69
+  - first:
+      213: 4962656776805798530
+    second: SurvivalIcons_70
+  - first:
+      213: 5944563346070677606
+    second: SurvivalIcons_71
+  - first:
+      213: 5612455032744287398
+    second: SurvivalIcons_72
+  - first:
+      213: -3679610339207602303
+    second: SurvivalIcons_73
+  - first:
+      213: 8502350421685368031
+    second: SurvivalIcons_74
+  - first:
+      213: 5712525754851270472
+    second: SurvivalIcons_75
+  - first:
+      213: -7114584251504573736
+    second: SurvivalIcons_76
+  - first:
+      213: -5581365901627841505
+    second: SurvivalIcons_77
+  - first:
+      213: -2408551017026557770
+    second: SurvivalIcons_78
+  - first:
+      213: 3868345983688301114
+    second: SurvivalIcons_79
+  - first:
+      213: -2821302069056455832
+    second: SurvivalIcons_80
+  - first:
+      213: -2621845586854068964
+    second: SurvivalIcons_81
+  - first:
+      213: 2267848696978984185
+    second: SurvivalIcons_82
+  - first:
+      213: 4491441983633843833
+    second: SurvivalIcons_83
+  - first:
+      213: 6409472751567095342
+    second: SurvivalIcons_84
+  - first:
+      213: 2788887361772880692
+    second: SurvivalIcons_85
+  - first:
+      213: 1869217591978943829
+    second: SurvivalIcons_86
+  - first:
+      213: -8715179197305216911
+    second: SurvivalIcons_87
+  - first:
+      213: -5050362019185347310
+    second: SurvivalIcons_88
+  - first:
+      213: -800138487251667150
+    second: SurvivalIcons_89
+  - first:
+      213: 2291590097233449901
+    second: SurvivalIcons_90
+  - first:
+      213: 3386113847049281015
+    second: SurvivalIcons_91
+  - first:
+      213: -3103494009135122711
+    second: SurvivalIcons_92
+  - first:
+      213: -3071375941626201531
+    second: SurvivalIcons_93
+  - first:
+      213: -6000351364638279784
+    second: SurvivalIcons_94
+  - first:
+      213: -3636712076531036339
+    second: SurvivalIcons_95
+  - first:
+      213: 5561018856828570248
+    second: SurvivalIcons_96
+  - first:
+      213: -259773232098092883
+    second: SurvivalIcons_97
+  - first:
+      213: -463427142050971865
+    second: SurvivalIcons_98
+  - first:
+      213: 6683688558091589430
+    second: SurvivalIcons_99
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SurvivalIcons_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 498
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fead0829b5e61730800000000000000
+      internalID: 3969612704977366777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_1
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 498
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f8fb4be2c3656cb0800000000000000
+      internalID: -4871377733108893451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_2
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 498
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c79aa787c77d2be0800000000000000
+      internalID: -1500411401986205752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_3
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 498
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e38d28ad59012a3c0800000000000000
+      internalID: -4349896054284298178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_4
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 498
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 788d2450443a029b0800000000000000
+      internalID: -5106902464896771961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_5
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 498
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 064e20f16d51f59d0800000000000000
+      internalID: -2783482035304209312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_6
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 498
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f836c32ebee849e0800000000000000
+      internalID: -1636795964137785104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_7
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 498
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d13c401f8963e1870800000000000000
+      internalID: 8655415564359222045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_8
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 498
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5fc84a4153e8ec20800000000000000
+      internalID: 3236086270543843167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_9
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 498
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbf36298c763fba50800000000000000
+      internalID: 6539005092470079420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 443
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4561d762a09648b0800000000000000
+      internalID: -5168284495160187570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_11
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 443
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56be22c3eae98f9e0800000000000000
+      internalID: -1587344397477680283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_12
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 443
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c85fe8e5b2d53c060800000000000000
+      internalID: 6972519088951063948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_13
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 443
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c0dafd81f99e58a0800000000000000
+      internalID: -6314440364778663740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_14
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 443
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b96b8beacc12ec9e0800000000000000
+      internalID: -1599303654681561445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_15
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 443
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62b090ae2c89aa940800000000000000
+      internalID: 5308223073727089446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_16
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 443
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9895fda7098299960800000000000000
+      internalID: 7609157646421023113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_17
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 443
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 847509c18b275b220800000000000000
+      internalID: 2501031303152949064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_18
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 443
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d9e7045c7345cd10800000000000000
+      internalID: 2145194998776719833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_19
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 443
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56292d967d3218760800000000000000
+      internalID: 7458281866002600549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 388
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0b310df3e6118940800000000000000
+      internalID: 5296539805222517517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_21
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 388
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc250538adc211170800000000000000
+      internalID: 8147342517907509963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_22
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 388
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bea4ba8c300e7b80800000000000000
+      internalID: -8395272395346891082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_23
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 388
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 838c1033ed49a2bc0800000000000000
+      internalID: -3807066852928927688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_24
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 388
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65cc4644f82b8f870800000000000000
+      internalID: 8716913407173119062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_25
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 388
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daf46259eca4de940800000000000000
+      internalID: 5326996185375199149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_26
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 388
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1759b366613c30e0800000000000000
+      internalID: -2288900194781538531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_27
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 388
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f08555efcda7eb340800000000000000
+      internalID: 4881474135694596111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_28
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 388
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7551d741e98c8ce60800000000000000
+      internalID: 7982850920788333911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_29
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 388
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31db933d7f1010450800000000000000
+      internalID: 6053121538074983699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 333
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a4700544cb6f0e10800000000000000
+      internalID: 2166068436503917734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_31
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 333
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49fadfbf5753efbc0800000000000000
+      internalID: -3747499059070521452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_32
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 333
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dede67e3f383e0420800000000000000
+      internalID: 2598075879321431533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_33
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 333
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5af728cde08349f0800000000000000
+      internalID: -485402576072213921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_34
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 333
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36175d23cac860de0800000000000000
+      internalID: -1367250765645254301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_35
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 333
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 368f2ccbaf1aecb60800000000000000
+      internalID: 7768324505541474403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_36
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 333
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dac6cab81ab88c5b0800000000000000
+      internalID: -5347871031553135443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_37
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 333
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4da090fd24edb410800000000000000
+      internalID: 1494601537317547341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_38
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 333
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4d5b0dcf75af86c0800000000000000
+      internalID: -4138907564210692788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_39
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 333
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d07758303bc17480800000000000000
+      internalID: -8903111580370636586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 278
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c8b3c6aa49990830800000000000000
+      internalID: 4037927086818834625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_41
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 278
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e7ccd9fb180ef5e0800000000000000
+      internalID: -1874051478690412574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_42
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 278
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc2b5f5b5d94efaa0800000000000000
+      internalID: -6125377260947655987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_43
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 278
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8897df0b914eb88d0800000000000000
+      internalID: -2842927940759619192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_44
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 278
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc05bce47d52ccba0800000000000000
+      internalID: -6067432991304757044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_45
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 278
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f571fd89a8d3288e0800000000000000
+      internalID: -1692722844458346657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_46
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 278
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dee6179fcad0e0e60800000000000000
+      internalID: 7930291030416518893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_47
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 278
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c809a80e60e9d9670800000000000000
+      internalID: 8547161420193239180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_48
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 278
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 083632ba556078140800000000000000
+      internalID: 4721749699334464384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_49
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 278
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84a88f61085473130800000000000000
+      internalID: 3546379648021072456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 223
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b12725c806a74e30800000000000000
+      internalID: 4487738110295613878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_51
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 223
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91553c2d0b6a41a50800000000000000
+      internalID: 6490996241328198937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_52
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 223
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f436913e5f9befbd0800000000000000
+      internalID: -2594431869590609073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_53
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 223
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48c3c06e1d0ad03d0800000000000000
+      internalID: -3238755733641347964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_54
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 223
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60f3268650f522610800000000000000
+      internalID: 1594941694873321222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_55
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 223
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e2a96d55ac0b0c50800000000000000
+      internalID: 6632408780609528549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_56
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 223
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3b7ba8cccbdbe540800000000000000
+      internalID: 5038362280730524475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_57
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 223
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 307e41c2c4065a2a0800000000000000
+      internalID: -6726864588134619389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_58
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 223
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3240cb1f02ef507b0800000000000000
+      internalID: -5258517572437146589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_59
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 223
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b3f93c03f440adc0800000000000000
+      internalID: -3629825488987753552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 168
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eee5770806f37dd0800000000000000
+      internalID: -2489375654660411676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_61
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 168
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbf52e5f4f657cf70800000000000000
+      internalID: 9207423573279530941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_62
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 168
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f62068e52f0726960800000000000000
+      internalID: 7593756107970314863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_63
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 168
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d0b80ef8614ac2f0800000000000000
+      internalID: -951876452041051948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_64
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 168
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 888659a429ea6fcc0800000000000000
+      internalID: -3677560102361667448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_65
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 168
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fab871c9c34cd4190800000000000000
+      internalID: -7976503600407409745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_66
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 168
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ef79e68a2fc7f680800000000000000
+      internalID: -8721274371820650528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_67
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 168
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 596c56bd9d8b37cc0800000000000000
+      internalID: -3714422021822232939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_68
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 168
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0371156eaa2e8a4d0800000000000000
+      internalID: -3122997117945047248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_69
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 168
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2650e6a5e7a447590800000000000000
+      internalID: -7677429558216358558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 113
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 282d1b39b06eed440800000000000000
+      internalID: 4962656776805798530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_71
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 113
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 668a95b1ed45f7250800000000000000
+      internalID: 5944563346070677606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_72
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 113
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ac9390cd1273ed40800000000000000
+      internalID: 5612455032744287398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_73
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 113
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18f1da354e56fecc0800000000000000
+      internalID: -3679610339207602303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_74
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 113
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd4f27049aa6ef570800000000000000
+      internalID: 8502350421685368031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_75
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 113
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84f1e2468e7f64f40800000000000000
+      internalID: 5712525754851270472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_76
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 113
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d24b74615be34d90800000000000000
+      internalID: -7114584251504573736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_77
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 113
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f14aef7a8410b82b0800000000000000
+      internalID: -5581365901627841505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_78
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 113
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b8e9be6c9b139ed0800000000000000
+      internalID: -2408551017026557770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_79
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 113
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3adc024d202fa530800000000000000
+      internalID: 3868345983688301114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 58
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86bb0d157b8b8d8d0800000000000000
+      internalID: -2821302069056455832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_81
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 58
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1d33a374555d9bd0800000000000000
+      internalID: -2621845586854068964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_82
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 58
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fcc3c3df54097f10800000000000000
+      internalID: 2267848696978984185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_83
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 58
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97665cbffaec45e30800000000000000
+      internalID: 4491441983633843833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_84
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 58
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e26c3ba328503f850800000000000000
+      internalID: 6409472751567095342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_85
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 58
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4338c05874e14b620800000000000000
+      internalID: 2788887361772880692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_86
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 58
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 555e0d11f7bc0f910800000000000000
+      internalID: 1869217591978943829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_87
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 58
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 170afbee1b67d0780800000000000000
+      internalID: -8715179197305216911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_88
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 58
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2153553608289e9b0800000000000000
+      internalID: -5050362019185347310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_89
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 58
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 237fe30094655e4f0800000000000000
+      internalID: -800138487251667150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da317645d0d5dcf10800000000000000
+      internalID: 2291590097233449901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_91
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 3
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fd576e7a94edfe20800000000000000
+      internalID: 3386113847049281015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_92
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 3
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e6b2f644ac2ee4d0800000000000000
+      internalID: -3103494009135122711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_93
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 3
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54a70bb9ad74065d0800000000000000
+      internalID: -3071375941626201531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_94
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 3
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 897743f99387abca0800000000000000
+      internalID: -6000351364638279784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_95
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 3
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4f8eff62adc78dc0800000000000000
+      internalID: -3636712076531036339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_96
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 3
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88a048ecf25bc2d40800000000000000
+      internalID: 5561018856828570248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_97
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 3
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da853aa2f99156cf0800000000000000
+      internalID: -259773232098092883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_98
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 3
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72ff6ca38739199f0800000000000000
+      internalID: -463427142050971865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SurvivalIcons_99
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 3
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6375466f45b31cc50800000000000000
+      internalID: 6683688558091589430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
