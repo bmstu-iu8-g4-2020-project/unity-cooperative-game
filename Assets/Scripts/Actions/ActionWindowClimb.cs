@@ -19,6 +19,7 @@ namespace Actions
             Vector3 pos = interactable.transform.InverseTransformPoint(startPoint);
             pos.z = 0;
             pos = interactable.transform.TransformPoint(pos);
+            //TODO mb make WalkTo state in this case unskipable
             character.StateMachine.AddStateToQueue(new WalkToState(character, character.StateMachine, pos, false));
             character.StateMachine.AddStateToQueue(new ClimbingState(character, character.StateMachine,
                 interactable.transform));

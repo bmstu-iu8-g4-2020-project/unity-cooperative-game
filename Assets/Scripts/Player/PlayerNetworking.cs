@@ -27,7 +27,6 @@ namespace Player
         {
             _transform = transform;
         }
-
         
         private void Start()
         {
@@ -51,8 +50,6 @@ namespace Player
                     gObject.SetActive(isLocalPlayer);
                 }
             }
-            
-            GameManager.Instance.GetCamera().gameObject.GetComponentInParent<CameraManager>().SetTarget(transform);
         }
 
         public override void OnStartLocalPlayer()
@@ -60,6 +57,7 @@ namespace Player
             GameManager.Instance.SetLocalPlayer(gameObject);
             gameObject.name = "LocalPlayer";
             
+            GameManager.Instance.GetCamera().gameObject.GetComponentInParent<CameraManager>().SetTarget(transform);
         }
 
         #endregion

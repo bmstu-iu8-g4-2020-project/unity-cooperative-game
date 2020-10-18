@@ -1451,7 +1451,6 @@ GameObject:
   m_Component:
   - component: {fileID: 186950979}
   - component: {fileID: 186950978}
-  - component: {fileID: 186950980}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1475,7 +1474,7 @@ MonoBehaviour:
   <StateText>k__BackingField: {fileID: 276446841}
   <FPSText>k__BackingField: {fileID: 29633914}
   <DistText>k__BackingField: {fileID: 284885410}
-  <UIContainerPanel>k__BackingField: {fileID: 789574551}
+  <UIContainerPanel>k__BackingField: {fileID: 0}
   <UIInventoryContainerPanel>k__BackingField: {fileID: 0}
 --- !u!4 &186950979
 Transform:
@@ -1491,22 +1490,6 @@ Transform:
   m_Father: {fileID: 2042520830}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &186950980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 186950977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 4253166326
-  serverOnly: 0
-  m_AssetId: 
-  hasSpawned: 0
 --- !u!1 &190248449
 GameObject:
   m_ObjectHideFlags: 0
@@ -10481,8 +10464,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2042520830}
-  - component: {fileID: 2042520832}
-  - component: {fileID: 2042520831}
   m_Layer: 0
   m_Name: LocalManagers
   m_TagString: Untagged
@@ -10508,38 +10489,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2042520831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2042520829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e7f6281ce08c3740a08507565c92ad3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  playerControlsManager: {fileID: 463225597}
-  eventSystem: {fileID: 460450402}
---- !u!114 &2042520832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2042520829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 2946605552
-  serverOnly: 0
-  m_AssetId: 
-  hasSpawned: 0
 --- !u!1 &2051935759
 GameObject:
   m_ObjectHideFlags: 0

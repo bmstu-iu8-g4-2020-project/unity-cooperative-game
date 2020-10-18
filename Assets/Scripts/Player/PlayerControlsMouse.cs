@@ -36,6 +36,7 @@ namespace Player
         private Vector3 _lastPos;
         private Vector3 _floorPos; //World position the floor pointing at
 
+        private RaycastHit[] _raycastHits = new RaycastHit[10];
         private readonly HashSet<GameObject> _raycastList = new HashSet<GameObject>();
 
         private static PlayerControlsMouse _instance;
@@ -129,9 +130,8 @@ namespace Player
         public void RaycastInteractables()
         {
             _raycastList.Clear();
-            RaycastHit[] hits = Physics.RaycastAll(Camera.main.ScreenPointToRay(Input.mousePosition), 99f,
-                selectableLayer.value);
-            foreach (RaycastHit hit in hits)
+            var size = Physics.RaycastNonAlloc(GameManager.Instance.GetCamera().ScreenPointToRay(Input.mousePosition), _raycastHits, 99f, selectableLayer.value);
+            foreach (RaycastHit hit in _raycastHits)
             {
                 if (hit.collider != null)
                 {
