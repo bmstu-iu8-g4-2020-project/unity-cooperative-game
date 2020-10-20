@@ -21,7 +21,7 @@ MonoBehaviour:
   craftQuantity: 1
   craftNear: {fileID: 0}
   craftItems: []
-  type: 0
+  type: 10
   durabilityType: 0
   durability: 0
   maxCondition: 100

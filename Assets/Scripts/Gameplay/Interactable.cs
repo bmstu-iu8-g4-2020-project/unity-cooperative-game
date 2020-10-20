@@ -2,16 +2,16 @@
 using Player;
 using UnityEngine;
 
-// use component on interactable object
 namespace Gameplay
 {
     public interface IInteractable
     {
         float Radius { get; }
-
         void OnInteract(IInteractionActor interactionActor);
+        void OnStopInteraction();
         bool CanInteract();
         GameObject GetGameObject();
+        //Todo only bool TryInteract()
     }
 
     /// <summary>
@@ -22,11 +22,13 @@ namespace Gameplay
         [Header("Action")]
         public AAction action; //Action to be taken when interacting
 
-        [field: SerializeField]
-        public float Radius { get; private set; } = 3.0f;
+        public Action[] actions;
 
         [field: SerializeField]
-        public bool IsSelectable { get; } = false;
+        public float Radius { get; private set; } = 2.0f;
+
+        [field: SerializeField]
+        public bool IsSelectable { get; private set; } = true;
 
         private void OnDrawGizmos()
         {
@@ -36,7 +38,11 @@ namespace Gameplay
 
         private void OnInteractWithPlayer(PlayerCharacter character)
         {
-            Debug.Log($"Interacted with player {name}");
+            if (action == null)
+            {
+                Debug.Log($"Action doesn't set for {gameObject.name}");
+            }
+
             if (action.CanDoAction(character, this))
             {
                 Debug.Log($"Interacted with player {name}");
@@ -44,13 +50,19 @@ namespace Gameplay
             }
         }
 
-        public virtual void OnInteract(IInteractionActor interactionActor)
+        public void OnInteract(IInteractionActor interactionActor)
         {
             var player = interactionActor as PlayerInteractionActor;
             if (player != null)
             {
                 OnInteractWithPlayer(player.GetComponent<PlayerCharacter>());
             }
+        }
+
+        public void OnStopInteraction()
+        {
+            Debug.Log("Stop Interaction");
+            action.StopInteraction();
         }
 
         public bool CanInteract()

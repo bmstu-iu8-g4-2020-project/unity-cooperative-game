@@ -11,21 +11,21 @@ namespace Gameplay
     {
         Default,
         Kitchen,
-        Stationery,
         Police,
-        Building
+        Inventory,
     }
+    //TODO add lastOpeningTime and generate loot
 
-    public class Container : Interactable //TODO do not inherit
+    public class Container : MonoBehaviour
     {
         [field: SerializeField]
-        public string ContainerName { get; } = "Container";
+        public string ContainerName { get; private set; } = "Container";
 
         [field: SerializeField]
-        public ContainerType Type { get; } = ContainerType.Kitchen;
+        public ContainerType Type { get; private set; } = ContainerType.Kitchen;
 
         [SerializeField]
-        private float maxWeight = 50; // todo or limit space not weight? 
+        private float maxWeight = 50;
 
         private float _currentWeight = 0;
 
@@ -41,7 +41,7 @@ namespace Gameplay
         /// <summary>
         /// Try adding a 1 item to this container. If the container's maximum weight has already been reached, return false.
         /// </summary>
-        public bool Add(ItemSlot slot)
+        public bool TryAddOne(ItemSlot slot)
         {
             if (!CanAdd(slot))
             {
@@ -69,7 +69,7 @@ namespace Gameplay
         }
 
 
-        public bool Remove(ItemSlot slot)
+        public bool TryRemoveOne(ItemSlot slot)
         {
             var index = Items.FindIndex(x => x.Equals(slot));
             if (index == -1) return false;
@@ -101,43 +101,68 @@ namespace Gameplay
             int index = Random.Range(0, 3);
             int condition = tempItems[index].isDegradable ? Random.Range(1, tempItems[index].maxCondition) : -1;
 
-            Add(new ItemSlot(tempItems[index]));
+            TryAddOne(new ItemSlot(tempItems[index]));
         }
 
         public void TestRemoveRandomItem()
         {
             int index = Random.Range(0, Items.Count);
-            if (index >= 0)
+            if (0 <= index && index <= Items.Count)
             {
-                Remove(Items[index]);
+                TryRemoveOne(Items[index]);
             }
         }
+
+        private static ItemData[] _allItems;
+        private static Dictionary<ContainerType, ItemData[]> _lootForContainerType;
+
+        private void Awake()
+        {
+            _allItems = Resources.LoadAll<ItemData>("Items");
+            _lootForContainerType = new Dictionary<ContainerType, ItemData[]>
+            {
+                [ContainerType.Kitchen] = LoadAllOfType(ItemType.Food),
+                [ContainerType.Default] = LoadAllOfType(ItemType.Basic),
+                [ContainerType.Police] = LoadAllOfType(ItemType.Equipment),
+                [ContainerType.Inventory] = null,
+            };
+        }
+
+        private static ItemData[] LoadAllOfType(ItemType itemType)
+        {
+            List<ItemData> result = new List<ItemData>();
+            foreach (var item in _allItems)
+            {
+                if (item.type == itemType)
+                {
+                    result.Add(item);
+                }
+            }
+
+            return result.ToArray();
+        }
+
+        private void Start()
+        {
+            GenerateLoot();
+        }
+
 
         public void GenerateLoot()
         {
-            #region Demonstration Code
+            Items.Clear();
+            ItemData[] tempItems = _lootForContainerType[Type];
+            if (tempItems == null) return;
 
-            ItemData[] tempItems = new ItemData[3];
-            tempItems[0] = Resources.Load<ItemData>("Items/Canned");
-            tempItems[1] = Resources.Load<ItemData>("Items/BaseballBat");
-            tempItems[2] = Resources.Load<ItemData>("Items/InsulatingTape");
 
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 5 * TheData.Instance.GameData.generatedLootQuantity; i++)
             {
-                int index = Random.Range(0, 3);
-                uint amount = (uint) Random.Range(1, 100);
-                int condition = tempItems[index].isDegradable ? Random.Range(1, tempItems[index].maxCondition) : -1;
+                int index = Random.Range(0, tempItems.Length);
+                uint amount = (uint) Random.Range(1, 3);
+                int condition = tempItems[index].isDegradable ? tempItems[index].maxCondition : -1;
 
-                Items.Add(new ItemSlot(tempItems[index], condition, amount));
+                TryAddOne(new ItemSlot(tempItems[index], condition, amount));
             }
-
-            #endregion
         }
-
-        // public override void OnInteract(PlayerCharacter character)
-        // {
-        //     base.OnInteract(character);
-        //     UIContainerPanel.Instance.OpenContainer(this);
-        // }
     }
 }

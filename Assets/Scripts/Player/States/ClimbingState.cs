@@ -71,7 +71,7 @@ namespace Player.States
         public override void MachineUpdate()
         {
             base.MachineUpdate();
-            if (_timeLeft <= float.Epsilon) // TODO float.Epsilon
+            if (_timeLeft <= float.Epsilon)
             {
                 StateMachine.ChangeState(Character.WalkState);
             }

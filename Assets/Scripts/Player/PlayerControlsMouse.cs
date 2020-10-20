@@ -21,8 +21,7 @@ namespace Player
         public event UnityAction<Vector3> OnHold; //While holding the left click down
         public event UnityAction<Vector3> OnClickFloor; //When click on floor
 
-        //TODO rename to onClickSelectable
-        public event UnityAction<Interactable> OnClickObject; //When click on object by right button
+        public event UnityAction<Interactable> OnClickObject; //When click on object
 
         private bool _usingMouse = false;
         private float _mouseScroll = 0f;

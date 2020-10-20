@@ -58,6 +58,8 @@ namespace Player
             gameObject.name = "LocalPlayer";
             
             GameManager.Instance.GetCamera().gameObject.GetComponentInParent<CameraManager>().SetTarget(transform);
+
+            GameManager.Instance.AddPlayer(gameObject);
         }
 
         #endregion

@@ -16,9 +16,6 @@ namespace Player
 
         private PlayerData _data;
 
-        [SerializeField]
-        private AttributeData[] attributes;
-
         public bool IsAiming { get; private set; } = false;
 
         public StateMachine StateMachine;
@@ -120,18 +117,6 @@ namespace Player
                 Transform.position.y,
                 target.z);
             Transform.LookAt(targetPosition);
-        }
-
-        private void ResolveAttributeEffects()
-        {
-            float gameSpeed = 1f; // TODO get from GameManager from GameData
-
-            //Update Attributes
-            foreach (AttributeData attr in attributes)
-            {
-            }
-
-            throw new NotImplementedException();
         }
 
         #endregion

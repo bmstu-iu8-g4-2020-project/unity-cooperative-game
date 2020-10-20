@@ -30,26 +30,7 @@ namespace UI
 
         GameObject _uiSlotPrefab; // The prefab of the UIItemSlots.
 
-        private bool isOpen;
-
-        #region singltone
-
-        public static UIContainerPanel Instance { get; private set; }
-
-        void Awake()
-        {
-            if (Instance == null)
-            {
-                Instance = this;
-            }
-            else if (Instance != this)
-            {
-                Debug.LogWarning($"Removed duplicate singltone script on {gameObject.name}");
-                Destroy(this);
-            }
-        }
-
-        #endregion
+        public bool IsOpen { get; private set; }
 
 
         private void Start()
@@ -62,7 +43,7 @@ namespace UI
             }
 
             hidablePanel.SetActive(false);
-            isOpen = false;
+            IsOpen = false;
         }
 
 
@@ -72,15 +53,18 @@ namespace UI
         public Container OpenedContainer { get; private set; }
 
         /// <summary>
-        /// Snow container UI panel.
+        /// Open container UI panel. 
         /// </summary>
         public void OpenContainer(Container container)
         {
-            if (isOpen) return;
-            isOpen = true;
+            if (IsOpen) CloseContainer();
+            IsOpen = true;
             _slots = new List<KeyValuePair<ItemSlot, UIItemSlot>>();
             //Sorting items in container
-            container.Items.Sort();
+            if (container.Items.Count > 0)
+            {
+                container.Items.Sort();
+            }
 
             hidablePanel.SetActive(true);
 
@@ -89,7 +73,6 @@ namespace UI
             container.OnSlotChange += UpdateSlot;
             container.OnSlotAdd += OnSlotAdd;
             container.OnSlotRemove += OnSlotRemove;
-            _slots.Clear();
 
             var i = 0;
             // Loop through each item in the given items list and instantiate a new UIItemSlot prefab for each one.
@@ -167,6 +150,7 @@ namespace UI
             _slots.Add(new KeyValuePair<ItemSlot, UIItemSlot>(slot, uiSlot));
         }
 
+
         public void CloseContainer()
         {
             // Loop through each slot, detatch it from its ItemSlot and delete the GameObject.
@@ -179,13 +163,14 @@ namespace UI
             {
                 OpenedContainer.OnSlotChange -= UpdateSlot;
                 OpenedContainer.OnSlotAdd -= OnSlotAdd;
+                OpenedContainer.OnSlotRemove -= OnSlotRemove;
             }
 
             OpenedContainer = null;
             // Clear the list and deactivate the container window.
             _slots.Clear();
             hidablePanel.SetActive(false);
-            isOpen = false;
+            IsOpen = false;
         }
     }
 }

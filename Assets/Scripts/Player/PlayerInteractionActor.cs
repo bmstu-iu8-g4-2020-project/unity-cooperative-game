@@ -21,6 +21,7 @@ namespace Player
     //При вводе с клавы выбирать тут ближайший объект для автоматического действия
     //При выборе объекта мышью
 
+    //TODO chek
     /// <summary>
     /// Player component for initiate interaction
     /// </summary>
@@ -40,6 +41,7 @@ namespace Player
         private Collider[] _interactablesInRadius;
         private FieldOfView _fieldOfView;
         private PlayerCharacter _character;
+        private IInteractable _currentInteractionTarget;
 
         //Or Create Actor Controller that will be use Actor-Components in unity callbacks
 
@@ -62,12 +64,6 @@ namespace Player
             PlayerControlsMouse.Instance.OnClickObject -= OnClickObject;
         }
 
-        private void OnClickObject(Interactable interactable)
-        {
-            if (!interactable.IsSelectable) return;
-            Debug.Log($"{interactable.gameObject.name} selected");
-        }
-
         private void Update()
         {
             if (PlayerControls.Instance.IsPressAction() && CanInteractNow())
@@ -79,15 +75,34 @@ namespace Player
                 }
             }
 
+            if (_currentInteractionTarget != null && !CanInteractWith(_currentInteractionTarget))
+            {
+                StopInteraction();
+            }
+
             //Todo highlights nearest interactable? Do it in SlowUpdate anyway
         }
 
         #endregion
 
+        private void OnClickObject(Interactable interactable)
+        {
+            if (interactable == null || !interactable.IsSelectable) return;
+            Debug.Log($"{interactable.gameObject.name} selected");
+            if (CanInteractWith(interactable)) InteractWith(interactable);
+        }
+
         public void InteractWith(IInteractable interactable)
         {
-            //Toggle highlights for object if not
+            _currentInteractionTarget = interactable;
+            //Toggle highlights for object
             interactable.OnInteract(this);
+        }
+        
+        private void StopInteraction()
+        {
+            _currentInteractionTarget.OnStopInteraction();
+            _currentInteractionTarget = null;
         }
 
         public bool CanInteractNow()

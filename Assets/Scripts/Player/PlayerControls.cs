@@ -8,7 +8,7 @@ namespace Player
     public class PlayerControls : MonoBehaviour
     {
         [SerializeField]
-        private KeyCode actionKey = KeyCode.F; // todo fix hardcoding
+        private KeyCode actionKey = KeyCode.F;
 
 
         [SerializeField]

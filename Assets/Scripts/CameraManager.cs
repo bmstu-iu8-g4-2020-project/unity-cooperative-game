@@ -47,20 +47,15 @@ public class CameraManager : MonoBehaviour
 
     private int _screenWidth;
     private int _screenHeight;
-
-    private Text _additionalDebugText; // todo delete
-
+    
     private void Awake()
     {
-
         _forward = GameManager.Instance.GetCamera().transform.forward;
         _forward.y = 0;
         _forward = Vector3.Normalize(_forward);
         _right = Quaternion.Euler(new Vector3(0, 90, 0)) * _forward;
 
         _playerCamera = transform.GetChild(0).GetComponent<Camera>();
-
-        _additionalDebugText = GameManager.Instance.DistText; // todo delete
     }
 
     private void Start()
@@ -94,7 +89,7 @@ public class CameraManager : MonoBehaviour
         //     desiredPos += _shift * shiftSensitivity;
         // }
 
-        if (_character.IsAiming && Input.GetKey(KeyCode.Mouse1))
+        if (_character.IsAiming && PlayerControls.Instance.IsHoldStealth())
         {
             _shift = _right * (Input.mousePosition.x - _screenWidth / 2) +
                      _forward * (Input.mousePosition.y - _screenHeight / 2);

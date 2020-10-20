@@ -1,4 +1,5 @@
 ﻿using System;
+using Data;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ namespace Gameplay
 {
     /// <summary>
     /// ItemSlot represents item in inventory or other storage with amount and condition.
-    /// Can't exist if not store some item.
+    /// Shouldn't exist if not store some item.
     /// </summary>
     public class ItemSlot : IComparable
     {
@@ -38,7 +39,6 @@ namespace Gameplay
             _condition = _data.isDegradable ? condition : -1;
         }
 
-        //Todo если пытаются добавить к нестыкабельному, то вернуть false. Это обработать при вызове и создать в хранилище новый слот
         /// <summary>
         /// Try to add item to this slot. If item is not stackable return false.
         /// </summary>
@@ -75,6 +75,11 @@ namespace Gameplay
 
         #endregion
 
+        public float GetItemTransferTime()
+        {
+            return TheData.Instance.PlayerData.ItemTransferRate * _data.weight;
+        }
+
         private static bool Compare(ItemSlot slot1, ItemSlot slot2)
         {
             // Items can store in one slot only if their condition equals
@@ -82,6 +87,11 @@ namespace Gameplay
                 return false;
 
             return true;
+        }
+
+        public void Use()
+        {
+            
         }
 
         public override bool Equals(object obj)

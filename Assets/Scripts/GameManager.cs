@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private Camera sceneCamera;
 
     private GameObject _localPlayer;
+    private readonly List<GameObject> _allPlayers = new List<GameObject>();
 
     [field: SerializeField]
     public Text StateText { get; set; }
@@ -28,6 +29,10 @@ public class GameManager : MonoBehaviour
 
     [field: SerializeField]
     public UIContainerPanel UIInventoryContainerPanel { get; private set; }
+
+    private bool paused = false;
+    private float speed_multiplier = 1f;
+
 
     #region singltone
 
@@ -52,11 +57,34 @@ public class GameManager : MonoBehaviour
 
     public GameObject GetLocalPlayer()
     {
-        return _localPlayer; // todo implement
+        return _localPlayer;
+    }
+
+    public void AddPlayer(GameObject player)
+    {
+        _allPlayers.Add(player);
+    }
+
+    public GameObject[] GetAllPlayers()
+    {
+        return _allPlayers.ToArray();
     }
 
     public void SetLocalPlayer(GameObject player)
     {
         _localPlayer = player;
+    }
+
+    public float GetGameTimeSpeed()
+    {
+        float gameSpeed = speed_multiplier * GameData.Get().gameTimeMult;
+        return gameSpeed;
+    }
+
+    //Game hours per real time seconds
+    public float GetGameTimeSpeedPerSec()
+    {
+        float hourToSec = GetGameTimeSpeed() / 3600f;
+        return hourToSec;
     }
 }

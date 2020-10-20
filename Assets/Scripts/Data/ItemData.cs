@@ -9,7 +9,7 @@ using UnityEngine.Serialization;
 public enum ItemType
 {
     Basic = 0,
-    Consumable = 10,
+    Food = 10,
     Equipment = 20,
 }
 

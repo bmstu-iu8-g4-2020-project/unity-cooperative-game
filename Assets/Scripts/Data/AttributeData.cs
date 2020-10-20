@@ -28,20 +28,15 @@ public class AttributeData : ScriptableObject
     public AttributeType type;
     public string title;
 
-
     [Space(5)]
     public float startValue = 100f; //Starting value
-
-
+    
     public float maxValue = 100f; //Maximum value
-
 
     public float valuePerHour = -100f; //How much is gained (or lost) per in-game hour
 
-
     [Header("When reaches zero")]
     public float depleteHpLoss = -100f; //Per hour
-
 
     public float depleteMoveMult = 1f; //1f = normal speed
 }

@@ -16,7 +16,7 @@ namespace Player.States
 
         public MovementState(PlayerCharacter character, StateMachine stateMachine) : base(character, stateMachine)
         {
-            Speed = TheData.Instance.PlayerData.WalkSpeed; //TODO depend on inventory weight 
+            Speed = TheData.Instance.PlayerData.WalkSpeed; //TODO depending on inventory weight 
         }
 
         public override void OnEnter()

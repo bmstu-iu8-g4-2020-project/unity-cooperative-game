@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   <WalkSpeed>k__BackingField: 10
+  <WalkWithActionSpeedMultiplier>k__BackingField: 0.7
   <SprintSpeedMultiplier>k__BackingField: 1.5
   <StealthSpeed>k__BackingField: 5
+  <ItemTransferRate>k__BackingField: 2
   <ClimbingDuration>k__BackingField: 2

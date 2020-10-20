@@ -10,9 +10,10 @@ using UnityEngine.Serialization;
 public class GameData : ScriptableObject
 {
     [Header("Game")]
-    public float
-        gameTimeMult =
-            24f; //A value of 1 means time follows real life time. Value of 24 means 1 hour of real time will be one day in game
+    //A value of 1 means time follows real life time. Value of 24 means 1 hour of real time will be one day in game
+    public float gameTimeMult = 24f;
+
+    public int generatedLootQuantity = 1;
 
     // [Header("Day/Night")] 
 

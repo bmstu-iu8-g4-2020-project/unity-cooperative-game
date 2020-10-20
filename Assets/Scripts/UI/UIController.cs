@@ -1,26 +1,63 @@
-﻿using Player;
+﻿using Gameplay;
+using Player;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
     public class UIController : MonoBehaviour
     {
-        [SerializeField]
-        private GameObject uiInventory;
+        [field: SerializeField]
+        public UIContainerPanel InventoryUI { get; private set; }
 
-        private PlayerCharacter _character;
+        [field: SerializeField]
+        public UIContainerPanel ContainerUI { get; private set; }
+        
+        [field: SerializeField]
+        public Image OperationBarUI { get; private set; }
 
-        private void Start()
+        [field: SerializeField]
+        public Image[] AttributeBarsUI { get; private set; }
+
+        #region singltone
+
+        public static UIController Instance { get; private set; }
+
+        void Awake()
         {
-            _character = GameManager.Instance.GetLocalPlayer().GetComponent<PlayerCharacter>();
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else if (Instance != this)
+            {
+                Debug.LogWarning($"More than one instance of a script in a scene. {gameObject.name}");
+            }
         }
+
+        #endregion
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Tab))
+            if (Input.GetKeyDown(KeyCode.Tab)) //TODO move to PlayerControl
             {
-                uiInventory.SetActive(!uiInventory.activeSelf);
+                if (InventoryUI.IsOpen)
+                {
+                    InventoryUI.CloseContainer();
+                }
+                else
+                {
+                    InventoryUI.OpenContainer(GameManager.Instance.GetLocalPlayer().GetComponent<Container>());
+                }
             }
+        }
+
+        void UpdateAttributes()
+        {
+        //     foreach (var img in UIAttributeBars)
+        //     {
+        //         img.fillAmount = ;
+        //     }
         }
     }
 }

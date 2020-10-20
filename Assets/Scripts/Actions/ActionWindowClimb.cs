@@ -6,17 +6,16 @@ using UnityEngine;
 
 namespace Actions
 {
-    [CreateAssetMenu(fileName = "Action", menuName = "Data/Actions/Climb", order = 0)]
+    [CreateAssetMenu(fileName = "WindowClimb", menuName = "Data/Actions/Climb", order = 0)]
     public class ActionWindowClimb : AAction
     {
         public override void DoAction(PlayerCharacter character, Interactable interactable)
         {
             if (interactable == null) return;
 
-            Vector3 startPoint = character.Transform.position;
-            startPoint.x = /*Math.Sign(startPoint.x) * */character.Controller.radius;
 
-            Vector3 pos = interactable.transform.InverseTransformPoint(startPoint);
+            Vector3 pos = interactable.transform.InverseTransformPoint(interactable.transform.position);
+            pos.x = Math.Sign(pos.x) * character.Controller.radius;
             pos.z = 0;
             pos = interactable.transform.TransformPoint(pos);
             //TODO mb make WalkTo state in this case unskipable

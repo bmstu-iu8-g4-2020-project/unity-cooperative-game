@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Actions
 {
+    //Todo Or use dict
     /// <summary>
     /// Interactable Action parent class. Actions that player can do with somethig
     /// </summary>

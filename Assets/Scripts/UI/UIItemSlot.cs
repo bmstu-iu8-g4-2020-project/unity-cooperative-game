@@ -37,6 +37,8 @@ namespace UI
         [SerializeField]
         private TextMeshProUGUI weightText;
 
+        private bool _inInventory = false;
+        
         public void SetupSlot([NotNull] ItemSlot pItem)
         {
             icon.enabled = true;

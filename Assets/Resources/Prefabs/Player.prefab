@@ -396,6 +396,8 @@ GameObject:
   - component: {fileID: 7957718572432268646}
   - component: {fileID: 7957718572432268645}
   - component: {fileID: 3313566519169204727}
+  - component: {fileID: 983185144216774947}
+  - component: {fileID: -4776588451543274257}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -434,12 +436,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb81c8478d11a6468c062c40fdea88e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <WalkSpeed>k__BackingField: 10
-  <SprintSpeedMultiplier>k__BackingField: 1.5
-  <StealthSpeed>k__BackingField: 5
-  <InteractionRadius>k__BackingField: 5
-  attributes: []
-  <ClimbingDuration>k__BackingField: 1.5
 --- !u!114 &-7018001132849405348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,6 +587,38 @@ MonoBehaviour:
   serverOnly: 0
   m_AssetId: 
   hasSpawned: 0
+--- !u!114 &983185144216774947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7957718572432268648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828d8df5f4d9ad346b487ac3d157931d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ContainerName>k__BackingField: Inventory
+  <Type>k__BackingField: 0
+  maxWeight: 20
+--- !u!114 &-4776588451543274257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7957718572432268648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1bc0e07f76d4562bb2ec7105b76c322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attributesList:
+  - {fileID: 11400000, guid: bc2aa8947db1db54087ccafb304b4e90, type: 2}
+  - {fileID: 11400000, guid: c5a95c3e119872744983b732ac8d050e, type: 2}
+  - {fileID: 11400000, guid: 0fc0fdd7499fb7f49a2fcb7530d8ecdc, type: 2}
+  updateRate: 1
 --- !u!1 &9091495390311104120
 GameObject:
   m_ObjectHideFlags: 0
