@@ -36,8 +36,8 @@ namespace UI
             //TODO fix 
             DelayedOperation.OperationDelegate onComplete = () =>
             {
-                from.OpenedContainer.TryRemoveOne(uiItemSlot.ItemSlot);
-                to.OpenedContainer.TryAddOne(uiItemSlot.ItemSlot.GetSlotWithOneItem());
+                from.OpenedContainer.RemoveOne(uiItemSlot.ItemSlot);
+                to.OpenedContainer.AddOne(uiItemSlot.ItemSlot.GetSlotWithOneItem());
             };
 
             _amount--;

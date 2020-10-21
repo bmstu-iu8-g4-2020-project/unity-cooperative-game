@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Mirror;
 using Player;
 using UI;
 using UnityEngine;
@@ -16,7 +17,7 @@ namespace Gameplay
     }
     //TODO add lastOpeningTime and generate loot
 
-    public class Container : MonoBehaviour
+    public class Container : NetworkBehaviour
     {
         [field: SerializeField]
         public string ContainerName { get; private set; } = "Container";
@@ -36,12 +37,21 @@ namespace Gameplay
         public event SlotChangeDelegate OnSlotRemove;
 
 
-        public readonly List<ItemSlot> Items = new List<ItemSlot>();
+        public List<ItemSlot> Items { get; private set; } = new List<ItemSlot>();
 
         /// <summary>
         /// Try adding a 1 item to this container. If the container's maximum weight has already been reached, return false.
         /// </summary>
-        public bool TryAddOne(ItemSlot slot)
+        /// <param name="slot">Slot with 1 item</param>
+        public void AddOne(ItemSlot slot)
+        {
+            if (isClient)
+            {
+                CmdTryAdd(slot.GetData().title, slot.GetCondition());
+            }
+        }
+
+        private bool TryAddOneLogic(ItemSlot slot)
         {
             if (!CanAdd(slot))
             {
@@ -69,7 +79,15 @@ namespace Gameplay
         }
 
 
-        public bool TryRemoveOne(ItemSlot slot)
+        public void RemoveOne(ItemSlot slot)
+        {
+            if (isClient)
+            {
+                CmdTryRemove(slot.GetData().title, slot.GetCondition());
+            }
+        }
+
+        private bool TryRemoveOneLogic(ItemSlot slot)
         {
             var index = Items.FindIndex(x => x.Equals(slot));
             if (index == -1) return false;
@@ -101,7 +119,7 @@ namespace Gameplay
             int index = Random.Range(0, 3);
             int condition = tempItems[index].isDegradable ? Random.Range(1, tempItems[index].maxCondition) : -1;
 
-            TryAddOne(new ItemSlot(tempItems[index]));
+            AddOne(new ItemSlot(tempItems[index]));
         }
 
         public void TestRemoveRandomItem()
@@ -109,7 +127,7 @@ namespace Gameplay
             int index = Random.Range(0, Items.Count);
             if (0 <= index && index <= Items.Count)
             {
-                TryRemoveOne(Items[index]);
+                RemoveOne(Items[index]);
             }
         }
 
@@ -150,6 +168,7 @@ namespace Gameplay
 
         public void GenerateLoot()
         {
+            if (!isServer) return;
             Items.Clear();
             ItemData[] tempItems = _lootForContainerType[Type];
             if (tempItems == null) return;
@@ -161,8 +180,36 @@ namespace Gameplay
                 uint amount = (uint) Random.Range(1, 3);
                 int condition = tempItems[index].isDegradable ? tempItems[index].maxCondition : -1;
 
-                TryAddOne(new ItemSlot(tempItems[index], condition, amount));
+                AddOne(new ItemSlot(tempItems[index], condition, amount));
             }
+        }
+
+        [ClientRpc]
+        private void RpcAdd(string itemName, int condition)
+        {
+            if(isClient && isServer) return;
+            TryAddOneLogic(new ItemSlot(ItemData.FindByName(itemName), condition));
+        }
+
+        [Command(ignoreAuthority = true)]
+        private void CmdTryAdd(string itemName, int condition)
+        {
+            if (!TryAddOneLogic(new ItemSlot(ItemData.FindByName(itemName), condition))) return;
+            RpcAdd(itemName, condition);
+        }
+
+        [ClientRpc]
+        private void RpcRemove(string itemName, int condition)
+        {
+            if(isClient && isServer) return;
+            TryRemoveOneLogic(new ItemSlot(ItemData.FindByName(itemName), condition));
+        }
+
+        [Command(ignoreAuthority = true)]
+        private void CmdTryRemove(string itemName, int condition) //string itemName, int condition, int amount
+        {
+            if (!TryRemoveOneLogic(new ItemSlot(ItemData.FindByName(itemName), condition))) return;
+            RpcRemove(itemName, condition);
         }
     }
 }

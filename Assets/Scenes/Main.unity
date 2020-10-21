@@ -267,8 +267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0007ce2aed047739a53984e630bc3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LookRadius>k__BackingField: 4
-  forgettingTime: 5
 --- !u!143 &31516933
 CharacterController:
   m_ObjectHideFlags: 0
@@ -643,8 +641,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0007ce2aed047739a53984e630bc3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LookRadius>k__BackingField: 4
-  forgettingTime: 5
 --- !u!143 &59979029
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1218,8 +1214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0007ce2aed047739a53984e630bc3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LookRadius>k__BackingField: 4
-  forgettingTime: 5
 --- !u!143 &131075449
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2329,8 +2323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0007ce2aed047739a53984e630bc3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LookRadius>k__BackingField: 4
-  forgettingTime: 5
 --- !u!143 &299379428
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3248,8 +3240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0007ce2aed047739a53984e630bc3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LookRadius>k__BackingField: 4
-  forgettingTime: 5
 --- !u!143 &445100922
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3552,8 +3542,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0007ce2aed047739a53984e630bc3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LookRadius>k__BackingField: 4
-  forgettingTime: 5
 --- !u!143 &468378259
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3955,8 +3943,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0007ce2aed047739a53984e630bc3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LookRadius>k__BackingField: 4
-  forgettingTime: 5
 --- !u!143 &539485322
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4262,8 +4248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0007ce2aed047739a53984e630bc3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LookRadius>k__BackingField: 4
-  forgettingTime: 5
 --- !u!143 &563705396
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4955,8 +4939,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0007ce2aed047739a53984e630bc3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LookRadius>k__BackingField: 4
-  forgettingTime: 5
 --- !u!143 &659048171
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5111,8 +5093,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0007ce2aed047739a53984e630bc3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LookRadius>k__BackingField: 4
-  forgettingTime: 5
 --- !u!143 &662455382
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5630,10 +5610,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 096b1267bb335b24aa523811605b0a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <UIInventory>k__BackingField: {fileID: 574274939}
-  <UIContainer>k__BackingField: {fileID: 789574551}
-  <UIOperationBar>k__BackingField: {fileID: 859503284}
-  <UIAttributeBars>k__BackingField: []
+  <InventoryUI>k__BackingField: {fileID: 574274939}
+  <ContainerUI>k__BackingField: {fileID: 789574551}
+  <OperationBarUI>k__BackingField: {fileID: 859503284}
+  <AttributeBarsUI>k__BackingField: []
 --- !u!1 &766196771
 GameObject:
   m_ObjectHideFlags: 0
@@ -6482,6 +6462,7 @@ GameObject:
   - component: {fileID: 965532521}
   - component: {fileID: 965532520}
   - component: {fileID: 965532519}
+  - component: {fileID: 965532525}
   m_Layer: 8
   m_Name: Container (2)
   m_TagString: Untagged
@@ -6517,6 +6498,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828d8df5f4d9ad346b487ac3d157931d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   <ContainerName>k__BackingField: Container
   <Type>k__BackingField: 2
   maxWeight: 50
@@ -6596,6 +6579,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &965532525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965532518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 2563702944
+  serverOnly: 0
+  m_AssetId: 
+  hasSpawned: 0
 --- !u!1 &1026869554
 GameObject:
   m_ObjectHideFlags: 0
@@ -6786,8 +6785,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0007ce2aed047739a53984e630bc3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LookRadius>k__BackingField: 4
-  forgettingTime: 5
 --- !u!143 &1129866253
 CharacterController:
   m_ObjectHideFlags: 0
@@ -7568,8 +7565,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0007ce2aed047739a53984e630bc3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LookRadius>k__BackingField: 4
-  forgettingTime: 5
 --- !u!143 &1237694048
 CharacterController:
   m_ObjectHideFlags: 0
@@ -8941,8 +8936,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0007ce2aed047739a53984e630bc3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LookRadius>k__BackingField: 4
-  forgettingTime: 5
 --- !u!143 &1502892928
 CharacterController:
   m_ObjectHideFlags: 0
@@ -9236,6 +9229,7 @@ GameObject:
   - component: {fileID: 1522975175}
   - component: {fileID: 1522975174}
   - component: {fileID: 1522975179}
+  - component: {fileID: 1522975178}
   m_Layer: 8
   m_Name: Container
   m_TagString: Untagged
@@ -9269,6 +9263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828d8df5f4d9ad346b487ac3d157931d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   <ContainerName>k__BackingField: Container
   <Type>k__BackingField: 1
   maxWeight: 50
@@ -9334,6 +9330,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522975172}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1522975178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522975172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 791617429
+  serverOnly: 0
+  m_AssetId: 
+  hasSpawned: 0
 --- !u!114 &1522975179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10765,8 +10777,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0007ce2aed047739a53984e630bc3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LookRadius>k__BackingField: 4
-  forgettingTime: 5
 --- !u!143 &1934552227
 CharacterController:
   m_ObjectHideFlags: 0
@@ -11016,8 +11026,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0007ce2aed047739a53984e630bc3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LookRadius>k__BackingField: 4
-  forgettingTime: 5
 --- !u!143 &1953972927
 CharacterController:
   m_ObjectHideFlags: 0
@@ -11301,8 +11309,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0007ce2aed047739a53984e630bc3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LookRadius>k__BackingField: 4
-  forgettingTime: 5
 --- !u!143 &2051935763
 CharacterController:
   m_ObjectHideFlags: 0
@@ -11436,6 +11442,7 @@ GameObject:
   - component: {fileID: 2091710245}
   - component: {fileID: 2091710244}
   - component: {fileID: 2091710243}
+  - component: {fileID: 2091710249}
   m_Layer: 8
   m_Name: Container (1)
   m_TagString: Untagged
@@ -11471,6 +11478,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828d8df5f4d9ad346b487ac3d157931d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   <ContainerName>k__BackingField: Container
   <Type>k__BackingField: 0
   maxWeight: 50
@@ -11550,6 +11559,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2091710249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091710242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 1023716802
+  serverOnly: 0
+  m_AssetId: 
+  hasSpawned: 0
 --- !u!1 &2107483554
 GameObject:
   m_ObjectHideFlags: 0
@@ -11615,8 +11640,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0007ce2aed047739a53984e630bc3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LookRadius>k__BackingField: 4
-  forgettingTime: 5
 --- !u!143 &2107483558
 CharacterController:
   m_ObjectHideFlags: 0
@@ -11896,8 +11919,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0007ce2aed047739a53984e630bc3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LookRadius>k__BackingField: 4
-  forgettingTime: 5
 --- !u!143 &2113554347
 CharacterController:
   m_ObjectHideFlags: 0
@@ -12546,8 +12567,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0007ce2aed047739a53984e630bc3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LookRadius>k__BackingField: 4
-  forgettingTime: 5
 --- !u!23 &7957718571423594248
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12686,8 +12705,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0007ce2aed047739a53984e630bc3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LookRadius>k__BackingField: 6
-  forgettingTime: 5
 --- !u!23 &7957718571511332680
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12908,8 +12925,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0007ce2aed047739a53984e630bc3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LookRadius>k__BackingField: 4
-  forgettingTime: 5
 --- !u!195 &7957718573500343070
 NavMeshAgent:
   m_ObjectHideFlags: 0
