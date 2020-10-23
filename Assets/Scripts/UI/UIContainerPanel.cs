@@ -6,7 +6,6 @@ using Gameplay;
 using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace UI
 {
@@ -50,46 +49,46 @@ namespace UI
         private List<KeyValuePair<ItemSlot, UIItemSlot>> _slots;
 
         [CanBeNull]
-        public Container OpenedContainer { get; private set; }
+        public Gameplay.ItemContainer OpenedItemContainer { get; private set; }
 
-        /// <summary>
         /// Open container UI panel. 
-        /// </summary>
-        public void OpenContainer(Container container)
+        public void OpenContainer(Gameplay.ItemContainer itemContainer)
         {
             if (IsOpen) CloseContainer();
             IsOpen = true;
             _slots = new List<KeyValuePair<ItemSlot, UIItemSlot>>();
             //Sorting items in container
-            if (container.Items.Count > 0)
-            {
-                container.Items.Sort();
-            }
+            // if (_items.Count > 0)
+            // {
+            //     _items.Sort();
+            // }
 
             hidablePanel.SetActive(true);
 
-            title.text = container.ContainerName.ToUpper(); // Set the name of the container.
+            //title.text = itemContainer.ContainerName.ToUpper(); // Set the name of the container.
 
-            container.OnSlotChange += UpdateSlot;
-            container.OnSlotAdd += OnSlotAdd;
-            container.OnSlotRemove += OnSlotRemove;
+            itemContainer.Items.Callback += OnContainerUpdated;
+            // itemContainer.OnSlotChange += UpdateSlot;
+            // itemContainer.OnSlotAdd += OnSlotAdd;
+            // itemContainer.OnSlotRemove += OnSlotRemove;
 
-            var i = 0;
             // Loop through each item in the given items list and instantiate a new UIItemSlot prefab for each one.
-            foreach (var slot in container.Items)
+            for (int i = 0; i < itemContainer.Items.Count; i++)
             {
-                CreateUISlot(i, slot);
-                i++;
+                CreateUISlot(i, itemContainer.Items[i]);
             }
 
-            OpenedContainer = container;
+            OpenedItemContainer = itemContainer;
         }
 
 
-        private void UpdateSlot(ItemSlot slot)
+        private void UpdateSlot(ItemSlot oldSlot, ItemSlot newSlot)
         {
-            var pair = _slots.Find(x => x.Key.Equals(slot));
-            pair.Value.UpdateSlot();
+            var index = _slots.FindIndex(x => x.Key.Equals(oldSlot));
+            _slots[index] = new KeyValuePair<ItemSlot, UIItemSlot>(newSlot,_slots[index].Value);
+            _slots[index].Value.ItemSlot = newSlot;
+            //TODO replace ItenSlot var in UIItemSlot and in _slots
+            _slots[index].Value.UpdateSlot();
         }
 
         private void OnSlotRemove(ItemSlot slot)
@@ -115,7 +114,7 @@ namespace UI
                 {
                     var uiSlotObject = Instantiate(_uiSlotPrefab, contentWindow);
                     uiSlotObject.transform.SetSiblingIndex(i);
-                    uiSlotObject.name = i + " " + slot.GetData().name;
+                    uiSlotObject.name = i + " " + slot.name;
 
                     var uiSlot = uiSlotObject.GetComponent<UIItemSlot>();
                     uiSlot.SetupSlot(slot);
@@ -137,11 +136,41 @@ namespace UI
             }
         }
 
+        void OnContainerUpdated(SyncListItemSlot.Operation op, int index, ItemSlot oldItem, ItemSlot newItem)
+        {
+            switch (op)
+            {
+                case SyncListItemSlot.Operation.OP_ADD:
+                    // index is where it got added in the list
+                    // item is the new item
+                    OnSlotAdd(newItem);
+                    break;
+                case SyncListItemSlot.Operation.OP_CLEAR:
+                    // list got cleared
+                    break;
+                case SyncListItemSlot.Operation.OP_INSERT:
+                    // index is where it got added in the list
+                    // item is the new item
+                    OnSlotAdd(newItem);
+                    break;
+                case SyncListItemSlot.Operation.OP_REMOVEAT:
+                    // index is where it got removed in the list
+                    // item is the item that was removed
+                    OnSlotRemove(oldItem);
+                    break;
+                case SyncListItemSlot.Operation.OP_SET:
+                    // index is the index of the item that was updated
+                    // item is the previous item
+                    UpdateSlot(oldItem, newItem);
+                    break;
+            }
+        }
+
         void CreateUISlot(int namePrefix, ItemSlot slot)
         {
             //Make sure our GridLayoutWindow is set as the parent of the new UIItemSlot object.
             GameObject uiSlotObject = Instantiate(_uiSlotPrefab, contentWindow);
-            uiSlotObject.name = namePrefix + " " + slot.GetData().name;
+            uiSlotObject.name = namePrefix + " " + slot.name;
 
             var uiSlot = uiSlotObject.GetComponent<UIItemSlot>();
             uiSlot.SetupSlot(slot); //Setup icon\text
@@ -159,14 +188,15 @@ namespace UI
                 Destroy(slot.Value.gameObject);
             }
 
-            if (!(OpenedContainer is null))
+            if (!(OpenedItemContainer is null))
             {
-                OpenedContainer.OnSlotChange -= UpdateSlot;
-                OpenedContainer.OnSlotAdd -= OnSlotAdd;
-                OpenedContainer.OnSlotRemove -= OnSlotRemove;
+                // OpenedItemContainer.OnSlotChange -= UpdateSlot;
+                // OpenedItemContainer.OnSlotAdd -= OnSlotAdd;
+                // OpenedItemContainer.OnSlotRemove -= OnSlotRemove;
+                OpenedItemContainer.Items.Callback -= OnContainerUpdated;
             }
 
-            OpenedContainer = null;
+            OpenedItemContainer = null;
             // Clear the list and deactivate the container window.
             _slots.Clear();
             hidablePanel.SetActive(false);

@@ -599,8 +599,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 828d8df5f4d9ad346b487ac3d157931d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ContainerName>k__BackingField: Inventory
-  <Type>k__BackingField: 0
+  syncMode: 0
+  syncInterval: 0.1
   maxWeight: 20
 --- !u!114 &-4776588451543274257
 MonoBehaviour:
@@ -615,7 +615,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributesList:
-  - {fileID: 11400000, guid: bc2aa8947db1db54087ccafb304b4e90, type: 2}
   - {fileID: 11400000, guid: c5a95c3e119872744983b732ac8d050e, type: 2}
   - {fileID: 11400000, guid: 0fc0fdd7499fb7f49a2fcb7530d8ecdc, type: 2}
   updateRate: 1

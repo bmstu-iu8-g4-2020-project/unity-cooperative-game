@@ -37,35 +37,35 @@ namespace UI
         [SerializeField]
         private TextMeshProUGUI weightText;
 
-        private bool _inInventory = false;
+        private bool _inInventory = false;//TODO impliment
         
         public void SetupSlot([NotNull] ItemSlot pItem)
         {
             icon.enabled = true;
             title.enabled = true;
             weightText.enabled = true;
-            amountText.enabled = pItem.GetData().isStackable;
-            condition.enabled = pItem.GetData().isDegradable;
+            amountText.enabled = pItem.isStackable;
+            condition.enabled = pItem.isDegradable;
 
             ItemSlot = pItem;
-            icon.sprite = ItemSlot.GetData().icon;
+            icon.sprite = ItemSlot.icon;
             UpdateSlot();
         }
 
         public void UpdateSlot()
         {
-            icon.sprite = ItemSlot.GetData().icon;
-            title.text = ItemSlot.GetData().title;
+            icon.sprite = ItemSlot.icon;
+            title.text = ItemSlot.name;
             weightText.text = ItemSlot.TotalWeight.ToString(CultureInfo.InvariantCulture);
 
-            if (ItemSlot.GetData().isStackable)
+            if (ItemSlot.isStackable)
             {
                 amountText.text = ItemSlot.GetAmount().ToString();
             }
 
-            if (ItemSlot.GetData().isDegradable)
+            if (ItemSlot.isDegradable)
             {
-                float conditionPercent = (float) ItemSlot.GetCondition() / ItemSlot.GetData().maxCondition;
+                float conditionPercent = (float) ItemSlot.GetCondition() / ItemSlot.maxCondition;
                 float barWidth = slotRect.rect.width * conditionPercent;
                 condition.rectTransform.sizeDelta = new Vector2(barWidth, condition.rectTransform.sizeDelta.y);
 

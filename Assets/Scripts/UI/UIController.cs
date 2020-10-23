@@ -17,7 +17,7 @@ namespace UI
         public Image OperationBarUI { get; private set; }
 
         [field: SerializeField]
-        public Image[] AttributeBarsUI { get; private set; }
+        public UIAttribute AttributeBarsUI { get; private set; }
 
         #region singltone
 
@@ -47,17 +47,9 @@ namespace UI
                 }
                 else
                 {
-                    InventoryUI.OpenContainer(GameManager.Instance.GetLocalPlayer().GetComponent<Container>());
+                    InventoryUI.OpenContainer(GameManager.Instance.GetLocalPlayer().GetComponent<Gameplay.ItemContainer>());
                 }
             }
-        }
-
-        void UpdateAttributes()
-        {
-        //     foreach (var img in UIAttributeBars)
-        //     {
-        //         img.fillAmount = ;
-        //     }
         }
     }
 }

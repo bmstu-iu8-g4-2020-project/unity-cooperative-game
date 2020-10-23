@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Data;
+using UI;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Player
 {
@@ -14,8 +16,9 @@ namespace Player
         [SerializeField]
         private float updateRate = 1f;
 
+        ///Attr type -> current value of attribute
         public readonly Dictionary<AttributeType, float> Attributes = new Dictionary<AttributeType, float>();
-        
+
         private void Start()
         {
             foreach (var attr in attributesList)
@@ -37,8 +40,9 @@ namespace Player
             {
                 float updateValue = attr.valuePerHour /*+ GetTotalBonus(BonusEffectData...)*/;
                 updateValue = updateValue * gameSpeed * Time.deltaTime;
-                Debug.Log($"{attr.type} : {Attributes[attr.type]}");
                 AddAttributeValue(attr.type, updateValue, attr.maxValue);
+                //Update UI bars
+                UIController.Instance.AttributeBarsUI.UpdateBar(attr.type, AttributeInPercent(attr.type));
             }
 
             float healthMax = GetAttributeMax(AttributeType.Health);
@@ -57,7 +61,7 @@ namespace Player
             //Dying
             health = GetAttributeValue(AttributeType.Health);
             if (health < 0.01f)
-                /*Kill()*/;
+                /*Kill()*/ ;
         }
 
         public float GetAttributeMax(AttributeType type)
@@ -104,6 +108,11 @@ namespace Player
                 Attributes[type] += value;
 
             Attributes[type] = Mathf.Clamp(Attributes[type], 0f, max);
+        }
+
+        public float AttributeInPercent(AttributeType type)
+        {
+            return GetAttributeValue(type) / GetAttributeMax(type) * 100;
         }
     }
 }

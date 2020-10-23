@@ -19,8 +19,8 @@ namespace UI
             Debug.Log(eventData.pointerClick.name);
             UIItemSlot uiItemSlot = /*eventData.pointerClick.*/ GetComponent<UIItemSlot>();
             if (!(uiItemSlot != null && eventData.button == PointerEventData.InputButton.Left)) return;
-            if (UIController.Instance.ContainerUI.OpenedContainer is null
-                || UIController.Instance.InventoryUI.OpenedContainer is null) return;
+            if (UIController.Instance.ContainerUI.OpenedItemContainer is null
+                || UIController.Instance.InventoryUI.OpenedItemContainer is null) return;
 
             UIContainerPanel from = uiItemSlot.GetComponentInParent<UIContainerPanel>();
             if (from == UIController.Instance.InventoryUI)
@@ -36,8 +36,8 @@ namespace UI
             //TODO fix 
             DelayedOperation.OperationDelegate onComplete = () =>
             {
-                from.OpenedContainer.TryRemoveOne(uiItemSlot.ItemSlot);
-                to.OpenedContainer.TryAddOne(uiItemSlot.ItemSlot.GetSlotWithOneItem());
+                from.OpenedItemContainer.RemoveOne(uiItemSlot.ItemSlot);
+                to.OpenedItemContainer.AddOne(uiItemSlot.ItemSlot.GetSlotWithOneItem());
             };
 
             _amount--;
