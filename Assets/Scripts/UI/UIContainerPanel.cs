@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using Gameplay;
 using JetBrains.Annotations;
@@ -57,6 +56,7 @@ namespace UI
             if (IsOpen) CloseContainer();
             IsOpen = true;
             _slots = new List<KeyValuePair<ItemSlot, UIItemSlot>>();
+            //TODO sort
             //Sorting items in container
             // if (_items.Count > 0)
             // {
@@ -65,12 +65,8 @@ namespace UI
 
             hidablePanel.SetActive(true);
 
-            //title.text = itemContainer.ContainerName.ToUpper(); // Set the name of the container.
-
+            //Subscribe on SyncList update
             itemContainer.Items.Callback += OnContainerUpdated;
-            // itemContainer.OnSlotChange += UpdateSlot;
-            // itemContainer.OnSlotAdd += OnSlotAdd;
-            // itemContainer.OnSlotRemove += OnSlotRemove;
 
             // Loop through each item in the given items list and instantiate a new UIItemSlot prefab for each one.
             for (int i = 0; i < itemContainer.Items.Count; i++)
@@ -85,7 +81,7 @@ namespace UI
         private void UpdateSlot(ItemSlot oldSlot, ItemSlot newSlot)
         {
             var index = _slots.FindIndex(x => x.Key.Equals(oldSlot));
-            _slots[index] = new KeyValuePair<ItemSlot, UIItemSlot>(newSlot,_slots[index].Value);
+            _slots[index] = new KeyValuePair<ItemSlot, UIItemSlot>(newSlot, _slots[index].Value);
             _slots[index].Value.ItemSlot = newSlot;
             //TODO replace ItenSlot var in UIItemSlot and in _slots
             _slots[index].Value.UpdateSlot();
@@ -190,9 +186,6 @@ namespace UI
 
             if (!(OpenedItemContainer is null))
             {
-                // OpenedItemContainer.OnSlotChange -= UpdateSlot;
-                // OpenedItemContainer.OnSlotAdd -= OnSlotAdd;
-                // OpenedItemContainer.OnSlotRemove -= OnSlotRemove;
                 OpenedItemContainer.Items.Callback -= OnContainerUpdated;
             }
 
