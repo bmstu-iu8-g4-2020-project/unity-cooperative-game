@@ -1,50 +1,55 @@
 ﻿using System;
+using System.Collections.Generic;
 using Data;
 using JetBrains.Annotations;
+using Mirror;
 using UnityEngine;
 
 namespace Gameplay
 {
     /// <summary>
     /// ItemSlot represents item in inventory or other storage with amount and condition.
-    /// Shouldn't exist if not store some item.
+    /// It only contains the dynamic item properties. Shouldn't exist if not store some item.
     /// </summary>
-    public class ItemSlot : IComparable
+    [Serializable]
+    public struct ItemSlot : IComparable
     {
-        [NotNull]
-        private readonly ItemData _data;
+        // hashcode used to reference the real ItemData
+        // can't link to data directly because SyncList only supports simple types)
+        [SerializeField]
+        public int hash;
+        [SerializeField]
+        public uint _amount;
+        [SerializeField]
+        public int _condition; // -1 if not degradable
 
-        private uint _amount;
-
-        //TODO If condition decrease- create new slot or find with same cond.
-        private readonly int _condition; // -1 if not degradable
-
-        /// <summary>
-        /// Can't exist if not store some item.
-        /// </summary>
-        /// <param name="data">Can't be null.</param>
-        /// <param name="condition">Condition of items in slot. Can't be 0.</param>
-        /// <param name="amount">If Item is not stackable it set to 1</param>
-        /// <exception cref="NullReferenceException">ItemData data</exception>
+        /// Can't exist if not store some item. Item data Can't be null
         public ItemSlot([NotNull] ItemData data, int condition = 0, uint amount = 1)
         {
             if (data == null)
-            {
-                throw new NullReferenceException($"{nameof(ItemData)} is null in {GetType().Name} constructor");
-            }
+                throw new NullReferenceException($"{nameof(ItemData)} is null in ItemSlot constructor");
 
-            _data = data;
-            _amount = _data.isStackable ? amount : 1;
+            hash = data.name.GetStableHashCode();
+            _amount = data.isStackable ? amount : 1;
             condition = condition == 0 ? data.maxCondition : condition;
-            _condition = _data.isDegradable ? condition : -1;
+            _condition = data.isDegradable ? condition : -1;
         }
 
-        /// <summary>
-        /// Try to add item to this slot. If item is not stackable return false.
-        /// </summary>
-        public bool Increase()
+        ///Database item property access
+        public ItemData data
         {
-            if (!_data.isStackable) return false;
+            get
+            {
+                if (!ItemData.dict.ContainsKey(hash))
+                    throw new KeyNotFoundException("There is no ItemData with hash=" + hash + ".");
+                return ItemData.dict[hash];
+            }
+        }
+
+        /// Try to add item to this slot. If item is not stackable return false.
+        public bool TryIncrease()
+        {
+            if (!data.isStackable) return false;
             _amount++;
             return true;
         }
@@ -55,58 +60,54 @@ namespace Gameplay
             return true;
         }
 
-        public ItemSlot GetSlotWithOneItem()
-        {
-            return new ItemSlot(_data, _condition);
-        }
-
-        // public static ItemSlot GetSlotWithOneItem(ItemSlot slot)
-        // {
-        //     return new ItemSlot(slot._data, slot._condition);
-        // }
-
-        #region Getters & Setters
-
-        public ItemData GetData() => _data;
-        public uint GetAmount() => _amount;
-        public int GetCondition() => _condition;
-        public float TotalWeight => _data.weight * _amount;
-        public float GetWeightOf(int amount) => _data.weight * amount;
-
-        #endregion
-
-        public float GetItemTransferTime()
-        {
-            return TheData.Instance.PlayerData.ItemTransferRate * _data.weight;
-        }
-
-        private static bool Compare(ItemSlot slot1, ItemSlot slot2)
-        {
-            // Items can store in one slot only if their condition equals
-            if (slot1._data != slot2._data || slot1._condition != slot2._condition)
-                return false;
-
-            return true;
-        }
 
         public void Use()
         {
-            
         }
+
+        #region Getters & Setters
+
+        public string name => data.name;
+        public int maxCondition => data.maxCondition;
+        public bool isStackable => data.isStackable;
+        public bool isDegradable => data.isDegradable;
+        public Sprite icon => data.icon;
+        public float TotalWeight => data.weight * _amount;
+        public uint GetAmount() => _amount;
+        public int GetCondition() => _condition;
+        public bool CheckCondition() => maxCondition == -1 || _condition > 0;
+        public float GetWeightOf(int amount) => data.weight * amount;
+
+        public float ConditionPercent() =>
+            _condition != -1 && maxCondition != -1 ? (float) _condition / maxCondition : 0;
+
+        public ItemSlot GetSlotWithOneItem()
+        {
+            return new ItemSlot(data, _condition);
+        }
+
+        public float GetItemTransferTime()
+        {
+            return TheData.Instance.PlayerData.ItemTransferRate * data.weight;
+        }
+
+        #endregion
+
+        #region Overrides For Collections
 
         public override bool Equals(object obj)
         {
-            return Equals(obj as ItemSlot);
+            return base.Equals(obj);
         }
 
-        protected bool Equals(ItemSlot other)
+        public bool Equals(ItemSlot other)
         {
-            return _data.title == other._data.title && _condition == other._condition;
+            return hash == other.hash && _condition == other._condition;
         }
 
         public override int GetHashCode()
         {
-            return (_data.title + _condition).GetHashCode();
+            return (data.name + _condition).GetHashCode();
         }
 
         public int CompareTo(object obj)
@@ -114,10 +115,16 @@ namespace Gameplay
             if (obj == null) return 1;
 
             if (obj is ItemSlot othSlot)
-                return String.Compare(this._data.title, othSlot._data.title, StringComparison.Ordinal) -
+                return String.Compare(this.data.name, othSlot.data.name, StringComparison.Ordinal) -
                        _condition.CompareTo(othSlot._condition);
 
             throw new ArgumentException("Object is not a ItemSlot");
         }
+
+        #endregion
+    }
+
+    public class SyncListItemSlot : SyncList<ItemSlot>
+    {
     }
 }

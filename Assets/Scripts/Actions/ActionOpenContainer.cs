@@ -10,8 +10,8 @@ namespace Actions
     {
         public override void DoAction(PlayerCharacter character, Interactable interactable)
         {
-            UIController.Instance.ContainerUI.OpenContainer(interactable.GetComponent<Container>());
-            UIController.Instance.InventoryUI.OpenContainer(character.GetComponent<Container>());
+            UIController.Instance.ContainerUI.OpenContainer(interactable.GetComponent<Gameplay.ItemContainer>());
+            UIController.Instance.InventoryUI.OpenContainer(character.GetComponent<Gameplay.ItemContainer>());
 
             //trigger animation and etc
         }

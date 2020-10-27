@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterAttributeData
   type: 8
   title: Thirst
-  start_value: 100
-  max_value: 100
-  value_per_hour: -5
-  deplete_hp_loss: -20
-  deplete_move_mult: 0.9
+  startValue: 100
+  maxValue: 100
+  valuePerHour: -10000
+  depleteHpLoss: -100
+  depleteMoveMult: 1
