@@ -27,9 +27,6 @@ namespace Data
         [field: SerializeField]
         public float ClimbingDuration { get; private set; } = 2.0f;
 
-        public static PlayerData Get()
-        {
-            return TheData.Instance.PlayerData;
-        }
+        public static PlayerData Get() => TheData.Instance.PlayerData;
     }
 }

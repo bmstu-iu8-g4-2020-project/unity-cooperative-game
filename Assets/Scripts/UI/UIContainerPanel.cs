@@ -26,18 +26,19 @@ namespace UI
         public TextMeshProUGUI title;
         public Transform contentWindow; // The GridLayoutWindow that using to display our UIItemSlots.
 
-        GameObject _uiSlotPrefab; // The prefab of the UIItemSlots.
+        private GameObject _uiSlotPrefab; // The prefab of the UIItemSlots.
+        private const string PathToPrefab = "Prefabs/UIItemSlotList";
+
 
         public bool IsOpen { get; private set; }
 
 
         private void Start()
         {
-            var pathToPrefab = "Prefabs/UIItemSlotList";
-            _uiSlotPrefab = Resources.Load<GameObject>(pathToPrefab);
+            _uiSlotPrefab = Resources.Load<GameObject>(PathToPrefab);
             if (_uiSlotPrefab == null)
             {
-                throw new PrefabNotFoundException($"{pathToPrefab} not found in script attached to {gameObject.name}");
+                throw new PrefabNotFoundException($"{PathToPrefab} not found in script attached to {gameObject.name}");
             }
 
             hidablePanel.SetActive(false);

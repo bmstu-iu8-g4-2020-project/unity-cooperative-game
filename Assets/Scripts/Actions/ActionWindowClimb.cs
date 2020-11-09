@@ -25,9 +25,6 @@ namespace Actions
             character.StateMachine.StartNextStateFromQueue();
         }
 
-        public override bool CanDoAction(PlayerCharacter character, Interactable interactable)
-        {
-            return true;
-        }
+        public override bool CanDoAction(PlayerCharacter character, Interactable interactable) => true;
     }
 }

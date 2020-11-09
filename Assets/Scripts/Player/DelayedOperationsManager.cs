@@ -38,7 +38,7 @@ namespace Player
 
         private float _timer = 0f;
 
-        #region singltone
+        #region singleton
 
         public static DelayedOperationsManager Instance { get; private set; }
 
@@ -48,7 +48,7 @@ namespace Player
             {
                 Instance = this;
             }
-            else if (Instance != this)
+            else
             {
                 Debug.LogWarning($"More than one instance of a script in a scene. {gameObject.name}");
             }

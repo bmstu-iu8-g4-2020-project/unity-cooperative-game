@@ -47,7 +47,7 @@ public class CameraManager : MonoBehaviour
 
     private int _screenWidth;
     private int _screenHeight;
-    
+
     private void Awake()
     {
         _forward = GameManager.Instance.GetCamera().transform.forward;
@@ -60,7 +60,7 @@ public class CameraManager : MonoBehaviour
 
     private void Start()
     {
-        _screenWidth = Screen.width;
+        _screenWidth = Screen.width; //TODO fix potential bug
         _screenHeight = Screen.height;
 
         // minOrthographicSize = _playerCamera.orthographicSize;
@@ -71,7 +71,9 @@ public class CameraManager : MonoBehaviour
     {
         if (!_target) return;
 
-        _zoom = Mathf.Clamp(_zoom - Input.mouseScrollDelta.y * scrollSpeed, minOrthographicSize, maxOrthographicSize);
+        _zoom = Mathf.Clamp(_zoom - PlayerControlsMouse.Instance.GetMouseScroll() * scrollSpeed * Time.deltaTime,
+            minOrthographicSize,
+            maxOrthographicSize);
         _playerCamera.orthographicSize = minOrthographicSize + _zoom;
 
         Vector3 desiredPos = _target.position + offset;
@@ -113,10 +115,8 @@ public class CameraManager : MonoBehaviour
         return new Vector3(Sigmoid(a.x, b.x, factor), Sigmoid(a.y, b.y, factor), Sigmoid(a.z, b.z, factor));
     }
 
-    private static float Sigmoid(float a, float b, float t)
-    {
-        return (float) (a + (b - a) * (-2 * Mathf.Pow(t, 3) + 3 * Mathf.Pow(t, 2)));
-    }
+    private static float Sigmoid(float a, float b, float t) =>
+        a + (b - a) * (-2 * Mathf.Pow(t, 3) + 3 * Mathf.Pow(t, 2));
 
     public static Vector3 ClampMagnitude(Vector3 v, float max, float min)
     {

@@ -40,7 +40,7 @@ namespace Player
 
         private static PlayerControlsMouse _instance;
 
-        #region singltone
+        #region singleton
 
         public static PlayerControlsMouse Instance { get; private set; }
 
@@ -50,9 +50,9 @@ namespace Player
             {
                 Instance = this;
             }
-            else if (Instance != this)
+            else
             {
-                Debug.LogWarning($"Removed duplicate singltone script on {gameObject.name}");
+                Debug.LogWarning($"Removed duplicate singleton script on {gameObject.name}");
                 Destroy(this);
             }
 
@@ -214,24 +214,17 @@ namespace Player
             foreach (GameObject obj in _raycastList)
             {
                 Interactable select = obj.GetComponent<Interactable>();
-                if (select != null)
-                {
-                    float dist = (select.transform.position - pos).magnitude;
-                    if (dist < minDist)
-                    {
-                        minDist = dist;
-                        nearest = select;
-                    }
-                }
+                if (@select == null) continue;
+                float dist = (@select.transform.position - pos).magnitude;
+                if (!(dist < minDist)) continue;
+                minDist = dist;
+                nearest = @select;
             }
 
             return nearest;
         }
 
-        public ItemSlot GetInventorySelectedSlot()
-        {
-            throw new NotImplementedException();
-        }
+        public ItemSlot GetInventorySelectedSlot() => throw new NotImplementedException();
 
         /// <summary>
         /// In percentage
@@ -242,25 +235,13 @@ namespace Player
             return new Vector2(mpos.x / (float) Screen.width, mpos.y / (float) Screen.height);
         }
 
-        public bool IsInRaycast(GameObject obj)
-        {
-            return _raycastList.Contains(obj);
-        }
+        public bool IsInRaycast(GameObject obj) => _raycastList.Contains(obj);
 
-        public bool IsUsingMouse()
-        {
-            return _usingMouse;
-        }
+        public bool IsUsingMouse() => _usingMouse;
 
-        public float GetMouseScroll()
-        {
-            return _mouseScroll;
-        }
+        public float GetMouseScroll() => _mouseScroll;
 
-        public Vector2 GetMouseDelta()
-        {
-            return _mouseDelta;
-        }
+        public Vector2 GetMouseDelta() => _mouseDelta;
 
         //Check if mouse is on top of any UI element
         public bool IsMouseOverUI()

@@ -23,9 +23,6 @@ namespace Actions
         // }
 
         //Condition to check if the action is possible, override to add a condition
-        public virtual bool CanDoAction(PlayerCharacter character, Interactable interactable)
-        {
-            return true; //No condition
-        }
+        public virtual bool CanDoAction(PlayerCharacter character, Interactable interactable) => true;
     }
 }

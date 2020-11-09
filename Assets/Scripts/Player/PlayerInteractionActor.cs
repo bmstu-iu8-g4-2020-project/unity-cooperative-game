@@ -5,29 +5,15 @@ using UnityEngine;
 
 namespace Player
 {
-    /// <summary>
-    /// Entity can initiate interaction
-    /// </summary>
-    public interface IInteractionActor
-    {
-        float InteractionRadius { get; }
-        LayerMask InteractableLayerMask { get; }
-        void InteractWith(IInteractable interactable);
-        bool CanInteractNow();
-        bool CanInteractWith(IInteractable interactable);
-        IInteractable GetNearestInteractableInRadiusOrNull();
-        GameObject GetGameObject();
-    }
     //При вводе с клавы выбирать тут ближайший объект для автоматического действия
     //При выборе объекта мышью
 
-    //TODO chek
     /// <summary>
     /// Player component for initiate interaction
     /// </summary>
     [RequireComponent(typeof(FieldOfView))]
     [RequireComponent(typeof(PlayerCharacter))]
-    public class PlayerInteractionActor : MonoBehaviour, IInteractionActor
+    public class PlayerInteractionActor : MonoBehaviour
     {
         [field: SerializeField]
         public float InteractionRadius { get; private set; } = 3f;
@@ -41,7 +27,7 @@ namespace Player
         private Collider[] _interactablesInRadius;
         private FieldOfView _fieldOfView;
         private PlayerCharacter _character;
-        private IInteractable _currentInteractionTarget;
+        private Interactable _currentInteractionTarget;
 
         //Or Create Actor Controller that will be use Actor-Components in unity callbacks
 
@@ -92,33 +78,31 @@ namespace Player
             if (CanInteractWith(interactable)) InteractWith(interactable);
         }
 
-        public void InteractWith(IInteractable interactable)
+        public void InteractWith(Interactable interactable)
         {
             _currentInteractionTarget = interactable;
             //Toggle highlights for object
             interactable.OnInteract(this);
         }
-        
+
         private void StopInteraction()
         {
             _currentInteractionTarget.OnStopInteraction();
             _currentInteractionTarget = null;
         }
 
-        public bool CanInteractNow()
-        {
-            return _character.StateMachine.CurrentState.GetType().IsSubclassOf(typeof(MovementState));
-        }
+        public bool CanInteractNow() =>
+            _character.StateMachine.CurrentState.GetType().IsSubclassOf(typeof(MovementState));
 
-        public bool CanInteractWith(IInteractable interactable)
+        public bool CanInteractWith(Interactable interactable)
         {
             if (interactable == null) return false;
-            var dist = Vector3.Distance(transform.position, interactable.GetGameObject().transform.position);
+            var dist = Vector3.Distance(transform.position, interactable.gameObject.transform.position);
             return CanInteractNow() && dist <= InteractionRadius && dist <= interactable.Radius &&
                    interactable.CanInteract();
         }
 
-        public IInteractable GetNearestInteractableInRadiusOrNull()
+        public Interactable GetNearestInteractableInRadiusOrNull()
         {
             Interactable nearest = null;
             float minDist = InteractionRadius;
@@ -143,11 +127,6 @@ namespace Player
             }
 
             return nearest;
-        }
-
-        public GameObject GetGameObject()
-        {
-            return gameObject;
         }
     }
 }

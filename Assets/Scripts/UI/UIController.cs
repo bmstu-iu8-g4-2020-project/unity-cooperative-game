@@ -19,7 +19,7 @@ namespace UI
         [field: SerializeField]
         public UIAttribute AttributeBarsUI { get; private set; }
 
-        #region singltone
+        #region singleton
 
         public static UIController Instance { get; private set; }
 
@@ -29,7 +29,7 @@ namespace UI
             {
                 Instance = this;
             }
-            else if (Instance != this)
+            else
             {
                 Debug.LogWarning($"More than one instance of a script in a scene. {gameObject.name}");
             }

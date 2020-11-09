@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Data;
 using UI;
 using UnityEngine;
@@ -67,38 +68,20 @@ namespace Player
         public float GetAttributeMax(AttributeType type)
         {
             AttributeData adata = GetAttribute(type);
-            if (adata != null)
-                return adata.maxValue;
-            return 0f;
+            return adata != null ? adata.maxValue : 0f;
         }
 
-        public AttributeData GetAttribute(AttributeType type)
-        {
-            foreach (AttributeData attr in attributesList)
-            {
-                if (attr.type == type)
-                    return attr;
-            }
+        public AttributeData GetAttribute(AttributeType type) =>
+            attributesList.FirstOrDefault(attr => attr.type == type);
 
-            return null;
-        }
-
-        public bool HasAttribute(AttributeType type)
-        {
-            return Attributes.ContainsKey(type);
-        }
+        public bool HasAttribute(AttributeType type) => Attributes.ContainsKey(type);
 
         public float GetAttributeValue(AttributeType type)
         {
-            if (Attributes.ContainsKey(type))
-                return Attributes[type];
-            return 0f;
+            return Attributes.ContainsKey(type) ? Attributes[type] : 0f;
         }
 
-        public void SetAttributeValue(AttributeType type, float value)
-        {
-            Attributes[type] = value;
-        }
+        public void SetAttributeValue(AttributeType type, float value) => Attributes[type] = value;
 
         public void AddAttributeValue(AttributeType type, float value, float max)
         {
@@ -110,9 +93,6 @@ namespace Player
             Attributes[type] = Mathf.Clamp(Attributes[type], 0f, max);
         }
 
-        public float AttributeInPercent(AttributeType type)
-        {
-            return GetAttributeValue(type) / GetAttributeMax(type) * 100;
-        }
+        public float AttributeInPercent(AttributeType type) => GetAttributeValue(type) / GetAttributeMax(type) * 100;
     }
 }

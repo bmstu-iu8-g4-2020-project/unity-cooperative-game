@@ -16,7 +16,7 @@ namespace Actions
             //trigger animation and etc
         }
 
-        public override void StopInteraction()
+        public override void StopAction()
         {
             DelayedOperationsManager.Instance.DequeueAllOperations();
             UIController.Instance.ContainerUI.CloseContainer();

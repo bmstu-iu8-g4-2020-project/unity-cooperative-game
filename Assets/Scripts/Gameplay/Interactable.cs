@@ -4,20 +4,11 @@ using UnityEngine;
 
 namespace Gameplay
 {
-    public interface IInteractable
-    {
-        float Radius { get; }
-        void OnInteract(IInteractionActor interactionActor);
-        void OnStopInteraction();
-        bool CanInteract();
-        GameObject GetGameObject();
-        //Todo only bool TryInteract()
-    }
 
     /// <summary>
     /// Interactable can contain action.
     /// </summary>
-    public class Interactable : MonoBehaviour, IInteractable
+    public class Interactable : MonoBehaviour
     {
         [Header("Action")]
         public AAction action; //Action to be taken when interacting
@@ -50,7 +41,7 @@ namespace Gameplay
             }
         }
 
-        public void OnInteract(IInteractionActor interactionActor)
+        public void OnInteract(PlayerInteractionActor interactionActor)
         {
             var player = interactionActor as PlayerInteractionActor;
             if (player != null)
@@ -62,17 +53,9 @@ namespace Gameplay
         public void OnStopInteraction()
         {
             Debug.Log("Stop Interaction");
-            action.StopInteraction();
+            action.StopAction();
         }
 
-        public bool CanInteract()
-        {
-            return action != null;
-        }
-
-        public GameObject GetGameObject()
-        {
-            return gameObject;
-        }
+        public bool CanInteract() => action != null;
     }
 }

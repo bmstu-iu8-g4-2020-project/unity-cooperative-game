@@ -43,7 +43,7 @@ namespace Player
         private bool _pressStealth;
         private bool _holdStealth;
 
-        #region singltone
+        #region singleton
 
         public static PlayerControls Instance { get; private set; }
 
@@ -53,9 +53,9 @@ namespace Player
             {
                 Instance = this;
             }
-            else if (Instance != this)
+            else
             {
-                Debug.LogWarning($"Removed duplicate singltone script on {gameObject.name}");
+                Debug.LogWarning($"Removed duplicate singleton script on {gameObject.name}");
                 Destroy(this);
             }
         }
@@ -112,10 +112,7 @@ namespace Player
                 _holdStealth = true;
         }
 
-        public bool IsMoving()
-        {
-            return _move.magnitude > 0.1f;
-        }
+        public bool IsMoving() => _move.magnitude > 0.1f;
 
         public bool IsPressStealth() => _pressStealth;
         public bool IsHoldStealth() => _holdStealth;
@@ -127,14 +124,8 @@ namespace Player
         public bool IsPressSprint() => _pressSprint;
         public bool IsHoldSprint() => _holdSprint;
 
-        public Vector3 GetMove()
-        {
-            return _move;
-        }
+        public Vector3 GetMove() => _move;
 
-        public float GetRotateCam()
-        {
-            return _rotateCam;
-        }
+        public float GetRotateCam() => _rotateCam;
     }
 }

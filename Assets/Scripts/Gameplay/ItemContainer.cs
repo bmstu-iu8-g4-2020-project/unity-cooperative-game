@@ -59,10 +59,7 @@ namespace Gameplay
             Items.RemoveAt(index);
         }
 
-        public bool CanAdd(ItemSlot slot)
-        {
-            return _currentWeight + slot.GetWeightOf(1) <= maxWeight;
-        }
+        public bool CanAdd(ItemSlot slot) => _currentWeight + slot.GetWeightOf(1) <= maxWeight;
 
         //Helper function to find an item in the slots
         public int GetItemIndexByNameAndCond(string itemName, int condition)

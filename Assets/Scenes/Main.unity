@@ -2918,7 +2918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoothSpeed: 0.25
   offset: {x: -15, y: 12.5, z: -15}
-  scrollSpeed: 0.5
+  scrollSpeed: 10
   minOrthographicSize: 3
   maxOrthographicSize: 6
   maxShift: 2
@@ -5690,7 +5690,7 @@ MonoBehaviour:
   <InventoryUI>k__BackingField: {fileID: 574274939}
   <ContainerUI>k__BackingField: {fileID: 789574551}
   <OperationBarUI>k__BackingField: {fileID: 859503284}
-  <AttributeBarsUI>k__BackingField: {fileID: 1331185232}
+  <AttributeBarsUI>k__BackingField: {fileID: 0}
 --- !u!1 &766196771
 GameObject:
   m_ObjectHideFlags: 0

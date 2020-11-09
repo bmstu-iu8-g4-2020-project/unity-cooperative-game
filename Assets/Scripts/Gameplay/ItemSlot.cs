@@ -18,8 +18,10 @@ namespace Gameplay
         // can't link to data directly because SyncList only supports simple types)
         [SerializeField]
         public int hash;
+
         [SerializeField]
         public uint _amount;
+
         [SerializeField]
         public int _condition; // -1 if not degradable
 
@@ -81,44 +83,32 @@ namespace Gameplay
         public float ConditionPercent() =>
             _condition != -1 && maxCondition != -1 ? (float) _condition / maxCondition : 0;
 
-        public ItemSlot GetSlotWithOneItem()
-        {
-            return new ItemSlot(data, _condition);
-        }
+        public ItemSlot GetSlotWithOneItem() => new ItemSlot(data, _condition);
 
-        public float GetItemTransferTime()
-        {
-            return TheData.Instance.PlayerData.ItemTransferRate * data.weight;
-        }
+        public float GetItemTransferTime() => TheData.Instance.PlayerData.ItemTransferRate * data.weight;
 
         #endregion
 
         #region Overrides For Collections
 
-        public override bool Equals(object obj)
-        {
-            return base.Equals(obj);
-        }
+        public override bool Equals(object obj) => base.Equals(obj);
 
-        public bool Equals(ItemSlot other)
-        {
-            return hash == other.hash && _condition == other._condition;
-        }
+        public bool Equals(ItemSlot other) => hash == other.hash && _condition == other._condition;
 
-        public override int GetHashCode()
-        {
-            return (data.name + _condition).GetHashCode();
-        }
+        public override int GetHashCode() => (data.name + _condition).GetHashCode();
 
         public int CompareTo(object obj)
         {
-            if (obj == null) return 1;
-
-            if (obj is ItemSlot othSlot)
-                return String.Compare(this.data.name, othSlot.data.name, StringComparison.Ordinal) -
-                       _condition.CompareTo(othSlot._condition);
-
-            throw new ArgumentException("Object is not a ItemSlot");
+            switch (obj)
+            {
+                case null:
+                    return 1;
+                case ItemSlot othSlot:
+                    return String.Compare(data.name, othSlot.data.name, StringComparison.Ordinal) -
+                           _condition.CompareTo(othSlot._condition);
+                default:
+                    throw new ArgumentException("Object is not a ItemSlot");
+            }
         }
 
         #endregion

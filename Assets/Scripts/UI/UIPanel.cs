@@ -53,8 +53,7 @@ namespace UI
             if (instant || displaySpeed < 0.01f)
                 _canvasGroup.alpha = 1f;
 
-            if (OnShow != null)
-                OnShow.Invoke();
+            OnShow?.Invoke();
         }
 
         public virtual void Hide(bool instant = false)
@@ -63,8 +62,7 @@ namespace UI
             if (instant || displaySpeed < 0.01f)
                 _canvasGroup.alpha = 0f;
 
-            if (OnHide != null)
-                OnHide.Invoke();
+            OnHide?.Invoke();
         }
 
         public void SetVisible(bool visi)
@@ -75,19 +73,10 @@ namespace UI
                 Hide();
         }
 
-        public virtual void AfterHide()
-        {
-            gameObject.SetActive(false);
-        }
+        public virtual void AfterHide() => gameObject.SetActive(false);
 
-        public bool IsVisible()
-        {
-            return _visible;
-        }
+        public bool IsVisible() => _visible;
 
-        public float GetAlpha()
-        {
-            return _canvasGroup.alpha;
-        }
+        public float GetAlpha() => _canvasGroup.alpha;
     }
 }

@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     private float speed_multiplier = 1f;
 
 
-    #region singltone
+    #region singleton
 
     public static GameManager Instance { get; private set; }
 
@@ -44,9 +44,9 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-        else if (Instance != this)
+        else
         {
-            Debug.LogWarning($"Removed duplicate singltone script on {gameObject.name}");
+            Debug.LogWarning($"Removed duplicate singleton script on {gameObject.name}");
             Destroy(this);
         }
     }
@@ -55,25 +55,13 @@ public class GameManager : MonoBehaviour
 
     public Camera GetCamera() => sceneCamera;
 
-    public GameObject GetLocalPlayer()
-    {
-        return _localPlayer;
-    }
+    public GameObject GetLocalPlayer() => _localPlayer;
 
-    public void AddPlayer(GameObject player)
-    {
-        _allPlayers.Add(player);
-    }
+    public void AddPlayer(GameObject player) => _allPlayers.Add(player);
 
-    public GameObject[] GetAllPlayers()
-    {
-        return _allPlayers.ToArray();
-    }
+    public GameObject[] GetAllPlayers() => _allPlayers.ToArray();
 
-    public void SetLocalPlayer(GameObject player)
-    {
-        _localPlayer = player;
-    }
+    public void SetLocalPlayer(GameObject player) => _localPlayer = player;
 
     public float GetGameTimeSpeed()
     {

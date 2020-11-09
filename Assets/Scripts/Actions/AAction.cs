@@ -13,16 +13,12 @@ namespace Actions
         public override void DoAction(PlayerCharacter character, Interactable interactable)
         {
         }
-        
-        public virtual void StopInteraction()
+
+        public virtual void StopAction()
         {
-            
         }
 
         //Condition to check if the action is possible, override to add a condition
-        public override bool CanDoAction(PlayerCharacter character, Interactable interactable)
-        {
-            return true;
-        }
+        public override bool CanDoAction(PlayerCharacter character, Interactable interactable) => true;
     }
 }

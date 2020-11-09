@@ -23,7 +23,7 @@ public class TheData : MonoBehaviour
 
     private static TheData _instance;
 
-    #region singltone
+    #region singleton
 
     public static TheData Instance { get; private set; }
 
@@ -33,9 +33,9 @@ public class TheData : MonoBehaviour
         {
             Instance = this;
         }
-        else if (Instance != this)
+        else
         {
-            Debug.LogWarning($"Removed duplicate singltone script on {gameObject.name}");
+            Debug.LogWarning($"Removed duplicate singleton script on {gameObject.name}");
             Destroy(this);
         }
         
