@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 239b05dc28dd3364ba565d09dac64d13, type: 3}
+  m_Name: Canned
+  m_EditorClassIdentifier: 
+  id: 
+  title: Canned
+  icon: {fileID: 6632408780609528549, guid: e32479db15409df49b1d4d339dceba07, type: 3}
+  description: 
+  groups: []
+  craftable: 0
+  craftQuantity: 1
+  craftNear: {fileID: 0}
+  craftItems: []
+  type: 10
+  durabilityType: 0
+  durability: 0
+  maxCondition: 100
+  weight: 0.25
+  isStackable: 1
+  isDegradable: 1
+  equipSlot: 0
+  equipSide: 0
+  weapon: 0
+  ranged: 0
+  damage: 0
+  armor: 0
+  range: 1
+  equipBonus: []
+  eatHp: 0
+  eatHunger: 0
+  eatThirst: 0
+  eatHappiness: 0
+  eatBonus: []
+  eatBonusDuration: 0
+  actions: []
+  containerData: {fileID: 0}
+  itemPrefab: {fileID: 0}
+  equippedPrefab: {fileID: 0}
+  projectilePrefab: {fileID: 0}
