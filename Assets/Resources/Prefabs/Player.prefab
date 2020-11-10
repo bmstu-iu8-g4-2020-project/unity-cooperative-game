@@ -391,6 +391,8 @@ GameObject:
   - component: {fileID: 4553309286648621863}
   - component: {fileID: 8242372384029160443}
   - component: {fileID: 5410420337018003614}
+  - component: {fileID: 8328717829300980957}
+  - component: {fileID: 7179506200108961548}
   m_Layer: 0
   m_Name: AttackTrigger
   m_TagString: Untagged
@@ -445,6 +447,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b35d62c63c50460da02f8e53180916ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!23 &8328717829300980957
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2638379074620078873}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &7179506200108961548
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2638379074620078873}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7957718572432268648
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,6 +529,7 @@ GameObject:
   - component: {fileID: 2704910613057461161}
   - component: {fileID: 2378516747739480167}
   - component: {fileID: 1590881284389700975}
+  - component: {fileID: -3698455988793074736}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -747,9 +807,6 @@ MonoBehaviour:
   tickRate: 1
   overflowInto: {fileID: 0}
   underflowInto: {fileID: 0}
-  onEmpty:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &2704910613057461161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -767,9 +824,6 @@ MonoBehaviour:
   tickRate: 1
   overflowInto: {fileID: 0}
   underflowInto: {fileID: 0}
-  onEmpty:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &2378516747739480167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -787,9 +841,6 @@ MonoBehaviour:
   tickRate: 1
   overflowInto: {fileID: 0}
   underflowInto: {fileID: 0}
-  onEmpty:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1590881284389700975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,9 +858,19 @@ MonoBehaviour:
   tickRate: 1
   overflowInto: {fileID: 0}
   underflowInto: {fileID: 0}
-  onEmpty:
-    m_PersistentCalls:
-      m_Calls: []
+--- !u!114 &-3698455988793074736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7957718572432268648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c03ff5ca16dc43a5985e8fda50bd89d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyFinder: {fileID: 5410420337018003614}
 --- !u!1 &9091495390311104120
 GameObject:
   m_ObjectHideFlags: 0

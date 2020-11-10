@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4114f5ea18bd40bda6604eb27c5e265c, type: 3}
+  m_Script: {fileID: 11500000, guid: 58290ba16c62472fbc2a3821527c6302, type: 3}
   m_Name: BaseballBat
   m_EditorClassIdentifier: 
   icon: {fileID: 5296539805222517517, guid: e32479db15409df49b1d4d339dceba07, type: 3}
@@ -22,8 +22,6 @@ MonoBehaviour:
   itemPrefab: {fileID: 0}
   equippedPrefab: {fileID: 0}
   <UsageTime>k__BackingField: 1
-  <Slot>k__BackingField: 0
-  attack: 1
-  defenseBonus: 0
-  maxHealthBonus: 0
-  temperatureResistBonus: 0
+  <EquipmentSlot>k__BackingField: 0
+  attack: 10
+  <CooldownTime>k__BackingField: 2

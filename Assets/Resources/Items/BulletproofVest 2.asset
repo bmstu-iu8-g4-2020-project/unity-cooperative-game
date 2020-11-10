@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4114f5ea18bd40bda6604eb27c5e265c, type: 3}
+  m_Script: {fileID: 11500000, guid: cb73781c31b64620ae5cf7665147ce00, type: 3}
   m_Name: BulletproofVest 2
   m_EditorClassIdentifier: 
   icon: {fileID: -5106902464896771961, guid: e32479db15409df49b1d4d339dceba07, type: 3}
@@ -22,8 +22,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 0}
   equippedPrefab: {fileID: 0}
   <UsageTime>k__BackingField: 1
-  <Slot>k__BackingField: 3
-  attack: 0
-  defenseBonus: 100
+  <EquipmentSlot>k__BackingField: 3
+  defenseBonus: 2
   maxHealthBonus: 0
   temperatureResistBonus: 0

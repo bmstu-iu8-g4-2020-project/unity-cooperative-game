@@ -28,7 +28,7 @@ namespace UI
                     when from == UIController.Instance.InventoryUI.OpenedItemContainer:
                 {
                     if (uiItemSlot.ItemSlot.CanUse(Entities.Player.Player.LocalPlayer))
-                        uiItemSlot.ItemSlot.Use(Entities.Player.Player.LocalPlayer);
+                        uiItemSlot.ItemSlot.UseOnInventory(Entities.Player.Player.LocalPlayer);
 
                     break;
                 }

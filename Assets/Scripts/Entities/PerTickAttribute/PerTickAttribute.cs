@@ -9,7 +9,7 @@ namespace Entities.PerTickAttribute
     public class PerTickAttribute : MonoBehaviour
     {
         [field: SerializeField]
-        public int Max { get; protected set; }
+        public int Max { get; protected set; }//TODO get from stats
 
         [SerializeField]
         private int basePerTick;
@@ -20,8 +20,8 @@ namespace Entities.PerTickAttribute
         public PerTickAttribute overflowInto;
         public PerTickAttribute underflowInto;
 
-        [Header("Events")]
-        public UnityEvent onEmpty;
+        // [Header("Events")]
+        public event UnityAction onEmpty;
 
         private int _current;
 

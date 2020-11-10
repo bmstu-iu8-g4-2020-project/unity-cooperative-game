@@ -12,6 +12,6 @@ namespace Data
 
         public virtual bool CanUse(Entities.Player.Player player, ItemSlot slot) => true;
         //Or use some interface for equipment and attribute resolver
-        public virtual void Use(Entities.Player.Player player, ItemSlot slot) => Debug.Log($"Use {name}");
+        public virtual void UseOnInventory(Entities.Player.Player player, ItemSlot slot) => Debug.Log($"Use {name}");
     }
 }

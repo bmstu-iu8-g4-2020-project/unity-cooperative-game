@@ -39,12 +39,12 @@ namespace Entities.Player
             _character = GetComponent<Player>();
         }
 
-        private void Start()
+        private void OnEnable()
         {
             PlayerControlsMouse.Instance.OnClickObject += OnClickObject;
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             PlayerControlsMouse.Instance.OnClickObject -= OnClickObject;
         }
@@ -73,8 +73,11 @@ namespace Entities.Player
         private void OnClickObject(Interactable interactable)
         {
             if (interactable == null || !interactable.IsSelectable) return;
-            Debug.Log($"{interactable.gameObject.name} selected");
-            if (CanInteractWith(interactable)) InteractWith(interactable);
+            if (CanInteractWith(interactable) && CanSelectNow())
+            {
+                Debug.Log($"{interactable.gameObject.name} selected");
+                InteractWith(interactable);
+            }
         }
 
         public void InteractWith(Interactable interactable)
@@ -89,6 +92,9 @@ namespace Entities.Player
             _currentInteractionTarget.OnStopInteraction();
             _currentInteractionTarget = null;
         }
+
+        public bool CanSelectNow() =>
+            !_character.StateMachine.CurrentState.GetType().IsSubclassOf(typeof(StealthState));
 
         public bool CanInteractNow() =>
             _character.StateMachine.CurrentState.GetType().IsSubclassOf(typeof(MovementState));

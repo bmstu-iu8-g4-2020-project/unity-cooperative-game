@@ -21,7 +21,7 @@ namespace Data
             player.Health.Current += usageHealth;
         }
 
-        public override void Use(Entities.Player.Player player, ItemSlot slot)
+        public override void UseOnInventory(Entities.Player.Player player, ItemSlot slot)
         {
             void OnComplete()
             {
@@ -30,7 +30,7 @@ namespace Data
             }
 
             DelayedOperationsManager.Instance.QueueOperation(new DelayedOperation(UsageTime, OnComplete));
-            base.Use(player, slot);
+            base.UseOnInventory(player, slot);
         }
     }
 }

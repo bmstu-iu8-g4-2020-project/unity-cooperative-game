@@ -66,6 +66,7 @@ namespace Entities.Player
         {
             _move = Vector3.zero;
             _rotateCam = 0f;
+            _pressAttack = false;
             _pressAction = false;
             _pressSprint = false;
             _pressStealth = false;

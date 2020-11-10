@@ -11,6 +11,7 @@ namespace Entities.Player
     ///     Main character script, singleton access
     /// </summary>
     [DisallowMultipleComponent]
+    [RequireComponent(typeof(PlayerCombatActor))]
     public class Player : Entity
     {
         #region Variables
@@ -19,6 +20,8 @@ namespace Entities.Player
         public ItemContainer Inventory { get; private set; } //TODO use polymorphism
         public Equipment Equipment { get; private set; }
         public new PlayerStats Stats { get; private set; }
+        public PlayerCombatActor CombatActor { get; private set; }
+
         public Thirst Thirst { get; private set; }
         public Hunger Hunger { get; private set; }
         public Temperature Temperature { get; private set; }
@@ -54,6 +57,7 @@ namespace Entities.Player
             Controller = GetComponent<CharacterController>();
 
             Stats = GetComponent<PlayerStats>();
+            CombatActor = GetComponent<PlayerCombatActor>();
 
             // Thirst = new Thirst(7000, -1000, Stats.ThirstResist);
             // Hunger = new Hunger(10000, -1000, Stats.HungerResist);

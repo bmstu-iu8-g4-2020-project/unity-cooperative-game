@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Data;
+using Data.Items;
 using JetBrains.Annotations;
 using Mirror;
 using UnityEngine;
@@ -63,11 +64,11 @@ namespace Gameplay
         }
 
 
-        public void Use(Entities.Player.Player player)
+        public void UseOnInventory(Entities.Player.Player player)
         {
             if (!(data is UsableItemData usableItemData))
                 return;
-            usableItemData.Use(player, this);
+            usableItemData.UseOnInventory(player, this);
         }
 
         public bool CanUse(Entities.Player.Player player) =>
