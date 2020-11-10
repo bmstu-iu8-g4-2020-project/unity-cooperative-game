@@ -9,41 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 239b05dc28dd3364ba565d09dac64d13, type: 3}
+  m_Script: {fileID: 11500000, guid: 4114f5ea18bd40bda6604eb27c5e265c, type: 3}
   m_Name: BaseballBat
   m_EditorClassIdentifier: 
-  id: 
-  title: BaseballBat
   icon: {fileID: 5296539805222517517, guid: e32479db15409df49b1d4d339dceba07, type: 3}
-  description: 
-  groups: []
-  craftable: 1
-  craftQuantity: 1
-  craftNear: {fileID: 0}
-  craftItems: []
-  type: 20
-  durabilityType: 0
-  durability: 0
-  maxCondition: 100
   weight: 1
+  maxCondition: 100
   isStackable: 0
   isDegradable: 1
-  equipSlot: 0
-  equipSide: 0
-  weapon: 0
-  ranged: 0
-  damage: 0
-  armor: 0
-  range: 1
-  equipBonus: []
-  eatHp: 0
-  eatHunger: 0
-  eatThirst: 0
-  eatHappiness: 0
-  eatBonus: []
-  eatBonusDuration: 0
+  description: 
   actions: []
-  containerData: {fileID: 0}
   itemPrefab: {fileID: 0}
   equippedPrefab: {fileID: 0}
-  projectilePrefab: {fileID: 0}
+  <UsageTime>k__BackingField: 1
+  <Slot>k__BackingField: 0
+  attack: 1
+  defenseBonus: 0
+  maxHealthBonus: 0
+  temperatureResistBonus: 0

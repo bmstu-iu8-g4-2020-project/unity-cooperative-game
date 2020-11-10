@@ -9,20 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4baf318f426484bbe01d88cedb39644, type: 3}
-  m_Name: Canned
+  m_Script: {fileID: 11500000, guid: 4114f5ea18bd40bda6604eb27c5e265c, type: 3}
+  m_Name: BulletproofVest
   m_EditorClassIdentifier: 
-  icon: {fileID: 6632408780609528549, guid: e32479db15409df49b1d4d339dceba07, type: 3}
-  weight: 0.25
+  icon: {fileID: 3969612704977366777, guid: e32479db15409df49b1d4d339dceba07, type: 3}
+  weight: 1
   maxCondition: 100
-  isStackable: 1
+  isStackable: 0
   isDegradable: 1
   description: 
   actions: []
   itemPrefab: {fileID: 0}
   equippedPrefab: {fileID: 0}
   <UsageTime>k__BackingField: 1
-  usageHealth: 0
-  usageWarming: 0
-  usageNutrition: 3000
-  usageHydration: 500
+  <Slot>k__BackingField: 3
+  attack: 0
+  defenseBonus: 50
+  maxHealthBonus: 0
+  temperatureResistBonus: 0
