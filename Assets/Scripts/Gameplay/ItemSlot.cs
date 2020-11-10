@@ -63,25 +63,31 @@ namespace Gameplay
         }
 
 
-        public void Use()
+        public void Use(Entities.Player.Player player)
         {
+            if (!(data is UsableItemData usableItemData))
+                return;
+            usableItemData.Use(player, this);
         }
+
+        public bool CanUse(Entities.Player.Player player) =>
+            data is UsableItemData usableItemData && usableItemData.CanUse(player, this);
 
         #region Getters & Setters
 
-        public string name => data.name;
-        public int maxCondition => data.maxCondition;
-        public bool isStackable => data.isStackable;
-        public bool isDegradable => data.isDegradable;
-        public Sprite icon => data.icon;
+        public string Name => data.name;
+        public int MaxCondition => data.maxCondition;
+        public bool IsStackable => data.isStackable;
+        public bool IsDegradable => data.isDegradable;
+        public Sprite Icon => data.icon;
         public float TotalWeight => data.weight * _amount;
         public uint GetAmount() => _amount;
         public int GetCondition() => _condition;
-        public bool CheckCondition() => maxCondition == -1 || _condition > 0;
+        public bool CheckCondition() => MaxCondition == -1 || _condition > 0;
         public float GetWeightOf(int amount) => data.weight * amount;
 
         public float ConditionPercent() =>
-            _condition != -1 && maxCondition != -1 ? (float) _condition / maxCondition : 0;
+            _condition != -1 && MaxCondition != -1 ? (float) _condition / MaxCondition : 0;
 
         public ItemSlot GetSlotWithOneItem() => new ItemSlot(data, _condition);
 

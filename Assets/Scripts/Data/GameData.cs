@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Serialization;
+﻿using UnityEngine;
 
 /// <summary>
-/// Generic game data (only one file)
+///     Generic game data (only one file)
 /// </summary>
 [CreateAssetMenu(fileName = "GameData", menuName = "Data/GameData", order = 0)]
 public class GameData : ScriptableObject

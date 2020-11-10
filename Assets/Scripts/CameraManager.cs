@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Entities.Player;
 using Mirror;
-using Player;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CameraManager : MonoBehaviour
 {
     private Transform _target;
-    private PlayerCharacter _character;
+    private Entities.Player.Player _character;
 
     [Header("Following")]
     [SerializeField]
@@ -60,7 +60,7 @@ public class CameraManager : MonoBehaviour
 
     private void Start()
     {
-        _screenWidth = Screen.width; //TODO fix potential bug
+        _screenWidth = Screen.width;
         _screenHeight = Screen.height;
 
         // minOrthographicSize = _playerCamera.orthographicSize;
@@ -107,7 +107,7 @@ public class CameraManager : MonoBehaviour
     public void SetTarget(Transform target)
     {
         _target = target;
-        _character = _target.gameObject.GetComponent<PlayerCharacter>();
+        _character = _target.gameObject.GetComponent<Entities.Player.Player>();
     }
 
     private Vector3 VectorSigmoidInterpolation(Vector3 a, Vector3 b, float factor)
@@ -121,8 +121,8 @@ public class CameraManager : MonoBehaviour
     public static Vector3 ClampMagnitude(Vector3 v, float max, float min)
     {
         double sm = v.sqrMagnitude;
-        if (sm > (double) max * (double) max) return v.normalized * max;
-        else if (sm < (double) min * (double) min) return v.normalized * min;
+        if (sm > max * (double) max) return v.normalized * max;
+        if (sm < min * (double) min) return v.normalized * min;
         return v;
     }
 }

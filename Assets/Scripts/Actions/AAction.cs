@@ -1,5 +1,4 @@
 ﻿using Gameplay;
-using Player;
 
 namespace Actions
 {
@@ -10,15 +9,16 @@ namespace Actions
     public class AAction : Action
     {
         //When using an action on interactable in the scene
-        public override void DoAction(PlayerCharacter character, Interactable interactable)
+        public override void DoAction(Entities.Player.Player character, Interactable interactable)
         {
         }
 
         public virtual void StopAction()
         {
+            
         }
 
         //Condition to check if the action is possible, override to add a condition
-        public override bool CanDoAction(PlayerCharacter character, Interactable interactable) => true;
+        public override bool CanDoAction(Entities.Player.Player character, Interactable interactable) => true;
     }
 }

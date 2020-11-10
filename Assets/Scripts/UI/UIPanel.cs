@@ -4,17 +4,17 @@ using UnityEngine.Events;
 namespace UI
 {
     /// <summary>
-    /// Generic script for any UI panel, can be inherited 
+    ///     Generic script for any UI panel, can be inherited
     /// </summary>
     public class UIPanel : MonoBehaviour
     {
         public float displaySpeed = 2f;
 
-        public UnityAction OnShow;
-        public UnityAction OnHide;
-
         private CanvasGroup _canvasGroup;
         private bool _visible;
+        public UnityAction OnHide;
+
+        public UnityAction OnShow;
 
         protected virtual void Awake()
         {
@@ -29,8 +29,8 @@ namespace UI
 
         protected virtual void Update()
         {
-            float add = _visible ? displaySpeed : -displaySpeed;
-            float alpha = Mathf.Clamp01(_canvasGroup.alpha + add * Time.deltaTime);
+            var add = _visible ? displaySpeed : -displaySpeed;
+            var alpha = Mathf.Clamp01(_canvasGroup.alpha + add * Time.deltaTime);
             _canvasGroup.alpha = alpha;
 
             if (!_visible && alpha < 0.01f)

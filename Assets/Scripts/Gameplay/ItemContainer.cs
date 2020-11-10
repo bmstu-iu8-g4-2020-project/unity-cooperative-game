@@ -24,7 +24,7 @@ namespace Gameplay
                 return;
             }
 
-            var index = GetItemIndexByNameAndCond(slot.name, slot._condition);
+            var index = GetItemIndexByNameAndCond(slot.Name, slot._condition);
             if (index != -1)
             {
                 ItemSlot slotForChange = Items[index];
@@ -39,17 +39,17 @@ namespace Gameplay
 
             Items.Add(slot);
             _currentWeight += slot.GetWeightOf(1);
-            Debug.Log($"Add slot {slot.name} {slot.GetCondition()} in {GetType().Name}");
+            Debug.Log($"Add slot {slot.Name} {slot.GetCondition()} in {GetType().Name}");
         }
 
 
         [Command(ignoreAuthority = true)]
         public void RemoveOne(ItemSlot slot)
         {
-            var index = GetItemIndexByNameAndCond(slot.name, slot._condition);
+            var index = GetItemIndexByNameAndCond(slot.Name, slot._condition);
             if (index == -1) return;
             ItemSlot slotForChange = Items[index];
-            if (slot.isStackable)
+            if (slot.IsStackable)
             {
                 slotForChange.Decrease();
                 Items[index] = slotForChange;
@@ -59,7 +59,7 @@ namespace Gameplay
             Items.RemoveAt(index);
         }
 
-        public bool CanAdd(ItemSlot slot) => _currentWeight + slot.GetWeightOf(1) <= maxWeight;
+        public virtual bool CanAdd(ItemSlot slot) => _currentWeight + slot.GetWeightOf(1) <= maxWeight;
 
         //Helper function to find an item in the slots
         public int GetItemIndexByNameAndCond(string itemName, int condition)
@@ -68,7 +68,7 @@ namespace Gameplay
             for (int i = 0; i < Items.Count; ++i)
             {
                 ItemSlot slot = Items[i];
-                if (slot.name == itemName && slot._condition == condition)
+                if (slot.Name == itemName && slot._condition == condition)
                     return i;
             }
 
@@ -80,10 +80,7 @@ namespace Gameplay
         [Command(ignoreAuthority = true)]
         public void TestAddRandomItem()
         {
-            ItemData[] tempItems = new ItemData[3];
-            tempItems[0] = Resources.Load<ItemData>("Items/Canned");
-            tempItems[1] = Resources.Load<ItemData>("Items/BaseballBat");
-            tempItems[2] = Resources.Load<ItemData>("Items/InsulatingTape");
+            ItemData[] tempItems = Resources.LoadAll<ItemData>("Items/");
 
             int index = Random.Range(0, 3);
             int condition = tempItems[index].isDegradable ? Random.Range(1, tempItems[index].maxCondition) : -1;

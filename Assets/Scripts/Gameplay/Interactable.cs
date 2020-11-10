@@ -1,10 +1,9 @@
 ﻿using Actions;
-using Player;
+using Entities.Player;
 using UnityEngine;
 
 namespace Gameplay
 {
-
     /// <summary>
     /// Interactable can contain action.
     /// </summary>
@@ -27,7 +26,7 @@ namespace Gameplay
             Gizmos.DrawWireSphere(transform.position, Radius);
         }
 
-        private void OnInteractWithPlayer(PlayerCharacter character)
+        private void OnInteractWithPlayer(Entities.Player.Player character)
         {
             if (action == null)
             {
@@ -43,10 +42,9 @@ namespace Gameplay
 
         public void OnInteract(PlayerInteractionActor interactionActor)
         {
-            var player = interactionActor as PlayerInteractionActor;
-            if (player != null)
+            if (interactionActor != null)
             {
-                OnInteractWithPlayer(player.GetComponent<PlayerCharacter>());
+                OnInteractWithPlayer(interactionActor.GetComponent<Entities.Player.Player>());
             }
         }
 
