@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Gameplay;
 using UnityEngine;
 
 namespace Entities.Player
@@ -16,15 +14,15 @@ namespace Entities.Player
         private void OnTriggerEnter(Collider other)
         {
             if (other.transform == transform.parent) return; //Exclude self collision
-            var entity = other.gameObject.GetComponent<Entity>();
-            if (entity != null) _entitiesInRange.Add(entity);
+            if (other.gameObject.TryGetComponent(out Entity entity))
+                _entitiesInRange.Add(entity);
         }
 
         private void OnTriggerExit(Collider other)
         {
             if (other.transform == transform.parent) return; //Exclude self collision
-            var entity = other.gameObject.GetComponent<Entity>();
-            if (entity != null) _entitiesInRange.Remove(entity);
+            if (other.gameObject.TryGetComponent(out Entity entity))
+                _entitiesInRange.Remove(entity);
         }
 
         public Entity[] GetNearest(uint n)

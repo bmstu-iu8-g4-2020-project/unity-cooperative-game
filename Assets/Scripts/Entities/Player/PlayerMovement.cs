@@ -99,7 +99,7 @@ namespace Entities.Player
 
             if (velocity.magnitude != 0) _transform.forward = velocity.normalized;
 
-            Player.LocalPlayer.Controller.SimpleMove(velocity);
+            PlayerController.LocalPlayer.Controller.SimpleMove(velocity);
         }
 
         [Client]

@@ -18,7 +18,7 @@ namespace Data
     public abstract class EquipableItemData : UsableItemData
     {
         [field: SerializeField]
-        public EquipmentSlot EquipmentSlot { get; private set; }
+        public EquipmentSlot EquipmentSlot { get; protected set; }
 
         protected virtual void ApplyBonus(PlayerStats playerStats)
         {
@@ -28,9 +28,9 @@ namespace Data
         {
         }
 
-        public override bool CanUse(Player player, ItemSlot slot) => true;
+        public override bool CanUse(PlayerController player, ItemSlot slot) => true;
 
-        public override void UseOnInventory(Player player, ItemSlot slot)
+        public override void UseOnInventory(PlayerController player, ItemSlot slot)
         {
             void OnComplete()
             {

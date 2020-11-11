@@ -11,7 +11,7 @@ namespace Entities.Player
     /// Player component for initiate interaction
     /// </summary>
     [RequireComponent(typeof(FieldOfView))]
-    [RequireComponent(typeof(Player))]
+    [RequireComponent(typeof(PlayerController))]
     public class PlayerInteractionActor : MonoBehaviour
     {
         [field: SerializeField]
@@ -25,7 +25,7 @@ namespace Entities.Player
 
         private Collider[] _interactablesInRadius;
         private FieldOfView _fieldOfView;
-        private Player _character;
+        private PlayerController _character;
         private Interactable _currentInteractionTarget;
 
         //Or Create Actor Controller that will be use Actor-Components in unity callbacks
@@ -36,7 +36,7 @@ namespace Entities.Player
         {
             _interactablesInRadius = new Collider[maxInteractableCountForDetection];
             _fieldOfView = GetComponent<FieldOfView>();
-            _character = GetComponent<Player>();
+            _character = GetComponent<PlayerController>();
         }
 
         private void OnEnable()

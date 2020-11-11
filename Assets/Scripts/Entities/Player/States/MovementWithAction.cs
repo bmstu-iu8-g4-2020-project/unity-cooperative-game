@@ -2,7 +2,7 @@
 {
     public class MovementWithAction : MovementState
     {
-        public MovementWithAction(Player character, StateMachine stateMachine) : base(character, stateMachine)
+        public MovementWithAction(PlayerController character, StateMachine stateMachine) : base(character, stateMachine)
         {
             Speed = TheData.Instance.PlayerData.WalkSpeed * TheData.Instance.PlayerData.WalkWithActionSpeedMultiplier;
         }

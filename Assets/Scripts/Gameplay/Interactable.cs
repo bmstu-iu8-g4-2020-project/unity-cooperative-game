@@ -26,7 +26,7 @@ namespace Gameplay
             Gizmos.DrawWireSphere(transform.position, Radius);
         }
 
-        private void OnInteractWithPlayer(Entities.Player.Player character)
+        private void OnInteractWithPlayer(PlayerController character)
         {
             if (action == null)
             {
@@ -44,7 +44,7 @@ namespace Gameplay
         {
             if (interactionActor != null)
             {
-                OnInteractWithPlayer(interactionActor.GetComponent<Entities.Player.Player>());
+                OnInteractWithPlayer(interactionActor.GetComponent<PlayerController>());
             }
         }
 

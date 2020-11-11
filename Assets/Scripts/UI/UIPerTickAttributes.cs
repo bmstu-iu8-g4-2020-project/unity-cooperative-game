@@ -18,10 +18,10 @@ namespace UI
         private Dictionary<PerTickAttribute, Image> AttrBars => _attrBars ?? (_attrBars =
             new Dictionary<PerTickAttribute, Image>
             {
-                {Entities.Player.Player.LocalPlayer.Thirst, thirst},
-                {Entities.Player.Player.LocalPlayer.Hunger, hunger},
-                {Entities.Player.Player.LocalPlayer.Temperature, temperature},
-                {Entities.Player.Player.LocalPlayer.Health, health}
+                {Entities.Player.PlayerController.LocalPlayer.Thirst, thirst},
+                {Entities.Player.PlayerController.LocalPlayer.Hunger, hunger},
+                {Entities.Player.PlayerController.LocalPlayer.Temperature, temperature},
+                {Entities.Player.PlayerController.LocalPlayer.Health, health}
             });
 
         public void UpdateBar(PerTickAttribute attr, float currentInPercent)

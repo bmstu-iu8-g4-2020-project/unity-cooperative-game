@@ -5,12 +5,12 @@ namespace Entities.Player.States
 {
     public abstract class State
     {
-        protected readonly Player Character;
+        protected readonly PlayerController Character;
         protected readonly StateMachine StateMachine;
 
         private Text _fpsText;
 
-        protected State(Player character, StateMachine stateMachine)
+        protected State(PlayerController character, StateMachine stateMachine)
         {
             Character = character;
             StateMachine = stateMachine;

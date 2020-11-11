@@ -46,7 +46,7 @@ namespace UI
                 }
                 else
                 {
-                    InventoryUI.OpenContainer(Entities.Player.Player.LocalPlayer.Inventory);
+                    InventoryUI.OpenContainer(Entities.Player.PlayerController.LocalPlayer.Inventory);
                 }
             }
         }

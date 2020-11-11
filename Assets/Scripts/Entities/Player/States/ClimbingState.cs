@@ -15,7 +15,7 @@ namespace Entities.Player.States
         private float _timeLeft;
 
 
-        public ClimbingState(global::Entities.Player.Player character, StateMachine stateMachine, Transform climbingTarget) : base(
+        public ClimbingState(PlayerController character, StateMachine stateMachine, Transform climbingTarget) : base(
             character, stateMachine)
         {
             _timeLeft = TheData.Instance.PlayerData.ClimbingDuration;

@@ -9,7 +9,7 @@
         protected float Speed;
         // TODO create stealth-sprint state
 
-        public MovementState(Player character, StateMachine stateMachine) : base(character, stateMachine)
+        public MovementState(PlayerController character, StateMachine stateMachine) : base(character, stateMachine)
         {
             Speed = TheData.Instance.PlayerData.WalkSpeed; //TODO depending on inventory weight 
         }

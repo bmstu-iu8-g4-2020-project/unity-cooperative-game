@@ -7,7 +7,7 @@ namespace Entities.PerTickAttribute
         protected override void Start()
         {
             base.Start();
-            onEmpty += GetComponent<Entity>().Kill;
+            OnEmpty += GetComponent<Entity>().Kill;
         }
     }
 }

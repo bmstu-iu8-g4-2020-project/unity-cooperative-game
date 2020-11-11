@@ -7,7 +7,7 @@ namespace Entities.PerTickAttribute
         protected override void Start()
         {
             base.Start();
-            ResistAttr = Player.Player.LocalPlayer.Stats.ThirstResist;
+            ResistAttr = Player.PlayerController.LocalPlayer.Stats.ThirstResist;
         }
     }
 }

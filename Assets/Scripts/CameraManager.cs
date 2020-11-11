@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class CameraManager : MonoBehaviour
 {
     private Transform _target;
-    private Entities.Player.Player _character;
+    private PlayerController _character;
 
     [Header("Following")]
     [SerializeField]
@@ -107,7 +107,7 @@ public class CameraManager : MonoBehaviour
     public void SetTarget(Transform target)
     {
         _target = target;
-        _character = _target.gameObject.GetComponent<Entities.Player.Player>();
+        _character = _target.gameObject.GetComponent<PlayerController>();
     }
 
     private Vector3 VectorSigmoidInterpolation(Vector3 a, Vector3 b, float factor)

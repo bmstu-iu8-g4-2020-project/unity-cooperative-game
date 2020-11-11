@@ -19,14 +19,12 @@ namespace Entities.PerTickAttribute
 
         public PerTickAttribute overflowInto;
         public PerTickAttribute underflowInto;
-
-        // [Header("Events")]
-        public event UnityAction onEmpty;
+        
+        public event Action OnEmpty;
 
         private int _current;
 
         public int PerTick => (int) (basePerTick * (1 - (ResistAttr?.GetModified() ?? 0)));
-
         public FloatAttribute ResistAttr { get; protected set; }
 
         public int Current
@@ -36,7 +34,7 @@ namespace Entities.PerTickAttribute
             {
                 var emptyBefore = _current == 0;
                 _current = Mathf.Clamp(value, 0, Max);
-                if (_current == 0 && !emptyBefore) onEmpty?.Invoke();
+                if (_current == 0 && !emptyBefore) OnEmpty?.Invoke();
                 UIController.Instance.PerTickAttributesBarsUI.UpdateBar(this, Percent());
             }
         }

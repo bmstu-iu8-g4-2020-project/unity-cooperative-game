@@ -5,7 +5,7 @@
     /// </summary>
     public class StealthState : MovementState
     {
-        public StealthState(Player character, StateMachine stateMachine) : base(character, stateMachine)
+        public StealthState(PlayerController character, StateMachine stateMachine) : base(character, stateMachine)
         {
         }
 

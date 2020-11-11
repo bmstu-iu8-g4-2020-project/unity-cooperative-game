@@ -2,7 +2,7 @@
 {
     public class SprintingState : MovementState
     {
-        public SprintingState(Player character, StateMachine stateMachine) : base(character, stateMachine)
+        public SprintingState(PlayerController character, StateMachine stateMachine) : base(character, stateMachine)
         {
         }
 

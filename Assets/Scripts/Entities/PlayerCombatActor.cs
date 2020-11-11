@@ -1,24 +1,21 @@
 ﻿using System;
-using Data;
 using Data.Items;
-using Entities.PerTickAttribute;
 using Entities.Player;
 using Entities.Player.States;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 namespace Entities
 {
     public class PlayerCombatActor : MonoBehaviour
     {
-        private Player.Player _player;
+        private Player.PlayerController _player;
 
         [SerializeField]
         private EnemyFinder enemyFinder;
 
-        private bool CanAttack() => Player.Player.LocalPlayer.StateMachine.CurrentState is StealthState;
+        private bool CanAttack() => Player.PlayerController.LocalPlayer.StateMachine.CurrentState is StealthState;
 
-        public void Damage(Entity target, int amount)
+        public static void Damage(Entity target, int amount)
         {
             if (!target.IsAlive) return;
             var amountWithResist = Math.Max(amount - target.Stats.Defence.GetModified(), 1);
@@ -26,22 +23,23 @@ namespace Entities
             Debug.Log($"Damage {target.name}: -{amountWithResist}hp");
         }
 
-        private void Awake() => _player = GetComponent<Player.Player>();
+        private void Awake() => _player = GetComponent<Player.PlayerController>();
 
         private float _cooldownTimer = 0;
         private HandItem _handItem;
 
         private void Update()
         {
+            //TODO push on space
             if (_cooldownTimer > 0)
             {
                 _cooldownTimer -= Time.deltaTime;
                 return;
             }
+
             if (!PlayerControls.Instance.IsPressAttack() || !CanAttack()) return;
 
-            _handItem = _player.Equipment.GetItemInMainHandOrNull();
-            if (_handItem == null) return;
+            if (!_player.Equipment.TryGetItemInMainHand(out _handItem)) return;
 
             _cooldownTimer = _handItem.CooldownTime;
             foreach (var entity in enemyFinder.GetNearest(_handItem.TargetsPerHit))

@@ -11,7 +11,7 @@ namespace Entities.Player
         public override void RemoveOne(ItemSlot slot)
         {
             if (slot.data is EquipableItemData equipableItemData)
-                equipableItemData.CancelBonus(Player.LocalPlayer.Stats); //Cancel bonuses
+                equipableItemData.CancelBonus(PlayerController.LocalPlayer.Stats); //Cancel bonuses
             base.RemoveOne(slot);
         }
 
@@ -30,12 +30,12 @@ namespace Entities.Player
             AddOne(itemSlot);
         }
 
-        public HandItem GetItemInMainHandOrNull()
+        public bool TryGetItemInMainHand(out HandItem handItem)
         {
-            var find = Items.Find(x =>
+            handItem = Items.Find(x =>
                 x.data is EquipableItemData equipmentItemData && equipmentItemData.EquipmentSlot ==
-                EquipmentSlot.MainHand);
-            return find.data as HandItem;
+                EquipmentSlot.MainHand).data as HandItem;
+            return handItem == null;
         }
     }
 }

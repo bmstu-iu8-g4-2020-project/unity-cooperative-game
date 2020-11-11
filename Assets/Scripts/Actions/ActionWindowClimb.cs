@@ -8,7 +8,7 @@ namespace Actions
     [CreateAssetMenu(fileName = "WindowClimb", menuName = "Data/Actions/Climb", order = 0)]
     public class ActionWindowClimb : AAction
     {
-        public override void DoAction(Entities.Player.Player character, Interactable interactable)
+        public override void DoAction(Entities.Player.PlayerController character, Interactable interactable)
         {
             if (interactable == null) return;
 
@@ -24,6 +24,6 @@ namespace Actions
             character.StateMachine.StartNextStateFromQueue();
         }
 
-        public override bool CanDoAction(Entities.Player.Player character, Interactable interactable) => true;
+        public override bool CanDoAction(Entities.Player.PlayerController character, Interactable interactable) => true;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using Entities;
 using Entities.Player;
 using Gameplay;
 using UnityEngine;
@@ -27,8 +28,8 @@ namespace UI
                 case PointerEventData.InputButton.Right
                     when from == UIController.Instance.InventoryUI.OpenedItemContainer:
                 {
-                    if (uiItemSlot.ItemSlot.CanUse(Entities.Player.Player.LocalPlayer))
-                        uiItemSlot.ItemSlot.UseOnInventory(Entities.Player.Player.LocalPlayer);
+                    if (uiItemSlot.ItemSlot.CanUse(PlayerController.LocalPlayer))
+                        uiItemSlot.ItemSlot.UseOnInventory(PlayerController.LocalPlayer);
 
                     break;
                 }

@@ -12,7 +12,7 @@ namespace Entities.Player
     /// </summary>
     [DisallowMultipleComponent]
     [RequireComponent(typeof(PlayerCombatActor))]
-    public class Player : Entity
+    public class PlayerController : Entity
     {
         #region Variables
 
@@ -38,8 +38,8 @@ namespace Entities.Player
 
         public bool IsAiming { get; } = false;
 
-        public static readonly List<Player> AllPlayers = new List<Player>();
-        public static Player LocalPlayer { get; private set; } //Singleton access
+        public static readonly List<PlayerController> AllPlayers = new List<PlayerController>();
+        public static PlayerController LocalPlayer { get; private set; } //Singleton access
 
         #region Private
 

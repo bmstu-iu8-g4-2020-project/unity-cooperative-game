@@ -2,7 +2,7 @@
 {
     public class WalkState : MovementState
     {
-        public WalkState(Player character, StateMachine stateMachine) : base(character, stateMachine)
+        public WalkState(PlayerController character, StateMachine stateMachine) : base(character, stateMachine)
         {
         }
 
