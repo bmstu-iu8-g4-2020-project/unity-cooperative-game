@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Data;
-using Data.Items;
 using JetBrains.Annotations;
 using Mirror;
 using UnityEngine;

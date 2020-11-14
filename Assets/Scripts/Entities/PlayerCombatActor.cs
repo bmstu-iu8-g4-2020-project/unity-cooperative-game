@@ -1,5 +1,4 @@
-﻿using System;
-using Data.Items;
+﻿using Data.Items;
 using Entities.Player;
 using Entities.Player.States;
 using UnityEngine;
@@ -8,43 +7,61 @@ namespace Entities
 {
     public class PlayerCombatActor : MonoBehaviour
     {
-        private Player.PlayerController _player;
+        private PlayerController _player;
 
         [SerializeField]
         private EnemyFinder enemyFinder;
 
-        private bool CanAttack() => Player.PlayerController.LocalPlayer.StateMachine.CurrentState is StealthState;
+        [SerializeField]
+        private float pushDistance = 0.3f;
 
-        public static void Damage(Entity target, int amount)
+        private bool CanAttack() => _player.StateMachine.CurrentState is StealthState;
+
+        public void Damage(Entity target, int amount) //TODO mb make it command
         {
             if (!target.IsAlive) return;
-            var amountWithResist = Math.Max(amount - target.Stats.Defence.GetModified(), 1);
-            target.Health.Current -= amountWithResist;
-            Debug.Log($"Damage {target.name}: -{amountWithResist}hp");
+            target.TakeDamage(amount);
         }
 
-        private void Awake() => _player = GetComponent<Player.PlayerController>();
+        private void Awake() => _player = GetComponent<PlayerController>();
 
         private float _cooldownTimer = 0;
         private HandItem _handItem;
 
+        private uint _maxZombieForPush = 3;
+
+        private void Push(Entity[] entities)
+        {
+            foreach (var entity in entities)
+            {
+                if (!entity.TryGetComponent(out CharacterController controller)) continue;
+                
+                var dir = (entity.transform.position - transform.position).normalized;
+                controller.Move(dir * pushDistance);
+            }
+        }
+
         private void Update()
         {
-            //TODO push on space
             if (_cooldownTimer > 0)
             {
                 _cooldownTimer -= Time.deltaTime;
                 return;
             }
 
-            if (!PlayerControls.Instance.IsPressAttack() || !CanAttack()) return;
-
-            if (!_player.Equipment.TryGetItemInMainHand(out _handItem)) return;
-
-            _cooldownTimer = _handItem.CooldownTime;
-            foreach (var entity in enemyFinder.GetNearest(_handItem.TargetsPerHit))
+            if (PlayerControls.Instance.IsPressPush())
             {
-                Damage(entity, _player.Stats.Attack.GetModified());
+                Push(enemyFinder.GetNearest(_maxZombieForPush));
+            }
+            else if (PlayerControls.Instance.IsPressAttack() && CanAttack())
+            {
+                if (!_player.Equipment.TryGetItemInMainHand(out _handItem)) return;
+
+                _cooldownTimer = _handItem.CooldownTime;
+                foreach (var entity in enemyFinder.GetNearest(_handItem.TargetsPerHit))
+                {
+                    Damage(entity, _player.Stats.Attack.GetModified());
+                }
             }
         }
     }

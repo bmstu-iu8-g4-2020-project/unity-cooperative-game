@@ -28,8 +28,10 @@ namespace Entities.Player
 
 
         [SerializeField]
-        private KeyCode camRotateLeft = KeyCode.Q;
+        private KeyCode push = KeyCode.Space;
 
+        [SerializeField]
+        private KeyCode camRotateLeft = KeyCode.Q;
 
         [SerializeField]
         private KeyCode camRotateRight = KeyCode.E;
@@ -42,6 +44,7 @@ namespace Entities.Player
         private bool _holdSprint;
         private bool _pressStealth;
         private bool _holdStealth;
+        private bool _pressPush;
 
         #region singleton
 
@@ -72,6 +75,7 @@ namespace Entities.Player
             _pressStealth = false;
             _holdSprint = false;
             _holdStealth = false;
+            _pressPush = false;
 
             if (Input.GetKey(KeyCode.A))
                 _move += Vector3.left;
@@ -107,6 +111,9 @@ namespace Entities.Player
             if (Input.GetKeyDown(attackKey))
                 _pressAttack = true;
 
+            if (Input.GetKeyDown(push))
+                _pressPush = true;
+
             if (Input.GetKey(sprintKey))
                 _holdSprint = true;
             if (Input.GetKey(stealthKey1) || Input.GetKey(stealthKey2))
@@ -124,6 +131,8 @@ namespace Entities.Player
 
         public bool IsPressSprint() => _pressSprint;
         public bool IsHoldSprint() => _holdSprint;
+
+        public bool IsPressPush() => _pressPush;
 
         public Vector3 GetMove() => _move;
 

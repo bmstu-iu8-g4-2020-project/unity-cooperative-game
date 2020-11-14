@@ -1,6 +1,4 @@
 ﻿using Entities;
-using Entities.Player;
-using Gameplay;
 using UnityEngine;
 
 namespace Data.Items

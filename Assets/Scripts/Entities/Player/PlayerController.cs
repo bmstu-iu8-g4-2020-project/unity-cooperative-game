@@ -2,7 +2,6 @@
 using Entities.PerTickAttribute;
 using Entities.Player.States;
 using Gameplay;
-using Mirror;
 using UnityEngine;
 
 namespace Entities.Player
@@ -21,6 +20,7 @@ namespace Entities.Player
         public Equipment Equipment { get; private set; }
         public new PlayerStats Stats { get; private set; }
         public PlayerCombatActor CombatActor { get; private set; }
+        //TODO add Endurance
 
         public Thirst Thirst { get; private set; }
         public Hunger Hunger { get; private set; }

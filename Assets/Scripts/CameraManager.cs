@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Entities.Player;
-using Mirror;
+﻿using Entities.Player;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CameraManager : MonoBehaviour
 {

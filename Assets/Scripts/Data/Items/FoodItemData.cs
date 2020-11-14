@@ -1,5 +1,4 @@
-﻿using Entities;
-using Entities.Player;
+﻿using Entities.Player;
 using Gameplay;
 using UnityEngine;
 
@@ -18,7 +17,7 @@ namespace Data
             player.Temperature.Current += usageWarming;
             player.Hunger.Current += usageNutrition;
             player.Thirst.Current += usageHydration;
-            player.Health.Current += usageHealth;
+            player.Heal(usageHealth);
         }
 
         public override void UseOnInventory(PlayerController player, ItemSlot slot)

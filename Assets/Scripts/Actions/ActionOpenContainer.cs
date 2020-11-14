@@ -1,5 +1,4 @@
-﻿using Entities;
-using Entities.Player;
+﻿using Entities.Player;
 using Gameplay;
 using UI;
 using UnityEngine;

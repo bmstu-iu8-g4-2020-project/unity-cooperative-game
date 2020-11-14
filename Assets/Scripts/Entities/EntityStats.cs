@@ -1,5 +1,4 @@
-﻿using System;
-using Entities.Attributes;
+﻿using Entities.Attributes;
 using UnityEngine;
 
 namespace Entities

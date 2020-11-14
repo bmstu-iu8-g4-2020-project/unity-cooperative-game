@@ -35,7 +35,7 @@ namespace Entities.Player
             handItem = Items.Find(x =>
                 x.data is EquipableItemData equipmentItemData && equipmentItemData.EquipmentSlot ==
                 EquipmentSlot.MainHand).data as HandItem;
-            return handItem == null;
+            return handItem != null;
         }
     }
 }

@@ -1,13 +1,10 @@
-﻿using System;
-using Entities.Attributes;
-
-namespace Entities.PerTickAttribute
+﻿namespace Entities.PerTickAttribute
 {
-    public class Hunger: PerTickAttribute
+    public class Hunger : PerTickAttribute
     {
-        protected override void Start()
+        public override void OnStartLocalPlayer()
         {
-            base.Start();
+            base.OnStartLocalPlayer();
             ResistAttr = Player.PlayerController.LocalPlayer.Stats.HungerResist;
         }
     }
