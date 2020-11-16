@@ -5,27 +5,17 @@ using UnityEngine;
 
 namespace Entities
 {
-    public class PlayerCombatActor : MonoBehaviour
+    public class PlayerCombatActor : CombatActor
     {
         private PlayerController _player;
 
         [SerializeField]
-        private EnemyFinder enemyFinder;
-
-        [SerializeField]
         private float pushDistance = 0.3f;
 
-        private bool CanAttack() => _player.StateMachine.CurrentState is StealthState;
-
-        public void Damage(Entity target, int amount) //TODO mb make it command
-        {
-            if (!target.IsAlive) return;
-            target.TakeDamage(amount);
-        }
+        public override bool CanAttack() => base.CanAttack() && _player.StateMachine.CurrentState is StealthState;
 
         private void Awake() => _player = GetComponent<PlayerController>();
 
-        private float _cooldownTimer = 0;
         private HandItem _handItem;
 
         private uint _maxZombieForPush = 3;
@@ -35,19 +25,15 @@ namespace Entities
             foreach (var entity in entities)
             {
                 if (!entity.TryGetComponent(out CharacterController controller)) continue;
-                
+
                 var dir = (entity.transform.position - transform.position).normalized;
                 controller.Move(dir * pushDistance);
             }
         }
 
-        private void Update()
+        protected override void Update()
         {
-            if (_cooldownTimer > 0)
-            {
-                _cooldownTimer -= Time.deltaTime;
-                return;
-            }
+            base.Update();
 
             if (PlayerControls.Instance.IsPressPush())
             {
@@ -57,10 +43,10 @@ namespace Entities
             {
                 if (!_player.Equipment.TryGetItemInMainHand(out _handItem)) return;
 
-                _cooldownTimer = _handItem.CooldownTime;
+                CooldownTimer = _handItem.CooldownTime;
                 foreach (var entity in enemyFinder.GetNearest(_handItem.TargetsPerHit))
                 {
-                    Damage(entity, _player.Stats.Attack.GetModified());
+                    TryAttack(entity, _player.Stats.Attack.GetModified());
                 }
             }
         }

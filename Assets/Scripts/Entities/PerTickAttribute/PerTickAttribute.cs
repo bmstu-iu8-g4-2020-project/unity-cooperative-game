@@ -25,15 +25,14 @@ namespace Entities.PerTickAttribute
         public delegate void ChangeDelegate(int oldValue, int newValue);
 
         public event ChangeDelegate OnChange;
-
-        [ClientRpc]
-        public void RpcOnChange(int oldValue, int newValue)
+        
+        public void OnChangeHook(int oldValue, int newValue)
         {
             OnChange?.Invoke(oldValue, newValue);
             if (isLocalPlayer) UIController.Instance.PerTickAttributesBarsUI.UpdateBar(GetType().Name, Percent());
         }
 
-        [SyncVar]
+        [SyncVar(hook = nameof(OnChangeHook))]
         private int _current;
 
         public int PerTick => (int) (basePerTick * (1 - (ResistAttr?.GetModified() ?? 0)));
@@ -49,7 +48,6 @@ namespace Entities.PerTickAttribute
                 var old = _current;
                 _current = Mathf.Clamp(value, 0, Max);
                 if (_current == 0 && !emptyBefore) OnEmpty?.Invoke();
-                else RpcOnChange(old, _current);
             }
         }
 

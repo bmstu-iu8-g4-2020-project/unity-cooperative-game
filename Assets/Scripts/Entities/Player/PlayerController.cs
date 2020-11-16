@@ -11,7 +11,7 @@ namespace Entities.Player
     /// </summary>
     [DisallowMultipleComponent]
     [RequireComponent(typeof(PlayerCombatActor))]
-    public class PlayerController : Entity
+    public class PlayerController : Actor
     {
         #region Variables
 
@@ -19,7 +19,8 @@ namespace Entities.Player
         public ItemContainer Inventory { get; private set; } //TODO use polymorphism
         public Equipment Equipment { get; private set; }
         public new PlayerStats Stats { get; private set; }
-        public PlayerCombatActor CombatActor { get; private set; }
+
+        public new PlayerCombatActor CombatActor { get; private set; }
         //TODO add Endurance
 
         public Thirst Thirst { get; private set; }
@@ -73,6 +74,16 @@ namespace Entities.Player
 
             StateMachine.CurrentState.Tick();
             StateMachine.CurrentState.MachineUpdate();
+        }
+
+        protected override void LateUpdate()
+        {
+            foreach (Animator animator in GetComponentsInChildren<Animator>())
+            {
+                animator.SetBool("DEAD", IsAlive);
+                animator.SetBool("CROUCHING", StateMachine.CurrentState is StealthState);
+                animator.SetBool("CLIMBING", StateMachine.CurrentState is ClimbingState);
+            }
         }
 
         #region Delete //TODO delete

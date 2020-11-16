@@ -31,8 +31,11 @@ namespace Entities
         public virtual void Die()
         {
             OnDying?.Invoke();
-            Destroy(gameObject);
+            CmdDie();
         }
+
+        [Command]
+        private void CmdDie() => NetworkServer.Destroy(gameObject);
 
         public event Action<int> OnTakeDamage; //Subscribe to this event animation's or sound's triggers
 
