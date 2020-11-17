@@ -1,5 +1,6 @@
 ﻿using System;
 using Entities.Player;
+using Mirror;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -13,6 +14,9 @@ namespace Entities.Zombie
         Light
     }
 
+    //TODO mb use NavMesh Off-mesh Link for windows and doors(at least for turning on / off it when opening / closing the door)
+    //TODO or add triggers for doors and windows, that will say to zombie "stop and attack me until you destroy",
+    //after that zombie should enter to house and he can find player again. Also use Navigation Areas and Costs for doorway
     //TODO add Cone of Sight
     [RequireComponent(typeof(ZombieStats))]
     public class Zombie : Actor
@@ -60,6 +64,7 @@ namespace Entities.Zombie
 
         private void Update()
         {
+            if (!isServer) return;
             if (_attractionSourceTimer > 0) _attractionSourceTimer -= Time.deltaTime;
             if (_target != null && _attractionSourceTimer <= 0) ForgetTarget();
 
@@ -112,6 +117,7 @@ namespace Entities.Zombie
             InstantlyTurn(_navMeshAgent.destination);
         }
 
+        [Server]
         public bool TrySetTarget(Transform pTransform, AttractionSource sourceType)
         {
             if (_target != null)
@@ -119,7 +125,8 @@ namespace Entities.Zombie
                 //Check target's priority
                 if ((int) sourceType > (int) _target.Item2)
                 {
-                    return SetTargetAndStartTimer(pTransform, sourceType);
+                    SetTargetAndStartTimer(pTransform, sourceType);
+                    return true;
                 }
 
                 if ((int) sourceType == (int) _target.Item2 && sourceType == AttractionSource.Player)
@@ -127,19 +134,22 @@ namespace Entities.Zombie
                     if (Vector3.Distance(pTransform.position, transform.position) >=
                         Vector3.Distance(_target.Item1.position, transform.position))
                     {
-                        return SetTargetAndStartTimer(pTransform, sourceType);
+                        SetTargetAndStartTimer(pTransform, sourceType);
+                        return true;
                     }
                 }
             }
             else
             {
-                return SetTargetAndStartTimer(pTransform, sourceType);
+                SetTargetAndStartTimer(pTransform, sourceType);
+                return true;
             }
 
             return false;
         }
 
-        private bool SetTargetAndStartTimer(Transform pTransform, AttractionSource sourceType)
+        [Server]
+        private void SetTargetAndStartTimer(Transform pTransform, AttractionSource sourceType)
         {
             SetTarget(pTransform, sourceType);
             _attractionSourceTimer = attractionTime;
@@ -147,16 +157,16 @@ namespace Entities.Zombie
             {
                 entity.OnDying += ForgetTarget;
             }
-
-            return true;
         }
 
+        [Server]
         private void ForgetTarget()
         {
             if (_target.Item1.TryGetComponent(out Entity entity)) entity.OnDying -= ForgetTarget;
             _target = null;
         }
 
+        [Server]
         private void SetTarget(Transform pTransform, AttractionSource sourceType) =>
             _target = new Tuple<Transform, AttractionSource>(pTransform, sourceType);
 
@@ -169,16 +179,17 @@ namespace Entities.Zombie
         private void InstantlyTurn(Vector3 destination)
         {
             if ((destination - transform.position).magnitude < 0.1f) return;
-
             transform.LookAtXZ(destination);
         }
 
+        [Server]
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out PlayerController player))
                 TrySetTarget(player.transform, AttractionSource.Player);
         }
 
+        [Server]
         private void OnTriggerExit(Collider other)
         {
             if (_target != null && other.transform == _target.Item1)

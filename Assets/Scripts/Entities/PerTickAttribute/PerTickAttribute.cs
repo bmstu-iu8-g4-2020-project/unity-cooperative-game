@@ -1,5 +1,6 @@
 ﻿using System;
 using Entities.Attributes;
+using Entities.Player;
 using Mirror;
 using UI;
 using UnityEngine;
@@ -20,12 +21,13 @@ namespace Entities.PerTickAttribute
         public PerTickAttribute overflowInto;
         public PerTickAttribute underflowInto;
 
+        private Entity _entity;
         public event Action OnEmpty;
 
         public delegate void ChangeDelegate(int oldValue, int newValue);
 
         public event ChangeDelegate OnChange;
-        
+
         public void OnChangeHook(int oldValue, int newValue)
         {
             OnChange?.Invoke(oldValue, newValue);
@@ -48,6 +50,7 @@ namespace Entities.PerTickAttribute
                 var old = _current;
                 _current = Mathf.Clamp(value, 0, Max);
                 if (_current == 0 && !emptyBefore) OnEmpty?.Invoke();
+                if (isServer && isClient) OnChangeHook(old, _current);
             }
         }
 
@@ -56,8 +59,8 @@ namespace Entities.PerTickAttribute
         [Server]
         public void Recover()
         {
-            //todo if (Player is Alive)
-            // {
+            if (!_entity.IsAlive) return;
+
             var next = Current + PerTick;
 
             Current = next;
@@ -66,12 +69,13 @@ namespace Entities.PerTickAttribute
                 underflowInto.Current += next;
             else if (next > Max && overflowInto != null)
                 overflowInto.Current += next - Max;
-            // }
         }
 
         public override void OnStartServer()
         {
             _current = Max;
+            
+            _entity = GetComponent<Entity>();
             InvokeRepeating(nameof(Recover), tickRate, tickRate);
         }
     }
