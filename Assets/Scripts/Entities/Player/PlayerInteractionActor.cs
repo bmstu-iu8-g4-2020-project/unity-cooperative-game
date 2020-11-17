@@ -23,8 +23,10 @@ namespace Entities.Player
         [SerializeField]
         private uint maxInteractableCountForDetection = 10;
 
+        [SerializeField]
+        private FieldOfView fieldOfView;
+        
         private Collider[] _interactablesInRadius;
-        private FieldOfView _fieldOfView;
         private PlayerController _character;
         private Interactable _currentInteractionTarget;
 
@@ -35,7 +37,6 @@ namespace Entities.Player
         private void Awake()
         {
             _interactablesInRadius = new Collider[maxInteractableCountForDetection];
-            _fieldOfView = GetComponent<FieldOfView>();
             _character = GetComponent<PlayerController>();
         }
 
@@ -119,7 +120,7 @@ namespace Entities.Player
             {
                 Transform target = _interactablesInRadius[i].transform;
                 Vector3 dirToTarget = (target.position - transform.position).normalized;
-                if (Vector3.Angle(transform.forward, dirToTarget) <= _fieldOfView.ViewAngle / 2)
+                if (Vector3.Angle(transform.forward, dirToTarget) <= fieldOfView.ViewAngle / 2)
                 {
                     float dist = (transform.position - target.position).magnitude;
                     Interactable interactable = target.GetComponent<Interactable>();
