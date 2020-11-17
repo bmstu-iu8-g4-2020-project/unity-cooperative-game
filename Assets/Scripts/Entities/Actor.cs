@@ -8,9 +8,8 @@ namespace Entities
     [RequireComponent(typeof(CombatActor))]
     public class Actor : Entity
     {
-        //TODO add movement
         public CombatActor CombatActor { get; private set; }
-        public Animator animator { get; private set; }
+        public Animator Animator { get; private set; }
 
         protected override void Start()
         {

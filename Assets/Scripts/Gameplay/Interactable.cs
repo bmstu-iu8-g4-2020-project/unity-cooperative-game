@@ -31,6 +31,7 @@ namespace Gameplay
             if (action == null)
             {
                 Debug.Log($"Action doesn't set for {gameObject.name}");
+                return;
             }
 
             if (action.CanDoAction(character, this))

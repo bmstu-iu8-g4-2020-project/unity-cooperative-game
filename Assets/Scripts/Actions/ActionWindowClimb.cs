@@ -11,9 +11,8 @@ namespace Actions
         public override void DoAction(Entities.Player.PlayerController character, Interactable interactable)
         {
             if (interactable == null) return;
-
-
-            Vector3 pos = interactable.transform.InverseTransformPoint(interactable.transform.position);
+            
+            Vector3 pos = interactable.transform.InverseTransformPoint(character.transform.position);
             pos.x = Math.Sign(pos.x) * character.Controller.radius;
             pos.z = 0;
             pos = interactable.transform.TransformPoint(pos);
