@@ -1,6 +1,4 @@
-﻿using Gameplay;
-using Player;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI
@@ -17,7 +15,7 @@ namespace UI
         public Image OperationBarUI { get; private set; }
 
         [field: SerializeField]
-        public UIAttribute AttributeBarsUI { get; private set; }
+        public UIPerTickAttributes PerTickAttributesBarsUI { get; private set; }
 
         #region singleton
 
@@ -47,7 +45,7 @@ namespace UI
                 }
                 else
                 {
-                    InventoryUI.OpenContainer(GameManager.Instance.GetLocalPlayer().GetComponent<Gameplay.ItemContainer>());
+                    InventoryUI.OpenContainer(Entities.Player.PlayerController.LocalPlayer.Inventory);
                 }
             }
         }

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb73781c31b64620ae5cf7665147ce00, type: 3}
+  m_Name: BulletproofVest 2
+  m_EditorClassIdentifier: 
+  icon: {fileID: -5106902464896771961, guid: e32479db15409df49b1d4d339dceba07, type: 3}
+  weight: 1.5
+  maxCondition: 100
+  isStackable: 0
+  isDegradable: 1
+  description: 
+  actions: []
+  itemPrefab: {fileID: 0}
+  equippedPrefab: {fileID: 0}
+  <UsageTime>k__BackingField: 1
+  <EquipmentSlot>k__BackingField: 3
+  defenseBonus: 2
+  maxHealthBonus: 0
+  temperatureResistBonus: 0

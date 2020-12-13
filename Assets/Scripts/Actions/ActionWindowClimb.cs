@@ -1,7 +1,6 @@
 ﻿using System;
+using Entities.Player.States;
 using Gameplay;
-using Player;
-using Player.States;
 using UnityEngine;
 
 namespace Actions
@@ -9,12 +8,11 @@ namespace Actions
     [CreateAssetMenu(fileName = "WindowClimb", menuName = "Data/Actions/Climb", order = 0)]
     public class ActionWindowClimb : AAction
     {
-        public override void DoAction(PlayerCharacter character, Interactable interactable)
+        public override void DoAction(Entities.Player.PlayerController character, Interactable interactable)
         {
             if (interactable == null) return;
-
-
-            Vector3 pos = interactable.transform.InverseTransformPoint(interactable.transform.position);
+            
+            Vector3 pos = interactable.transform.InverseTransformPoint(character.transform.position);
             pos.x = Math.Sign(pos.x) * character.Controller.radius;
             pos.z = 0;
             pos = interactable.transform.TransformPoint(pos);
@@ -25,6 +23,6 @@ namespace Actions
             character.StateMachine.StartNextStateFromQueue();
         }
 
-        public override bool CanDoAction(PlayerCharacter character, Interactable interactable) => true;
+        public override bool CanDoAction(Entities.Player.PlayerController character, Interactable interactable) => true;
     }
 }

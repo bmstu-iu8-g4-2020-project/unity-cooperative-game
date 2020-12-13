@@ -111,7 +111,7 @@ namespace UI
                 {
                     var uiSlotObject = Instantiate(_uiSlotPrefab, contentWindow);
                     uiSlotObject.transform.SetSiblingIndex(i);
-                    uiSlotObject.name = i + " " + slot.name;
+                    uiSlotObject.name = i + " " + slot.Name;
 
                     var uiSlot = uiSlotObject.GetComponent<UIItemSlot>();
                     uiSlot.SetupSlot(slot);
@@ -167,7 +167,7 @@ namespace UI
         {
             //Make sure our GridLayoutWindow is set as the parent of the new UIItemSlot object.
             GameObject uiSlotObject = Instantiate(_uiSlotPrefab, contentWindow);
-            uiSlotObject.name = namePrefix + " " + slot.name;
+            uiSlotObject.name = namePrefix + " " + slot.Name;
 
             var uiSlot = uiSlotObject.GetComponent<UIItemSlot>();
             uiSlot.SetupSlot(slot); //Setup icon\text

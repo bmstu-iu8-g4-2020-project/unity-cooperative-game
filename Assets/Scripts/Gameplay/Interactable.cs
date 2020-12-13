@@ -1,14 +1,14 @@
 ﻿using Actions;
-using Player;
+using Entities.Player;
+using Mirror;
 using UnityEngine;
 
 namespace Gameplay
 {
-
     /// <summary>
     /// Interactable can contain action.
     /// </summary>
-    public class Interactable : MonoBehaviour
+    public class Interactable : NetworkBehaviour
     {
         [Header("Action")]
         public AAction action; //Action to be taken when interacting
@@ -27,11 +27,12 @@ namespace Gameplay
             Gizmos.DrawWireSphere(transform.position, Radius);
         }
 
-        private void OnInteractWithPlayer(PlayerCharacter character)
+        private void OnInteractWithPlayer(PlayerController character)
         {
             if (action == null)
             {
                 Debug.Log($"Action doesn't set for {gameObject.name}");
+                return;
             }
 
             if (action.CanDoAction(character, this))
@@ -43,10 +44,9 @@ namespace Gameplay
 
         public void OnInteract(PlayerInteractionActor interactionActor)
         {
-            var player = interactionActor as PlayerInteractionActor;
-            if (player != null)
+            if (interactionActor != null)
             {
-                OnInteractWithPlayer(player.GetComponent<PlayerCharacter>());
+                OnInteractWithPlayer(interactionActor.GetComponent<PlayerController>());
             }
         }
 
