@@ -17,7 +17,7 @@ namespace Entities.Player.States
 
         private float _walkSpeed;
 
-        public WalkToState(Player character, StateMachine stateMachine, Vector3 destination,
+        public WalkToState(PlayerController character, StateMachine stateMachine, Vector3 destination,
             bool checkCollision) :
             base(character, stateMachine)
         {

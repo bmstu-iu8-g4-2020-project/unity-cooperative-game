@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public static class Extensions
 {
@@ -23,4 +24,15 @@ public static class Extensions
             return hash;
         }
     }
+
+    public static void LookAtXZ(this Transform transform, Vector3 target)
+    {
+        var targetPosition = new Vector3(target.x,
+            transform.position.y,
+            target.z);
+        transform.LookAt(targetPosition);
+    }
+
+    public static bool IsPlaying(this Animator animator) => animator.GetCurrentAnimatorStateInfo(0).length >
+                                                            animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
 }

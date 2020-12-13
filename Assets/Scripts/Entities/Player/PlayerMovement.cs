@@ -99,7 +99,7 @@ namespace Entities.Player
 
             if (velocity.magnitude != 0) _transform.forward = velocity.normalized;
 
-            Player.LocalPlayer.Controller.SimpleMove(velocity);
+            PlayerController.LocalPlayer.Controller.SimpleMove(velocity);
         }
 
         [Client]
@@ -114,13 +114,7 @@ namespace Entities.Player
         }
 
         [Client]
-        public void LookAtXZ(Vector3 target)
-        {
-            var targetPosition = new Vector3(target.x,
-                _transform.position.y,
-                target.z);
-            _transform.LookAt(targetPosition);
-        }
+        public void LookAtXZ(Vector3 target) => _transform.LookAtXZ(target);
 
         #endregion
     }

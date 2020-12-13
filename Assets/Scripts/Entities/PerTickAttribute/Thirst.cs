@@ -1,13 +1,11 @@
-﻿using Entities.Attributes;
-
-namespace Entities.PerTickAttribute
+﻿namespace Entities.PerTickAttribute
 {
     public class Thirst: PerTickAttribute
     {
-        protected override void Start()
+        public override void OnStartLocalPlayer()
         {
-            base.Start();
-            ResistAttr = Player.Player.LocalPlayer.Stats.ThirstResist;
+            base.OnStartLocalPlayer();
+            ResistAttr = Player.PlayerController.LocalPlayer.Stats.ThirstResist;
         }
     }
 }

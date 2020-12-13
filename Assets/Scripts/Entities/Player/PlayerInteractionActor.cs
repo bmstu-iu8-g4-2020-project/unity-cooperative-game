@@ -10,8 +10,7 @@ namespace Entities.Player
     /// <summary>
     /// Player component for initiate interaction
     /// </summary>
-    [RequireComponent(typeof(FieldOfView))]
-    [RequireComponent(typeof(Player))]
+    [RequireComponent(typeof(PlayerController))]
     public class PlayerInteractionActor : MonoBehaviour
     {
         [field: SerializeField]
@@ -23,9 +22,11 @@ namespace Entities.Player
         [SerializeField]
         private uint maxInteractableCountForDetection = 10;
 
+        [SerializeField]
+        private FieldOfViewPlayer fieldOfView;
+
         private Collider[] _interactablesInRadius;
-        private FieldOfView _fieldOfView;
-        private Player _character;
+        private PlayerController _character;
         private Interactable _currentInteractionTarget;
 
         //Or Create Actor Controller that will be use Actor-Components in unity callbacks
@@ -35,16 +36,15 @@ namespace Entities.Player
         private void Awake()
         {
             _interactablesInRadius = new Collider[maxInteractableCountForDetection];
-            _fieldOfView = GetComponent<FieldOfView>();
-            _character = GetComponent<Player>();
+            _character = GetComponent<PlayerController>();
         }
 
-        private void Start()
+        private void OnEnable()
         {
             PlayerControlsMouse.Instance.OnClickObject += OnClickObject;
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             PlayerControlsMouse.Instance.OnClickObject -= OnClickObject;
         }
@@ -53,8 +53,7 @@ namespace Entities.Player
         {
             if (PlayerControls.Instance.IsPressAction() && CanInteractNow())
             {
-                var interactable = GetNearestInteractableInRadiusOrNull();
-                if (interactable != null)
+                if (TryGetNearestInteractableInRadius(out Interactable interactable))
                 {
                     InteractWith(interactable);
                 }
@@ -73,8 +72,11 @@ namespace Entities.Player
         private void OnClickObject(Interactable interactable)
         {
             if (interactable == null || !interactable.IsSelectable) return;
-            Debug.Log($"{interactable.gameObject.name} selected");
-            if (CanInteractWith(interactable)) InteractWith(interactable);
+            if (CanInteractWith(interactable) && CanSelectNow())
+            {
+                Debug.Log($"{interactable.gameObject.name} selected");
+                InteractWith(interactable);
+            }
         }
 
         public void InteractWith(Interactable interactable)
@@ -90,6 +92,9 @@ namespace Entities.Player
             _currentInteractionTarget = null;
         }
 
+        public bool CanSelectNow() =>
+            !_character.StateMachine.CurrentState.GetType().IsSubclassOf(typeof(StealthState));
+
         public bool CanInteractNow() =>
             _character.StateMachine.CurrentState.GetType().IsSubclassOf(typeof(MovementState));
 
@@ -101,9 +106,10 @@ namespace Entities.Player
                    interactable.CanInteract();
         }
 
-        public Interactable GetNearestInteractableInRadiusOrNull()
+        public bool TryGetNearestInteractableInRadius(out Interactable nearest)
         {
-            Interactable nearest = null;
+            bool res = false;
+            nearest = null;
             float minDist = InteractionRadius;
 
             var size = Physics.OverlapSphereNonAlloc(transform.position, InteractionRadius, _interactablesInRadius,
@@ -113,19 +119,20 @@ namespace Entities.Player
             {
                 Transform target = _interactablesInRadius[i].transform;
                 Vector3 dirToTarget = (target.position - transform.position).normalized;
-                if (Vector3.Angle(transform.forward, dirToTarget) <= _fieldOfView.ViewAngle / 2)
+                if (Vector3.Angle(transform.forward, dirToTarget) <= fieldOfView.ViewAngle / 2)
                 {
                     float dist = (transform.position - target.position).magnitude;
-                    Interactable interactable = target.GetComponent<Interactable>();
-                    if (interactable != null && dist < minDist && CanInteractWith(interactable))
+                    if (target.TryGetComponent(out Interactable interactable) && dist < minDist &&
+                        CanInteractWith(interactable))
                     {
                         minDist = dist;
                         nearest = interactable;
+                        res = true;
                     }
                 }
             }
 
-            return nearest;
+            return res;
         }
     }
 }

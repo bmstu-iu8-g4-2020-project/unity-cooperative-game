@@ -9,7 +9,7 @@ namespace Actions
     public class AAction : Action
     {
         //When using an action on interactable in the scene
-        public override void DoAction(Entities.Player.Player character, Interactable interactable)
+        public override void DoAction(Entities.Player.PlayerController character, Interactable interactable)
         {
         }
 
@@ -19,6 +19,6 @@ namespace Actions
         }
 
         //Condition to check if the action is possible, override to add a condition
-        public override bool CanDoAction(Entities.Player.Player character, Interactable interactable) => true;
+        public override bool CanDoAction(Entities.Player.PlayerController character, Interactable interactable) => true;
     }
 }

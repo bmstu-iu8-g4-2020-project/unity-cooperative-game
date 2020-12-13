@@ -63,14 +63,14 @@ namespace Gameplay
         }
 
 
-        public void Use(Entities.Player.Player player)
+        public void UseOnInventory(Entities.Player.PlayerController player)
         {
             if (!(data is UsableItemData usableItemData))
                 return;
-            usableItemData.Use(player, this);
+            usableItemData.UseOnInventory(player, this);
         }
 
-        public bool CanUse(Entities.Player.Player player) =>
+        public bool CanUse(Entities.Player.PlayerController player) =>
             data is UsableItemData usableItemData && usableItemData.CanUse(player, this);
 
         #region Getters & Setters

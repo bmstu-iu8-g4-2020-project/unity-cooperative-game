@@ -2,7 +2,6 @@
 using Entities.PerTickAttribute;
 using Entities.Player.States;
 using Gameplay;
-using Mirror;
 using UnityEngine;
 
 namespace Entities.Player
@@ -11,7 +10,8 @@ namespace Entities.Player
     ///     Main character script, singleton access
     /// </summary>
     [DisallowMultipleComponent]
-    public class Player : Entity
+    [RequireComponent(typeof(PlayerCombatActor))]
+    public class PlayerController : Actor
     {
         #region Variables
 
@@ -19,6 +19,10 @@ namespace Entities.Player
         public ItemContainer Inventory { get; private set; } //TODO use polymorphism
         public Equipment Equipment { get; private set; }
         public new PlayerStats Stats { get; private set; }
+
+        public new PlayerCombatActor CombatActor { get; private set; }
+        //TODO add Endurance
+
         public Thirst Thirst { get; private set; }
         public Hunger Hunger { get; private set; }
         public Temperature Temperature { get; private set; }
@@ -33,10 +37,12 @@ namespace Entities.Player
 
         #endregion
 
+        public PlayerSoundAttractionSource AttractionSource { get; private set; }
+
         public bool IsAiming { get; } = false;
 
-        public static readonly List<Player> AllPlayers = new List<Player>();
-        public static Player LocalPlayer { get; private set; } //Singleton access
+        public static readonly List<PlayerController> AllPlayers = new List<PlayerController>();
+        public static PlayerController LocalPlayer { get; private set; } //Singleton access
 
         #region Private
 
@@ -54,6 +60,7 @@ namespace Entities.Player
             Controller = GetComponent<CharacterController>();
 
             Stats = GetComponent<PlayerStats>();
+            CombatActor = GetComponent<PlayerCombatActor>();
 
             // Thirst = new Thirst(7000, -1000, Stats.ThirstResist);
             // Hunger = new Hunger(10000, -1000, Stats.HungerResist);
@@ -61,6 +68,7 @@ namespace Entities.Player
             Thirst = GetComponent<Thirst>();
             Hunger = GetComponent<Hunger>();
             Temperature = GetComponent<Temperature>();
+            AttractionSource = GetComponentInChildren<PlayerSoundAttractionSource>();
         }
 
         private void Update()
@@ -69,6 +77,16 @@ namespace Entities.Player
 
             StateMachine.CurrentState.Tick();
             StateMachine.CurrentState.MachineUpdate();
+        }
+
+        protected override void LateUpdate()
+        {
+            foreach (Animator animator in GetComponentsInChildren<Animator>())
+            {
+                animator.SetBool("DEAD", IsAlive);
+                animator.SetBool("CROUCHING", StateMachine.CurrentState is StealthState);
+                animator.SetBool("CLIMBING", StateMachine.CurrentState is ClimbingState);
+            }
         }
 
         #region Delete //TODO delete

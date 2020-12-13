@@ -8,7 +8,7 @@
         protected bool IsExit;
 
 
-        public ActionState(global::Entities.Player.Player character, StateMachine stateMachine) : base(character, stateMachine)
+        public ActionState(PlayerController character, StateMachine stateMachine) : base(character, stateMachine)
         {
             IsExit = false;
         }

@@ -1,5 +1,4 @@
-﻿using Entities.PerTickAttribute;
-using Entities.Player;
+﻿using Entities.Player;
 using Gameplay;
 using UnityEngine;
 
@@ -13,24 +12,24 @@ namespace Data
         public int usageNutrition;
         public int usageHydration;
 
-        private void ApplyEffects(Entities.Player.Player player)
+        private void ApplyEffects(PlayerController player)
         {
             player.Temperature.Current += usageWarming;
             player.Hunger.Current += usageNutrition;
             player.Thirst.Current += usageHydration;
-            player.Health.Current += usageHealth;
+            player.Heal(usageHealth);
         }
 
-        public override void Use(Entities.Player.Player player, ItemSlot slot)
+        public override void UseOnInventory(PlayerController player, ItemSlot slot)
         {
             void OnComplete()
             {
                 player.Inventory.RemoveOne(slot);
-                ApplyEffects(player.GetComponent<Entities.Player.Player>());
+                ApplyEffects(player.GetComponent<PlayerController>());
             }
 
             DelayedOperationsManager.Instance.QueueOperation(new DelayedOperation(UsageTime, OnComplete));
-            base.Use(player, slot);
+            base.UseOnInventory(player, slot);
         }
     }
 }

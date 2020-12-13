@@ -1,6 +1,4 @@
-﻿using Entities.Attributes;
-
-namespace Entities.PerTickAttribute
+﻿namespace Entities.PerTickAttribute
 {
     public class Health : PerTickAttribute
     {

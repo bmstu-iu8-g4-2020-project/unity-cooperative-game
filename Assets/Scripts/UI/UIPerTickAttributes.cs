@@ -13,21 +13,21 @@ namespace UI
         public Image temperature;
         public Image health;
 
-        private Dictionary<PerTickAttribute, Image> _attrBars;
+        private Dictionary<string, Image> _attrBars;
 
-        private Dictionary<PerTickAttribute, Image> AttrBars => _attrBars ?? (_attrBars =
-            new Dictionary<PerTickAttribute, Image>
+        private Dictionary<string, Image> AttrBars => _attrBars ?? (_attrBars =
+            new Dictionary<string, Image>
             {
-                {Entities.Player.Player.LocalPlayer.Thirst, thirst},
-                {Entities.Player.Player.LocalPlayer.Hunger, hunger},
-                {Entities.Player.Player.LocalPlayer.Temperature, temperature},
-                {Entities.Player.Player.LocalPlayer.Health, health}
+                {nameof(Thirst), thirst},
+                {nameof(Hunger), hunger},
+                {nameof(Temperature), temperature},
+                {nameof(Health), health}
             });
 
-        public void UpdateBar(PerTickAttribute attr, float currentInPercent)
+        public void UpdateBar(string attrName, float currentInPercent)
         {
-            if (attr != null && AttrBars.ContainsKey(attr) && AttrBars[attr] != null)
-                AttrBars[attr].fillAmount = (float) Math.Round(currentInPercent, 4);
+            if (attrName != null && AttrBars.ContainsKey(attrName) && AttrBars[attrName] != null)
+                AttrBars[attrName].fillAmount = (float) Math.Round(currentInPercent, 4);
         }
     }
 }

@@ -44,7 +44,7 @@ namespace Gameplay
 
 
         [Command(ignoreAuthority = true)]
-        public void RemoveOne(ItemSlot slot)
+        public virtual void RemoveOne(ItemSlot slot)
         {
             var index = GetItemIndexByNameAndCond(slot.Name, slot._condition);
             if (index == -1) return;
