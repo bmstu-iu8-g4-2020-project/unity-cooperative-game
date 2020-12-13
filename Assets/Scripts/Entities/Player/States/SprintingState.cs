@@ -10,6 +10,7 @@
         {
             base.OnEnter();
             Speed = TheData.Instance.PlayerData.SprintSpeedMultiplier * TheData.Instance.PlayerData.WalkSpeed;
+            AttractionSource.Radius = AttractionSource.RadiusForSprint;
         }
 
         public override void MachineUpdate()

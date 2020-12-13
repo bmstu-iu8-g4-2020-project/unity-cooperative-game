@@ -49,8 +49,8 @@ namespace Entities.PerTickAttribute
                 var emptyBefore = _current == 0;
                 var old = _current;
                 _current = Mathf.Clamp(value, 0, Max);
-                if (_current == 0 && !emptyBefore) OnEmpty?.Invoke();
                 if (isServer && isClient) OnChangeHook(old, _current);
+                if (_current == 0 && !emptyBefore) OnEmpty?.Invoke();
             }
         }
 
@@ -74,7 +74,7 @@ namespace Entities.PerTickAttribute
         public override void OnStartServer()
         {
             _current = Max;
-            
+
             _entity = GetComponent<Entity>();
             InvokeRepeating(nameof(Recover), tickRate, tickRate);
         }

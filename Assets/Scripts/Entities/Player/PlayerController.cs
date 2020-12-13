@@ -37,6 +37,8 @@ namespace Entities.Player
 
         #endregion
 
+        public PlayerSoundAttractionSource AttractionSource { get; private set; }
+
         public bool IsAiming { get; } = false;
 
         public static readonly List<PlayerController> AllPlayers = new List<PlayerController>();
@@ -66,6 +68,7 @@ namespace Entities.Player
             Thirst = GetComponent<Thirst>();
             Hunger = GetComponent<Hunger>();
             Temperature = GetComponent<Temperature>();
+            AttractionSource = GetComponentInChildren<PlayerSoundAttractionSource>();
         }
 
         private void Update()

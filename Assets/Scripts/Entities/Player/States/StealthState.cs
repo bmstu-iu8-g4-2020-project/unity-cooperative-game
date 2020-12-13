@@ -13,6 +13,7 @@
         {
             base.OnEnter();
             Speed = TheData.Instance.PlayerData.StealthSpeed;
+            AttractionSource.Radius = AttractionSource.RadiusForStealth;
         }
 
         public override void Tick()
