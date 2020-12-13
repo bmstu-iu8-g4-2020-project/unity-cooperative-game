@@ -11,7 +11,7 @@ namespace Entities
     //TODO rework. This class must represent destructible\(mb interactable) entity, not necessary living creature
     public class Entity : NetworkBehaviour
     {
-        private Health Health { get; set; } //Most important part of Entity. Mb make Health not component
+        protected Health Health { get; set; } //Most important part of Entity. Mb make Health not component
         public EntityStats Stats { get; private set; } //TODO rework this class, make attribute's dynamic container
 
         public bool IsAlive => Health.Current > 0;
@@ -26,17 +26,24 @@ namespace Entities
 
         private void OnDestroy() => Health.OnEmpty -= Die;
 
-        public event Action OnDying;
+        public event Action<Entity> OnDying;
 
         public virtual void Die()
         {
-            OnDying?.Invoke();
-            Destroy(gameObject);
+            OnDying?.Invoke(this);
+            CmdDie();
+            Destroy(gameObject); //For zombie TODO delete
         }
+
+        [Command]
+        private void CmdDie() => NetworkServer.Destroy(gameObject);
 
         public event Action<int> OnTakeDamage; //Subscribe to this event animation's or sound's triggers
 
         [Command(ignoreAuthority = true)]
+        public void CmdTakeDamage(int amount) => TakeDamage(amount);
+
+        [ServerCallback]
         public void TakeDamage(int amount)
         {
             var amountWithResist = amount - Stats.Defence.GetModified();

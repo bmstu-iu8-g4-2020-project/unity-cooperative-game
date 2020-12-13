@@ -1,5 +1,6 @@
 ﻿using Actions;
 using Entities.Player;
+using Mirror;
 using UnityEngine;
 
 namespace Gameplay
@@ -7,7 +8,7 @@ namespace Gameplay
     /// <summary>
     /// Interactable can contain action.
     /// </summary>
-    public class Interactable : MonoBehaviour
+    public class Interactable : NetworkBehaviour
     {
         [Header("Action")]
         public AAction action; //Action to be taken when interacting
@@ -31,6 +32,7 @@ namespace Gameplay
             if (action == null)
             {
                 Debug.Log($"Action doesn't set for {gameObject.name}");
+                return;
             }
 
             if (action.CanDoAction(character, this))

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2882806e20cb473bbfcbce0f102d4468, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  <WalkSpeed>k__BackingField: 10
+  <WalkSpeed>k__BackingField: 4
   <WalkWithActionSpeedMultiplier>k__BackingField: 0.7
   <SprintSpeedMultiplier>k__BackingField: 1.5
-  <StealthSpeed>k__BackingField: 5
+  <StealthSpeed>k__BackingField: 2
   <ItemTransferRate>k__BackingField: 2
   <ClimbingDuration>k__BackingField: 2

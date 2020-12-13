@@ -10,7 +10,6 @@ namespace Entities.Player
     /// <summary>
     /// Player component for initiate interaction
     /// </summary>
-    [RequireComponent(typeof(FieldOfView))]
     [RequireComponent(typeof(PlayerController))]
     public class PlayerInteractionActor : MonoBehaviour
     {
@@ -23,8 +22,10 @@ namespace Entities.Player
         [SerializeField]
         private uint maxInteractableCountForDetection = 10;
 
+        [SerializeField]
+        private FieldOfViewPlayer fieldOfView;
+
         private Collider[] _interactablesInRadius;
-        private FieldOfView _fieldOfView;
         private PlayerController _character;
         private Interactable _currentInteractionTarget;
 
@@ -35,7 +36,6 @@ namespace Entities.Player
         private void Awake()
         {
             _interactablesInRadius = new Collider[maxInteractableCountForDetection];
-            _fieldOfView = GetComponent<FieldOfView>();
             _character = GetComponent<PlayerController>();
         }
 
@@ -53,8 +53,7 @@ namespace Entities.Player
         {
             if (PlayerControls.Instance.IsPressAction() && CanInteractNow())
             {
-                var interactable = GetNearestInteractableInRadiusOrNull();
-                if (interactable != null)
+                if (TryGetNearestInteractableInRadius(out Interactable interactable))
                 {
                     InteractWith(interactable);
                 }
@@ -107,9 +106,10 @@ namespace Entities.Player
                    interactable.CanInteract();
         }
 
-        public Interactable GetNearestInteractableInRadiusOrNull()
+        public bool TryGetNearestInteractableInRadius(out Interactable nearest)
         {
-            Interactable nearest = null;
+            bool res = false;
+            nearest = null;
             float minDist = InteractionRadius;
 
             var size = Physics.OverlapSphereNonAlloc(transform.position, InteractionRadius, _interactablesInRadius,
@@ -119,19 +119,20 @@ namespace Entities.Player
             {
                 Transform target = _interactablesInRadius[i].transform;
                 Vector3 dirToTarget = (target.position - transform.position).normalized;
-                if (Vector3.Angle(transform.forward, dirToTarget) <= _fieldOfView.ViewAngle / 2)
+                if (Vector3.Angle(transform.forward, dirToTarget) <= fieldOfView.ViewAngle / 2)
                 {
                     float dist = (transform.position - target.position).magnitude;
-                    Interactable interactable = target.GetComponent<Interactable>();
-                    if (interactable != null && dist < minDist && CanInteractWith(interactable))
+                    if (target.TryGetComponent(out Interactable interactable) && dist < minDist &&
+                        CanInteractWith(interactable))
                     {
                         minDist = dist;
                         nearest = interactable;
+                        res = true;
                     }
                 }
             }
 
-            return nearest;
+            return res;
         }
     }
 }

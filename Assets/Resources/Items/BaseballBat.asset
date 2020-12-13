@@ -24,4 +24,5 @@ MonoBehaviour:
   <UsageTime>k__BackingField: 1
   <EquipmentSlot>k__BackingField: 0
   attack: 10
+  <TargetsPerHit>k__BackingField: 2
   <CooldownTime>k__BackingField: 2
